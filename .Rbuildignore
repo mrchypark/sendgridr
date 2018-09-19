@@ -4,4 +4,5 @@
 ^sendgridr\.Rproj$
 ^\.Rproj\.user$
 ^build_pkgdown\.R$
-^pre_script$
+^pre_commit$
+^post_commit$
