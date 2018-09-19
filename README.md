@@ -12,7 +12,7 @@ You can install the released version of sendgridr from [Github](https://github.c
 remotes::install_github("mrchypark/sendgridr")
 ```
 
-## Example
+## Example_test
 
 This is a basic example which shows you how to solve a common problem:
 
