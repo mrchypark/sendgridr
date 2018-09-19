@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com}
+\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com} (blog, <mrchypark.githubi.io>)
 
 }
 \keyword{internal}
