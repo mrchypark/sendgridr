@@ -1,0 +1,5 @@
+#!/usr/bin/env Rscript
+
+devtools::document()
+pkgdown::build_site()
+
