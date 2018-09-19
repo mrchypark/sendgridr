@@ -1,6 +1,5 @@
 #' send mail
 #' @export
-send <- function(mail){
+send <- function(mail) {
   return(T)
 }
-
