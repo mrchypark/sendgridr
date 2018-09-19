@@ -13,3 +13,5 @@ LazyData: true
 URL: https://github.com/mrchypark/sendgridr
 BugReports: https://github.com/mrchypark/sendgridr/issues
 RoxygenNote: 6.1.0
+Imports: 
+    magrittr
