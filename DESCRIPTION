@@ -1,12 +1,14 @@
 Package: sendgridr
-Title: What the Package Does (One Line, Title Case)
+Title: Mail Sender Using Sendgrid Service
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Chanyub",
+           family = "Park",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "mrchypark@gmail.com")
 Description: What the package does (one paragraph).
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/mrchypark/sendgridr
+BugReports: https://github.com/mrchypark/sendgridr/issues
