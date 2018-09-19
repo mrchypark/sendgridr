@@ -2,22 +2,14 @@
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-The goal of sendgridr is to ...
-
-## logo
-
-``` r
-library(hexSticker)
-imgurl <- "https://kasunkodagoda.gallerycdn.vsassets.io/extensions/kasunkodagoda/sendgrid-email/2.0.1/1529945827053/Microsoft.VisualStudio.Services.Icons.Default"
-sticker(imgurl, package="SendGridR", p_size=18, s_x=1, s_y=0.8, s_width=0.5, filename="man/figures/logo.png", h_fill = "#214663", p_color = "#FFFFFF", h_color = "#489be8")
-```
+The goal of sendgridr is to mail using r with sendgrid service that provides free 100 mail per day forever.
 
 ## Installation
 
-You can install the released version of sendgridr from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of sendgridr from [Github](https://github.com/mrchypark/sendgridr) with:
 
 ``` r
-install.packages("sendgridr")
+remotes::install_github("mrchypark/sendgridr")
 ```
 
 ## Example
