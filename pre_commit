@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 
 devtools::document()
+pkgdown::init_site()
 pkgdown::build_site()
 
