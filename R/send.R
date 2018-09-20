@@ -5,4 +5,3 @@
 send <- function(mail) {
   return(mail)
 }
-
