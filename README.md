@@ -15,7 +15,7 @@ You can install the developing version of sendgridr from [Github](https://github
 remotes::install_github("mrchypark/sendgridr")
 ```
 
-## set api key for authentication
+## Set API Key for Authentication
 
 You can set api key env value name `SENDGRID_API`. `auth_check()` function check whether key named `SENDGRID_API` is set or not, whether key is dummy or not, whether key works or not. `auth_set()` function ask some questions and open browser for create api key, open .Renviron for set `SENDGRID_API` value.
 
