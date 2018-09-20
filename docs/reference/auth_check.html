@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>send mail — send • sendgridr</title>
+<title>Check API key for auth. — auth_check • sendgridr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="send mail — send" />
+<meta property="og:title" content="Check API key for auth. — auth_check" />
 
-<meta property="og:description" content="send mail" />
+<meta property="og:description" content="Check SENDGRID_API env value is set.
+If any value from SENDGRID_API detected, return TRUE.
+Function works using auth_check_zero(), auth_check_dummy(), auth_check_work()." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -103,34 +105,26 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>send mail</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mrchypark/sendgridr/blob/master/R/send.R'><code>R/send.R</code></a></small>
-    <div class="hidden name"><code>send.Rd</code></div>
+    <h1>Check API key for auth.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mrchypark/sendgridr/blob/master/R/auth.R'><code>R/auth.R</code></a></small>
+    <div class="hidden name"><code>auth_check.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>send mail</p>
+    <p>Check SENDGRID_API env value is set.
+If any value from SENDGRID_API detected, return TRUE.
+Function works using auth_check_zero(), auth_check_dummy(), auth_check_work().</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>send</span>(<span class='no'>mail</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>mail</th>
-      <td><p>mail object</p></td>
-    </tr>
-    </table>
-    
+    <pre class="usage"><span class='fu'>auth_check</span>()</pre>
+        
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>
