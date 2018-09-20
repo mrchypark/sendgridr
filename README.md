@@ -9,7 +9,7 @@ The goal of sendgridr is to mail using r with sendgrid service that provides fre
 
 ## Installation
 
-You can install the released version of sendgridr from [Github](https://github.com/mrchypark/sendgridr) with:
+You can install the developing version of sendgridr from [Github](https://github.com/mrchypark/sendgridr) with:
 
 ``` r
 remotes::install_github("mrchypark/sendgridr")
