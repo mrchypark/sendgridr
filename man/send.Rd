@@ -6,6 +6,9 @@
 \usage{
 send(mail)
 }
+\arguments{
+\item{mail}{mail object}
+}
 \description{
 send mail
 }

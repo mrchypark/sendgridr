@@ -1,5 +1,8 @@
 #' send mail
+#'
+#' @param mail mail object
 #' @export
 send <- function(mail) {
-  return(T)
+  return(mail)
 }
+
