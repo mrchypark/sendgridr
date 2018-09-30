@@ -24,6 +24,17 @@ auth_check()
 auth_set()
 ```
 
+## Send mail
+
+``` r
+mail %>% 
+  from("example@mail.com", "test name") %>% 
+  to("example@mail.com", "test name") %>% 
+  subject("test mail title") %>% 
+  contents("")  %>% 
+  send
+```
+
 ## Code of conduct
 
 Please note that the 'sendgridr' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

@@ -14,7 +14,10 @@ BugReports: https://github.com/mrchypark/sendgridr/issues
 Imports: 
     magrittr,
     httr, 
+    mime, 
+    jsonlite, 
     usethis,
+    tidyr,
     tibble,
     glue,
     clipr,
