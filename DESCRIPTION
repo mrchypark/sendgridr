@@ -24,7 +24,6 @@ Imports:
     crayon,
     desc,
     rlang,
-    fs,
     clisymbols
 Encoding: UTF-8
 LazyData: true
