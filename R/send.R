@@ -8,8 +8,13 @@ send <- function(mail) {
   tar <- "https://api.sendgrid.com/v3/mail/send"
   ahd <- httr::add_headers("Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
                            "content-type" = "application/json")
+
+  body <- jsonlite::toJSON(mail)
+  body <- gsub('personalizations":','personalizations":[',body)
+  body <- gsub(',"from"','],"from"',body)
+
   res <-
-    httr::POST(tar, ahd, jsonlite::toJSON(mail)) %>%
+    httr::POST(tar, ahd, body=body, httr::verbose()) %>%
     httr::content()
   return(res)
 }
@@ -21,6 +26,7 @@ send <- function(mail) {
 #' @importFrom tidyr unnest
 #' @export
 get_key_id <- function() {
+  . <- NULL
   tar <- "https://api.sendgrid.com/v3/api_keys"
   ahd <- httr::add_headers("Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
                            "content-type" = "application/json")

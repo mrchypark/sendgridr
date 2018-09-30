@@ -5,7 +5,7 @@
 mail <- function() {
   res <- list(
     personalizations = list(),
-    from = list(),
+    from = "",
     subject = "",
     content = list()
     )
@@ -14,7 +14,7 @@ mail <- function() {
 
 #' address
 #'
-#' @export
+#' @importFrom jsonlite unbox
 address <- function(locate){
   func <- function(mail, email, name = ""){
     if(!email_chk(email)){
@@ -24,14 +24,14 @@ address <- function(locate){
     loc_group <- mail$personalizations[[locate]]
 
     if(name == ""){
-      mail_list <- list(email = email)
+      mail_list <- list(email = unbox(email))
     } else {
-      mail_list <- list(email = email, name = name)
+      mail_list <- list(email = unbox(email), name = unbox(name))
     }
 
     loc_group[[length(loc_group)+1]] <- mail_list
 
-    mail$personalizations[[locate]] <- loc_group
+    mail$personalizations[locate] <- list(loc_group)
 
     return(mail)
   }
@@ -56,17 +56,26 @@ bcc <- address("bcc")
 #' from
 #'
 #' @export
+#' @importFrom jsonlite unbox
 
-from <- function(mail, email, name) {
-
+from <- function(mail, email, name="") {
+  if(name == ""){
+    mail_list <- list(email = unbox(email))
+  } else {
+    mail_list <- list(email = unbox(email), name = unbox(name))
+  }
+  mail[["from"]] <- mail_list
+  return(mail)
 }
 
 #' subject
 #'
 #' @export
+#' @importFrom jsonlite unbox
 
 subject <- function(mail, title) {
-
+  mail[["subject"]] <- unbox(title)
+  return(mail)
 }
 
 #' content
@@ -75,6 +84,10 @@ subject <- function(mail, title) {
 
 content <- function(mail, content){
 
+  contents <- data.frame(type = "text/plain",
+                   value = content)
+  mail[["content"]] <- contents
+  return(mail)
 }
 
 #' attachments

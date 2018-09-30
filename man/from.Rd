@@ -4,7 +4,7 @@
 \alias{from}
 \title{from}
 \usage{
-from(mail, email, name)
+from(mail, email, name = "")
 }
 \description{
 from

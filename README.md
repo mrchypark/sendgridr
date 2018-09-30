@@ -27,12 +27,12 @@ auth_set()
 ## Send mail
 
 ``` r
-mail %>% 
+mail() %>% 
   from("example@mail.com", "test name") %>% 
   to("example@mail.com", "test name") %>% 
   subject("test mail title") %>% 
-  contents("")  %>% 
-  send
+  content("hello world!")  %>% 
+  send()
 ```
 
 ## Code of conduct
