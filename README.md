@@ -35,6 +35,13 @@ mail() %>%
   send()
 ```
 
+## TODO
+
+- [ ] define mail class
+- [ ] check content type 'html'
+- [ ] build attachments function
+- [ ] support multi-mail list
+
 ## Code of conduct
 
 Please note that the 'sendgridr' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
