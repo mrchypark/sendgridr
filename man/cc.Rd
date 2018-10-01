@@ -6,6 +6,13 @@
 \usage{
 cc(mail, email, name = "")
 }
+\arguments{
+\item{mail}{mail object from package}
+
+\item{email}{email address}
+
+\item{name}{name for email address}
+}
 \description{
 cc
 }

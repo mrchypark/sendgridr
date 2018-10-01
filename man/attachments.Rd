@@ -6,6 +6,13 @@
 \usage{
 attachments(mail, path, name)
 }
+\arguments{
+\item{mail}{mail object from package}
+
+\item{path}{file path to attach}
+
+\item{name}{file name}
+}
 \description{
 attachments
 }

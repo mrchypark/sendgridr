@@ -6,6 +6,11 @@
 \usage{
 content(mail, content)
 }
+\arguments{
+\item{mail}{mail object from package}
+
+\item{content}{mail content}
+}
 \description{
 content
 }

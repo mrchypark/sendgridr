@@ -6,6 +6,9 @@
 \usage{
 address(locate)
 }
+\arguments{
+\item{locate}{where to set mail address}
+}
 \description{
 address
 }

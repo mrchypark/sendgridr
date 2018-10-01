@@ -14,6 +14,7 @@ mail <- function() {
 
 #' address
 #'
+#' @param locate where to set mail address
 #' @importFrom jsonlite unbox
 address <- function(locate){
   func <- function(mail, email, name = ""){
@@ -40,21 +41,33 @@ address <- function(locate){
 
 #' to
 #'
+#' @param mail mail object from package
+#' @param email email address
+#' @param name name for email address
 #' @export
 to <- address("to")
 
 #' cc
 #'
+#' @param mail mail object from package
+#' @param email email address
+#' @param name name for email address
 #' @export
 cc <- address("cc")
 
 #' bcc
 #'
+#' @param mail mail object from package
+#' @param email email address
+#' @param name name for email address
 #' @export
 bcc <- address("bcc")
 
 #' from
 #'
+#' @param mail mail object from package
+#' @param email email address
+#' @param name name for email address
 #' @export
 #' @importFrom jsonlite unbox
 
@@ -70,16 +83,20 @@ from <- function(mail, email, name="") {
 
 #' subject
 #'
+#' @param mail mail object from package
+#' @param subject mail subject
 #' @export
 #' @importFrom jsonlite unbox
 
-subject <- function(mail, title) {
-  mail[["subject"]] <- unbox(title)
+subject <- function(mail, subject) {
+  mail[["subject"]] <- unbox(subject)
   return(mail)
 }
 
 #' content
 #'
+#' @param mail mail object from package
+#' @param content mail content
 #' @export
 
 content <- function(mail, content){
@@ -92,6 +109,9 @@ content <- function(mail, content){
 
 #' attachments
 #'
+#' @param mail mail object from package
+#' @param path file path to attach
+#' @param name file name
 #' @import mime
 #' @importFrom jsonlite base64_enc
 attachments <- function(mail, path, name) {
@@ -102,6 +122,7 @@ attachments <- function(mail, path, name) {
 
 #' email_chk
 #'
+#' @param email email address to check
 #' @export
 email_chk <- function(email){
   grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$", email)

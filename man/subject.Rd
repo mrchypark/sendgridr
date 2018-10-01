@@ -4,7 +4,12 @@
 \alias{subject}
 \title{subject}
 \usage{
-subject(mail, title)
+subject(mail, subject)
+}
+\arguments{
+\item{mail}{mail object from package}
+
+\item{subject}{mail subject}
 }
 \description{
 subject

@@ -6,6 +6,9 @@
 \usage{
 email_chk(email)
 }
+\arguments{
+\item{email}{email address to check}
+}
 \description{
 email_chk
 }
