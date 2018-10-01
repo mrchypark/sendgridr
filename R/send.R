@@ -14,7 +14,7 @@ send <- function(mail) {
   body <- gsub(',"from"','],"from"',body)
 
   res <-
-    httr::POST(tar, ahd, body=body, httr::verbose()) %>%
+    httr::POST(tar, ahd, body = body) %>%
     httr::content()
   return(res)
 }

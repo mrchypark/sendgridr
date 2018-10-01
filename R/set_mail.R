@@ -84,7 +84,7 @@ subject <- function(mail, title) {
 
 content <- function(mail, content){
 
-  contents <- data.frame(type = "text/plain",
+  contents <- data.frame(type = "text/html",
                    value = content)
   mail[["content"]] <- contents
   return(mail)
