@@ -40,7 +40,7 @@ mail() %>%
 - [ ] define mail class
 - [ ] check content type 'html'
 - [ ] build attachments function
-- [ ] support multi-mail list
+- [ ] support multi-mail list using tbl, data.frame, etc.
 
 ## Code of conduct
 
