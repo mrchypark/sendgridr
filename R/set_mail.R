@@ -111,12 +111,18 @@ content <- function(mail, content) {
 #'
 #' @param mail mail object from package
 #' @param path file path to attach
-#' @param name file name
+#' @param name file name. default is path's file name
 #' @importFrom base64enc base64encode
 #' @export
 attachments <- function(mail, path, name) {
   content <- base64enc::base64encode(path)
-  filename <- name
+  if (missing(name)) {
+    filename <- strsplit(path,"[\\/\\]")[[1]]
+    filename <- filename[length(filename)]
+  } else {
+    filename <- name
+  }
+
   attachments <- data.frame(content, filename, stringsAsFactors = F)
   mail[["attachments"]] <- attachments
   return(mail)

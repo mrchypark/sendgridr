@@ -11,7 +11,7 @@ attachments(mail, path, name)
 
 \item{path}{file path to attach}
 
-\item{name}{file name}
+\item{name}{file name. default is path's file name}
 }
 \description{
 attachments

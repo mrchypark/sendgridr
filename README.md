@@ -32,8 +32,8 @@ mail() %>%
   to("example2@mail.com", "example name for display 2") %>% 
   subject("test mail title") %>% 
   content("hello world!")  %>% 
-  ## attachmants is optional
-  attachmants("report.html","report.html") %>% 
+  ## attachments is optional
+  attachments("report.html") %>% 
   send()
 ```
 
