@@ -8,7 +8,7 @@ mail <- function() {
     from = "",
     subject = "",
     content = list()
-    )
+  )
   return(res)
 }
 
@@ -16,21 +16,21 @@ mail <- function() {
 #'
 #' @param locate where to set mail address
 #' @importFrom jsonlite unbox
-address <- function(locate){
-  func <- function(mail, email, name = ""){
-    if(!email_chk(email)){
+address <- function(locate) {
+  func <- function(mail, email, name = "") {
+    if (!email_chk(email)) {
       stop("please check email address.")
     }
 
     loc_group <- mail$personalizations[[locate]]
 
-    if(name == ""){
+    if (name == "") {
       mail_list <- list(email = unbox(email))
     } else {
       mail_list <- list(email = unbox(email), name = unbox(name))
     }
 
-    loc_group[[length(loc_group)+1]] <- mail_list
+    loc_group[[length(loc_group) + 1]] <- mail_list
 
     mail$personalizations[locate] <- list(loc_group)
 
@@ -71,8 +71,8 @@ bcc <- address("bcc")
 #' @export
 #' @importFrom jsonlite unbox
 
-from <- function(mail, email, name="") {
-  if(name == ""){
+from <- function(mail, email, name = "") {
+  if (name == "") {
     mail_list <- list(email = unbox(email))
   } else {
     mail_list <- list(email = unbox(email), name = unbox(name))
@@ -99,10 +99,10 @@ subject <- function(mail, subject) {
 #' @param content mail content
 #' @export
 
-content <- function(mail, content){
-
+content <- function(mail, content) {
   contents <- data.frame(type = "text/html",
-                   value = content, stringsAsFactors = F)
+                         value = content,
+                         stringsAsFactors = F)
   mail[["content"]] <- contents
   return(mail)
 }
@@ -127,6 +127,7 @@ attachments <- function(mail, path, name) {
 #'
 #' @param email email address to check
 #' @export
-email_chk <- function(email){
-  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$", email)
+email_chk <- function(email) {
+  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
+        email)
 }

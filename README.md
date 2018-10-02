@@ -28,20 +28,24 @@ auth_set()
 
 ``` r
 mail() %>% 
-  from("example@mail.com", "test name") %>% 
-  to("example@mail.com", "test name") %>% 
+  from("example1@mail.com", "example name for display") %>% 
+  to("example2@mail.com", "example name for display 2") %>% 
   subject("test mail title") %>% 
   content("hello world!")  %>% 
+  ## attachmants is optional
+  attachmants("report.html","report.html") %>% 
   send()
 ```
 
 ## TODO
 
+- [ ] write the documents nicly
 - [ ] define mail class
 - [ ] check content type 'html'
 - [x] build attachments function
 - [ ] support multi-mail list
-- [ ] write vignette
+- [ ] write the vignette
+- [ ] set tests
 
 ## Code of conduct
 
