@@ -91,21 +91,25 @@
 <h2 class="hasAnchor">
 <a href="#send-mail" class="anchor"></a>Send mail</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/mail.html">mail</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/from.html">from</a></span>(<span class="st">"example@mail.com"</span>, <span class="st">"test name"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/to.html">to</a></span>(<span class="st">"example@mail.com"</span>, <span class="st">"test name"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/from.html">from</a></span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/to.html">to</a></span>(<span class="st">"example2@mail.com"</span>, <span class="st">"example name for display 2"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/subject.html">subject</a></span>(<span class="st">"test mail title"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/content.html">content</a></span>(<span class="st">"hello world!"</span>)  <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/send.html">send</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span>## attachmants is optional</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">  </span><span class="kw">attachmants</span>(<span class="st">"report.html"</span>,<span class="st">"report.html"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/send.html">send</a></span>()</a></code></pre></div>
 </div>
 <div id="todo" class="section level2">
 <h2 class="hasAnchor">
 <a href="#todo" class="anchor"></a>TODO</h2>
 <ul>
+<li>[ ] write the documents nicly</li>
 <li>[ ] define mail class</li>
 <li>[ ] check content type ‘html’</li>
 <li>[x] build attachments function</li>
 <li>[ ] support multi-mail list</li>
-<li>[ ] write vignette</li>
+<li>[ ] write the vignette</li>
+<li>[ ] set tests</li>
 </ul>
 </div>
 <div id="code-of-conduct" class="section level2">
