@@ -37,8 +37,8 @@ mail() %>%
 
 ## TODO
 
-- [ ] define mail class
-~~- [ ] check content type 'html'~~
+- [ ] define mail class    
+- ~~[ ] check content type 'html'~~
 - [x] build attachments function
 - [ ] support multi-mail list
 
