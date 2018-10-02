@@ -41,6 +41,7 @@ mail() %>%
 - [ ] check content type 'html'
 - [x] build attachments function
 - [ ] support multi-mail list
+- [ ] write vignette
 
 ## Code of conduct
 
