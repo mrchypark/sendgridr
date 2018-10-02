@@ -40,7 +40,8 @@ mail() %>%
 ## TODO
 
 - [ ] write the documents nicly
-- [ ] define mail class
+- [x] define sg_mail class
+- [ ] set print-family functions for sg_mail class
 - [ ] check content type 'html'
 - [x] build attachments function
 - [ ] support multi-mail list

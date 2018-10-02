@@ -1,7 +1,6 @@
-#' set mail object
+#' set mail class for sendgrid
 #'
 #' @export
-
 mail <- function() {
   res <- list(
     personalizations = list(),
@@ -9,6 +8,7 @@ mail <- function() {
     subject = "",
     content = list()
   )
+  class(res) <- "sg_mail"
   return(res)
 }
 
@@ -17,12 +17,12 @@ mail <- function() {
 #' @param locate where to set mail address
 #' @importFrom jsonlite unbox
 address <- function(locate) {
-  func <- function(mail, email, name = "") {
+  func <- function(sg_mail, email, name = "") {
     if (!email_chk(email)) {
       stop("please check email address.")
     }
 
-    loc_group <- mail$personalizations[[locate]]
+    loc_group <- sg_mail$personalizations[[locate]]
 
     if (name == "") {
       mail_list <- list(email = unbox(email))
@@ -32,35 +32,34 @@ address <- function(locate) {
 
     loc_group[[length(loc_group) + 1]] <- mail_list
 
-    mail$personalizations[locate] <- list(loc_group)
+    sg_mail$personalizations[locate] <- list(loc_group)
 
-    return(mail)
+    return(sg_mail)
   }
   return(func)
 }
 
-#' to
+#' set address to sg_mail class
 #'
-#' @param mail mail object from package
+#' to(), cc(), bcc() is for set email address to sg_mail class
+#'
+#' @aliases to cc bcc
+#' @param sg_mail mail object from package
 #' @param email email address
 #' @param name name for email address
+#' @name address
+NULL
+
 #' @export
+#' @rdname address
 to <- address("to")
 
-#' cc
-#'
-#' @param mail mail object from package
-#' @param email email address
-#' @param name name for email address
 #' @export
+#' @rdname address
 cc <- address("cc")
 
-#' bcc
-#'
-#' @param mail mail object from package
-#' @param email email address
-#' @param name name for email address
 #' @export
+#' @rdname address
 bcc <- address("bcc")
 
 #' from
