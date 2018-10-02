@@ -102,7 +102,7 @@ subject <- function(mail, subject) {
 content <- function(mail, content){
 
   contents <- data.frame(type = "text/html",
-                   value = content)
+                   value = content, stringsAsFactors = F)
   mail[["content"]] <- contents
   return(mail)
 }
@@ -112,11 +112,14 @@ content <- function(mail, content){
 #' @param mail mail object from package
 #' @param path file path to attach
 #' @param name file name
-#' @import mime
-#' @importFrom jsonlite base64_enc
+#' @importFrom base64enc base64encode
+#' @export
 attachments <- function(mail, path, name) {
-  content <- base64_enc(path)
-  type <- guess_type(path)
+  content <- base64enc::base64encode(path)
+  filename <- name
+  attachments <- data.frame(content, filename, stringsAsFactors = F)
+  mail[["attachments"]] <- attachments
+  return(mail)
 }
 
 
