@@ -32,7 +32,7 @@
 
 <meta property="og:title" content="address — address" />
 
-<meta property="og:description" content="address" />
+<meta property="og:description" content="to(), cc(), bcc() is for set email address to sg_mail class" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -110,11 +110,17 @@
 
     <div class="ref-description">
     
-    <p>address</p>
+    <p>to(), cc(), bcc() is for set email address to sg_mail class</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>address</span>(<span class='no'>locate</span>)</pre>
+    <pre class="usage"><span class='fu'>address</span>(<span class='no'>locate</span>)
+
+<span class='fu'>to</span>(<span class='no'>sg_mail</span>, <span class='no'>email</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>""</span>)
+
+<span class='fu'>cc</span>(<span class='no'>sg_mail</span>, <span class='no'>email</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>""</span>)
+
+<span class='fu'>bcc</span>(<span class='no'>sg_mail</span>, <span class='no'>email</span>, <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -122,6 +128,18 @@
     <tr>
       <th>locate</th>
       <td><p>where to set mail address</p></td>
+    </tr>
+    <tr>
+      <th>sg_mail</th>
+      <td><p>mail object from package</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>email address</p></td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><p>name for email address</p></td>
     </tr>
     </table>
     
