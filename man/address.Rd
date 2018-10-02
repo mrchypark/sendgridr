@@ -2,13 +2,28 @@
 % Please edit documentation in R/set_mail.R
 \name{address}
 \alias{address}
+\alias{to}
+\alias{cc}
+\alias{bcc}
 \title{address}
 \usage{
 address(locate)
+
+to(sg_mail, email, name = "")
+
+cc(sg_mail, email, name = "")
+
+bcc(sg_mail, email, name = "")
 }
 \arguments{
 \item{locate}{where to set mail address}
+
+\item{sg_mail}{mail object from package}
+
+\item{email}{email address}
+
+\item{name}{name for email address}
 }
 \description{
-address
+to(), cc(), bcc() is for set email address to sg_mail class
 }

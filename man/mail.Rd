@@ -2,10 +2,10 @@
 % Please edit documentation in R/set_mail.R
 \name{mail}
 \alias{mail}
-\title{set mail object}
+\title{set mail class for sendgrid}
 \usage{
 mail()
 }
 \description{
-set mail object
+set mail class for sendgrid
 }
