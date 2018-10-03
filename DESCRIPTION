@@ -5,8 +5,7 @@ Authors@R:
     person(given = "Chanyub",
            family = "Park",
            role = c("aut", "cre"),
-           email = "mrchypark@gmail.com",
-           comment = "blog, <mrchypark.githubi.io>")
+           email = "mrchypark@gmail.com")
 Description: Send email using sendgrid mail api(v3).
 License: MIT + file LICENSE
 URL: https://github.com/mrchypark/sendgridr
