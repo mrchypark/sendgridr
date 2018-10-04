@@ -1,3 +1,4 @@
+^README\.Rmd$
 ^R/\.logo\.R$
 ^R/\.add_git_hook\.R$
 ^codecov\.yml$

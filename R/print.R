@@ -39,7 +39,7 @@ print.sg_mail <- function(x, ...) {
     }
   }
 
-  if (nchar(x$from) == 0) {
+  if (length(x$from) == 1) {
     need("  from   : ")
   } else {
     if (is.null(x$from$name)) {
