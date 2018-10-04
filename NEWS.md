@@ -1,3 +1,7 @@
+# sendgridr 0.0.2
+
+* Set  print function for sg_mail class.
+
 # sendgridr 0.0.1
 
 * Minimal version launched.
