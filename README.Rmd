@@ -89,7 +89,7 @@ mail() %>%
 - [ ] write the documents nicly
 - [x] define sg_mail class
 - [x] set print function for sg_mail class
-- [ ] check content type 'html'
+- [x] content type set 'html'
 - [x] build attachments function
 - [ ] support multi-mail list
 - [ ] write the vignette
