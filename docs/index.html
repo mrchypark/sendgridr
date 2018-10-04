@@ -117,7 +117,7 @@ auth_set()</code></pre>
 <div id="sg_mail-class" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sg_mail-class" class="anchor"></a>sg_mail class</h3>
-<p><code><a href="reference/mail.html">mail()</a></code> function create sg_mail class object.</p>
+<p><code><a href="reference/mail.html">mail()</a></code> function create sg_mail class object and also list. sg_mail class only has print method.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">sendproject1 &lt;-<span class="st"> </span><span class="kw"><a href="reference/mail.html">mail</a></span>()</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">class</span>(sendproject1)</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] "sg_mail" "list"</span></a>
@@ -133,6 +133,17 @@ auth_set()</code></pre>
 <h3 class="hasAnchor">
 <a href="#multi--setting-using-inline" class="anchor"></a>multi- setting using inline</h3>
 <p>to, cc, bcc, attachments functions are able to set multi values.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/mail.html">mail</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/from.html">from</a></span>(<span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam1@mail.com"</span>, <span class="st">"first exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam2@mail.com"</span>, <span class="st">"second exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/subject.html">subject</a></span>(<span class="st">"test mail title"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/content.html">content</a></span>(<span class="st">"hello world!"</span>)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; SendGrid Mail - </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; &lt;U+2714&gt;   to     : first exam &lt;toexam1@mail.com&gt;</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; &lt;U+2714&gt;   from   : toexam@mail.com &lt;example1@mail.com&gt;</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; &lt;U+2714&gt;   subject: test mail title</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; &lt;U+2714&gt;   content: hello world!</span></a></code></pre></div>
 </div>
 </div>
 <div id="todo" class="section level2">
