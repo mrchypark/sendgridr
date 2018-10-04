@@ -4,12 +4,12 @@
 \alias{content}
 \title{content}
 \usage{
-content(mail, content)
+content(sg_mail, content)
 }
 \arguments{
-\item{mail}{mail object from package}
+\item{sg_mail}{(required)mail object from package}
 
-\item{content}{mail content}
+\item{content}{(required)mail content}
 }
 \description{
 content

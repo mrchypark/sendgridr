@@ -4,12 +4,12 @@
 \alias{from}
 \title{from}
 \usage{
-from(mail, email, name = "")
+from(sg_mail, email, name = "")
 }
 \arguments{
-\item{mail}{mail object from package}
+\item{sg_mail}{(required)mail object from package}
 
-\item{email}{email address}
+\item{email}{(required)email address}
 
 \item{name}{name for email address}
 }

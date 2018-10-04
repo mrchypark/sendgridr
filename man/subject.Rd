@@ -4,12 +4,12 @@
 \alias{subject}
 \title{subject}
 \usage{
-subject(mail, subject)
+subject(sg_mail, subject)
 }
 \arguments{
-\item{mail}{mail object from package}
+\item{sg_mail}{(required)mail object from package}
 
-\item{subject}{mail subject}
+\item{subject}{(required)mail subject}
 }
 \description{
 subject

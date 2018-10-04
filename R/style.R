@@ -17,6 +17,11 @@ cat_line <- function(..., quiet = getOption("usethis.quiet", default = FALSE)) {
 todo_bullet <- function() crayon::red(clisymbols::symbol$bullet)
 #' @importFrom crayon green
 done_bullet <- function() crayon::green(clisymbols::symbol$tick)
+#' @importFrom crayon red
+need_bullet <- function() crayon::red(clisymbols::symbol$cross)
+#' @importFrom crayon make_style
+option_bullet <- function() crayon::make_style("lightgrey")(clisymbols::symbol$tick)
+
 
 ## adds a leading bullet
 bulletize <- function(line, bullet = "*") {
@@ -49,6 +54,15 @@ done <- function(..., .envir = parent.frame()) {
   cat_line(bulletize(out, bullet = done_bullet()))
 }
 
+need <- function(..., .envir = parent.frame()) {
+  out <- glue(..., .envir = .envir)
+  cat_line(bulletize(out, bullet = need_bullet()))
+}
+
+option <- function(..., .envir = parent.frame()) {
+  out <- glue(..., .envir = .envir)
+  cat_line(bulletize(out, bullet = option_bullet()))
+}
 
 # Function designed for several lines -------------------------------------
 

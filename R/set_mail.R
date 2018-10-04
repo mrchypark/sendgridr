@@ -8,7 +8,7 @@ mail <- function() {
     subject = "",
     content = list()
   )
-  class(res) <- "sg_mail"
+  class(res) <- c("sg_mail","list")
   return(res)
 }
 
@@ -18,10 +18,12 @@ mail <- function() {
 #' @importFrom jsonlite unbox
 address <- function(locate) {
   func <- function(sg_mail, email, name = "") {
+    if (!sg_mail_chk(sg_mail)) {
+      stop("please check sg_mail class")
+    }
     if (!email_chk(email)) {
       stop("please check email address.")
     }
-
     loc_group <- sg_mail$personalizations[[locate]]
 
     if (name == "") {
@@ -44,9 +46,9 @@ address <- function(locate) {
 #' to(), cc(), bcc() is for set email address to sg_mail class
 #'
 #' @aliases to cc bcc
-#' @param sg_mail mail object from package
-#' @param email email address
-#' @param name name for email address
+#' @param sg_mail (required)mail object from package
+#' @param email (required)email address
+#' @param name (optional)name for email address.
 #' @name address
 NULL
 
@@ -64,56 +66,65 @@ bcc <- address("bcc")
 
 #' from
 #'
-#' @param mail mail object from package
-#' @param email email address
+#' @param sg_mail (required)mail object from package
+#' @param email (required)email address
 #' @param name name for email address
 #' @export
 #' @importFrom jsonlite unbox
 
-from <- function(mail, email, name = "") {
+from <- function(sg_mail, email, name = "") {
+  if (!sg_mail_chk(sg_mail)) {
+    stop("please check sg_mail class")
+  }
+  if (!email_chk(email)) {
+    stop("please check email address.")
+  }
   if (name == "") {
     mail_list <- list(email = unbox(email))
   } else {
     mail_list <- list(email = unbox(email), name = unbox(name))
   }
-  mail[["from"]] <- mail_list
-  return(mail)
+  sg_mail[["from"]] <- mail_list
+  return(sg_mail)
 }
 
 #' subject
 #'
-#' @param mail mail object from package
-#' @param subject mail subject
+#' @param sg_mail (required)mail object from package
+#' @param subject (required)mail subject
 #' @export
 #' @importFrom jsonlite unbox
 
-subject <- function(mail, subject) {
-  mail[["subject"]] <- unbox(subject)
-  return(mail)
+subject <- function(sg_mail, subject) {
+  sg_mail[["subject"]] <- unbox(subject)
+  return(sg_mail)
 }
 
 #' content
 #'
-#' @param mail mail object from package
-#' @param content mail content
+#' @param sg_mail (required)mail object from package
+#' @param content (required)mail content
 #' @export
 
-content <- function(mail, content) {
+content <- function(sg_mail, content) {
+  if (!sg_mail_chk(sg_mail)) {
+    stop("please check sg_mail class")
+  }
   contents <- data.frame(type = "text/html",
                          value = content,
                          stringsAsFactors = F)
-  mail[["content"]] <- contents
-  return(mail)
+  sg_mail[["content"]] <- contents
+  return(sg_mail)
 }
 
 #' attachments
 #'
-#' @param mail mail object from package
-#' @param path file path to attach
+#' @param sg_mail (required)mail object from package
+#' @param path (required)file path to attach
 #' @param name file name. default is path's file name
 #' @importFrom base64enc base64encode
 #' @export
-attachments <- function(mail, path, name) {
+attachments <- function(sg_mail, path, name) {
   content <- base64enc::base64encode(path)
   if (missing(name)) {
     filename <- strsplit(path,"[\\/\\]")[[1]]
@@ -121,18 +132,29 @@ attachments <- function(mail, path, name) {
   } else {
     filename <- name
   }
-
-  attachments <- data.frame(content, filename, stringsAsFactors = F)
-  mail[["attachments"]] <- attachments
-  return(mail)
+  attached <- sg_mail[["attachments"]]
+  if (is.null(attached)) {
+    attachments <- data.frame(content, filename, stringsAsFactors = F)
+    sg_mail[["attachments"]] <- attachments
+  } else {
+    attachments <- data.frame(content, filename, stringsAsFactors = F)
+    sg_mail[["attachments"]] <- rbind(attached, attachments)
+  }
+  return(sg_mail)
 }
 
 
 #' email_chk
 #'
 #' @param email email address to check
-#' @export
 email_chk <- function(email) {
   grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
         email)
+}
+
+#' mail_class_chk
+#'
+#' @param sg_mail mail class to check
+sg_mail_chk <- function(sg_mail){
+  any(class(sg_mail) == "sg_mail")
 }

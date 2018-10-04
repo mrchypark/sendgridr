@@ -4,12 +4,12 @@
 \alias{attachments}
 \title{attachments}
 \usage{
-attachments(mail, path, name)
+attachments(sg_mail, path, name)
 }
 \arguments{
-\item{mail}{mail object from package}
+\item{sg_mail}{(required)mail object from package}
 
-\item{path}{file path to attach}
+\item{path}{(required)file path to attach}
 
 \item{name}{file name. default is path's file name}
 }

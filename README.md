@@ -41,12 +41,13 @@ mail() %>%
 
 - [ ] write the documents nicly
 - [x] define sg_mail class
-- [ ] set print-family functions for sg_mail class
+- [x] set print function for sg_mail class
 - [ ] check content type 'html'
 - [x] build attachments function
 - [ ] support multi-mail list
 - [ ] write the vignette
 - [ ] set tests
+- [ ] rebuild html file possible to view in gmail
 
 ## Code of conduct
 

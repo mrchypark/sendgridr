@@ -18,11 +18,11 @@ bcc(sg_mail, email, name = "")
 \arguments{
 \item{locate}{where to set mail address}
 
-\item{sg_mail}{mail object from package}
+\item{sg_mail}{(required)mail object from package}
 
-\item{email}{email address}
+\item{email}{(required)email address}
 
-\item{name}{name for email address}
+\item{name}{(optional)name for email address.}
 }
 \description{
 to(), cc(), bcc() is for set email address to sg_mail class
