@@ -91,7 +91,7 @@ mail() %>%
 - [x] set print function for sg_mail class
 - [x] content type set 'html'
 - [x] build attachments function
-- [ ] support multi-mail list
+- [ ] support multi-mail list with one function
 - [ ] write the vignette
 - [ ] set tests
 - [ ] rebuild html file possible to view in gmail
