@@ -59,7 +59,8 @@ mail() %>%
 
 ### sg_mail class
 
-`mail()` function create sg_mail class object.
+`mail()` function create sg_mail class object and also list.
+sg_mail class only has print method.
 
 ```{r}
 sendproject1 <- mail()
@@ -72,6 +73,16 @@ to, from, subject, content are required. cc, bcc, attachments are optional.
 ### multi- setting using inline
 
 to, cc, bcc, attachments functions are able to set multi values.
+
+```{r}
+mail() %>% 
+  from("example1@mail.com", "toexam@mail.com") %>% 
+  to("toexam1@mail.com", "first exam") %>% 
+  to("toexam2@mail.com", "second exam") %>% 
+  subject("test mail title") %>% 
+  content("hello world!")
+```
+
 
 ## TODO
 
