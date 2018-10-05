@@ -16,6 +16,7 @@ print.sg_mail <- function(x, ...) {
 
     for (i in 1:(length(x$personalizations))) {
       locate <- names(x$personalizations)[i]
+      address_list <- c()
       for (j in 1:length(x$personalizations[[i]])) {
         if (is.null(x$personalizations[[i]][[j]]$name)) {
           address <- x$personalizations[[i]][[j]]$email
@@ -25,14 +26,23 @@ print.sg_mail <- function(x, ...) {
                             x$personalizations[[i]][[j]]$email,
                             ">")
         }
-        if (locate == "to") {
-          done("  ", locate, "     : ", address)
+        address_list <- paste0(address_list, ", ",address)
+        cnt <- j
+      }
+      address_list <- gsub("^, ","",address_list)
+      if (locate == "to") {
+        text <-
+          paste0("  ", locate, "     : cnt[",cnt,"] ", address_list)
+        done(console_print(text))
+      } else {
+        if (locate == "cc") {
+          text <-
+            paste0("  ", locate, "     : cnt[",cnt,"] ", address_list)
+          option(console_print(text))
         } else {
-          if (locate == "cc") {
-            option("    ", locate, "   : ", address)
-          } else {
-            option("    ", locate, "  : ", address)
-          }
+          text <-
+            paste0("  ", locate, "    : cnt[",cnt,"] ", address_list)
+          option(console_print(text))
         }
       }
     }
@@ -53,17 +63,30 @@ print.sg_mail <- function(x, ...) {
   if (nchar(x$subject) == 0) {
     need("  subject: ")
   } else {
-    done("  subject: ", x$subject)
+    text <-
+      paste0("  subject: ", "nchr[", nchar(x$subject), "] ", x$subject)
+    done(console_print(text))
   }
 
-  console_len <- options("width")$width - 20
+
   if (is.null(x$content$value)) {
     need("  content: ")
   } else {
-    content_len <- nchar(x$content$value)
-    content_end <- ifelse(content_len > console_len, " ...", "")
-    done("  content: ",
-         strtrim(x$content$value, console_len),
-         content_end)
+    text <-
+      paste0("  content: ",
+             "nchr[",
+             nchar(x$content$value),
+             "] ",
+             x$content$value)
+    done(console_print(text))
   }
+}
+
+
+console_print <- function(text) {
+  console_len <- options("width")$width - 20
+  content_len <- nchar(text)
+  content_end <- ifelse(content_len > console_len, " ...", "")
+  res <- paste0(strtrim(text, console_len), content_end)
+  return(res)
 }
