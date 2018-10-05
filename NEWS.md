@@ -1,6 +1,10 @@
+# sendgridr 0.0.3
+
+* `attachments()` function check path param is set right file.
+
 # sendgridr 0.0.2
 
-* Set  print function for sg_mail class.
+* Set print function for sg_mail class.
 
 # sendgridr 0.0.1
 

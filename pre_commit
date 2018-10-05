@@ -1,4 +1,4 @@
 #!/usr/bin/env Rscript
 
 knitr::render_markdown("README.Rmd")
-pkgdown::build_site()
+# pkgdown::build_site()

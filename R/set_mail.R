@@ -123,8 +123,12 @@ content <- function(sg_mail, content) {
 #' @param path (required)file path to attach
 #' @param name file name. default is path's file name
 #' @importFrom base64enc base64encode
+#' @importFrom fs is_file
 #' @export
 attachments <- function(sg_mail, path, name) {
+  if (!fs::is_file(path)) {
+    stop("Please make sure it is the correct file path.")
+  }
   content <- base64enc::base64encode(path)
   if (missing(name)) {
     filename <- strsplit(path,"[\\/\\]")[[1]]
