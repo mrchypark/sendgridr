@@ -49,7 +49,8 @@ Please replace your conditions.
 
 ### sg\_mail class
 
-`mail()` function create sg\_mail class object.
+`mail()` function create sg\_mail class object and also list. sg\_mail
+class only has print method.
 
 ``` r
 sendproject1 <- mail()
@@ -57,11 +58,13 @@ class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
 #> SendGrid Mail - 
-#> <U+2716>   to     :
-#> <U+2716>   from   : 
-#> <U+2716>   subject: 
-#> <U+2716>   content:
+#> ✖   to     :
+#> ✖   from   : 
+#> ✖   subject: 
+#> ✖   content:
 ```
+
+![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
 
 to, from, subject, content are required. cc, bcc, attachments are
 optional.
@@ -70,14 +73,31 @@ optional.
 
 to, cc, bcc, attachments functions are able to set multi values.
 
+``` r
+mail() %>% 
+  from("example1@mail.com", "toexam@mail.com") %>% 
+  to("toexam1@mail.com", "1 exam") %>% 
+  to("toexam2@mail.com", "2 exam") %>% 
+  to("toexam3@mail.com", "3 exam") %>% 
+  subject("test mail title") %>% 
+  content("hello world!")
+#> SendGrid Mail - 
+#> ✔   to     : 1 exam <toexam1@mail.com>
+#> ✔   to     : 2 exam <toexam2@mail.com>
+#> ✔   to     : 3 exam <toexam3@mail.com>
+#> ✔   from   : toexam@mail.com <example1@mail.com>
+#> ✔   subject: test mail title
+#> ✔   content: hello world!
+```
+
 ## TODO
 
   - \[ \] write the documents nicly
   - \[x\] define sg\_mail class
   - \[x\] set print function for sg\_mail class
-  - \[ \] check content type ‘html’
+  - \[x\] content type set ‘html’
   - \[x\] build attachments function
-  - \[ \] support multi-mail list
+  - \[ \] support multi-mail list with one function
   - \[ \] write the vignette
   - \[ \] set tests
   - \[ \] rebuild html file possible to view in gmail

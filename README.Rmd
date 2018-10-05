@@ -68,6 +68,8 @@ class(sendproject1)
 sendproject1
 ```
 
+![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
+
 to, from, subject, content are required. cc, bcc, attachments are optional.
 
 ### multi- setting using inline
@@ -77,12 +79,12 @@ to, cc, bcc, attachments functions are able to set multi values.
 ```{r}
 mail() %>% 
   from("example1@mail.com", "toexam@mail.com") %>% 
-  to("toexam1@mail.com", "first exam") %>% 
-  to("toexam2@mail.com", "second exam") %>% 
+  to("toexam1@mail.com", "1 exam") %>% 
+  to("toexam2@mail.com", "2 exam") %>% 
+  to("toexam3@mail.com", "3 exam") %>% 
   subject("test mail title") %>% 
   content("hello world!")
 ```
-
 
 ## TODO
 

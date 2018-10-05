@@ -16,24 +16,23 @@ print.sg_mail <- function(x, ...) {
 
     for (i in 1:(length(x$personalizations))) {
       locate <- names(x$personalizations)[i]
-
-      if (is.null(x$personalizations[[i]][[1]]$name)) {
-        address <- x$personalizations[[i]][[1]]$email
-      } else {
-        address <- paste0(
-          x$personalizations[[i]][[1]]$name,
-          " <",
-          x$personalizations[[i]][[1]]$email,
-          ">"
-        )
-      }
-      if (locate == "to") {
-        done("  ", locate, "     : ", address)
-      } else {
-        if (locate == "cc") {
-          option("    ", locate, "   : ", address)
+      for (j in 1:length(x$personalizations[[i]])) {
+        if (is.null(x$personalizations[[i]][[j]]$name)) {
+          address <- x$personalizations[[i]][[j]]$email
         } else {
-          option("    ", locate, "  : ", address)
+          address <- paste0(x$personalizations[[i]][[j]]$name,
+                            " <",
+                            x$personalizations[[i]][[j]]$email,
+                            ">")
+        }
+        if (locate == "to") {
+          done("  ", locate, "     : ", address)
+        } else {
+          if (locate == "cc") {
+            option("    ", locate, "   : ", address)
+          } else {
+            option("    ", locate, "  : ", address)
+          }
         }
       }
     }
