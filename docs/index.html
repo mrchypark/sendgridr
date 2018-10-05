@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">sendgridr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
       </span>
     </div>
 
@@ -127,6 +127,7 @@ auth_set()</code></pre>
 <a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">#&gt; &lt;U+2716&gt;   from   : </span></a>
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; &lt;U+2716&gt;   subject: </span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; &lt;U+2716&gt;   content:</span></a></code></pre></div>
+<p><img src="https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png"></p>
 <p>to, from, subject, content are required. cc, bcc, attachments are optional.</p>
 </div>
 <div id="multi--setting-using-inline" class="section level3">
@@ -135,15 +136,16 @@ auth_set()</code></pre>
 <p>to, cc, bcc, attachments functions are able to set multi values.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/mail.html">mail</a></span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="reference/from.html">from</a></span>(<span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam1@mail.com"</span>, <span class="st">"first exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam2@mail.com"</span>, <span class="st">"second exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/subject.html">subject</a></span>(<span class="st">"test mail title"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/content.html">content</a></span>(<span class="st">"hello world!"</span>)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; SendGrid Mail - </span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; &lt;U+2714&gt;   to     : first exam &lt;toexam1@mail.com&gt;</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; &lt;U+2714&gt;   from   : toexam@mail.com &lt;example1@mail.com&gt;</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; &lt;U+2714&gt;   subject: test mail title</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; &lt;U+2714&gt;   content: hello world!</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/address.html">to</a></span>(<span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/subject.html">subject</a></span>(<span class="st">"test mail title"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="reference/content.html">content</a></span>(<span class="st">"hello world!"</span>)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; SendGrid Mail - </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; &lt;U+2714&gt;   to     : 1 exam &lt;toexam1@mail.com&gt;</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; &lt;U+2714&gt;   from   : toexam@mail.com &lt;example1@mail.com&gt;</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; &lt;U+2714&gt;   subject: test mail title</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; &lt;U+2714&gt;   content: hello world!</span></a></code></pre></div>
 </div>
 </div>
 <div id="todo" class="section level2">
