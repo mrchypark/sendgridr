@@ -104,6 +104,7 @@ subject <- function(sg_mail, subject) {
 #'
 #' @param sg_mail (required)mail object from package
 #' @param content (required)mail content
+#' @importFrom juicer juice
 #' @export
 
 content <- function(sg_mail, content) {
@@ -111,7 +112,7 @@ content <- function(sg_mail, content) {
     stop("please check sg_mail class")
   }
   contents <- data.frame(type = "text/html",
-                         value = content,
+                         value = juicer::juice(content),
                          stringsAsFactors = F)
   sg_mail[["content"]] <- contents
   return(sg_mail)
