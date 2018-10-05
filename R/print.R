@@ -6,14 +6,14 @@
 print.sg_mail <- function(x, ...) {
   cat("SendGrid Mail - \n")
 
+  # print to, cc, bcc
   if (length(x$personalizations) == 0) {
-    need("  to     :")
+    need("  to     : (required)")
   } else {
     to_check <- names(x$personalizations)
     if (!any(to_check == "to")) {
-      need("  to     :")
+      need("  to     : (required)")
     }
-
     for (i in 1:(length(x$personalizations))) {
       locate <- names(x$personalizations)[i]
       address_list <- c()
@@ -48,8 +48,9 @@ print.sg_mail <- function(x, ...) {
     }
   }
 
-  if (length(x$from) == 1) {
-    need("  from   : ")
+  # print from
+  if (nchar(x$from) == 0) {
+    need("  from   : (required)")
   } else {
     if (is.null(x$from$name)) {
       address <- x$from$email
@@ -60,17 +61,18 @@ print.sg_mail <- function(x, ...) {
     done("  from   : ", address)
   }
 
+  # print subject
   if (nchar(x$subject) == 0) {
-    need("  subject: ")
+    need("  subject: (required)")
   } else {
     text <-
       paste0("  subject: ", "nchr[", nchar(x$subject), "] ", x$subject)
     done(console_print(text))
   }
 
-
+  # print content
   if (is.null(x$content$value)) {
-    need("  content: ")
+    need("  content: (required)")
   } else {
     text <-
       paste0("  content: ",
@@ -80,6 +82,15 @@ print.sg_mail <- function(x, ...) {
              x$content$value)
     done(console_print(text))
   }
+
+  # print attachments
+  if (!is.null(x$attachments)) {
+    attached <- paste0(x$attachments$filename, collapse = ", ")
+    cnt <- length(x$attachments$filename)
+    text <- paste0("attached : ", "cnt[",cnt,"] ",attached)
+    option(console_print(text))
+  }
+
 }
 
 
