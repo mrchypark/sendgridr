@@ -4,6 +4,13 @@ language: R
 sudo: false
 cache: packages
 
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libxml2-dev
+      - libv8-3.14-dev
+
 r:
 - 3.3
 - 3.4
