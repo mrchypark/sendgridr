@@ -9,7 +9,7 @@ content(sg_mail, content)
 \arguments{
 \item{sg_mail}{(required)mail object from package}
 
-\item{content}{(required)mail content}
+\item{content}{(required)mail content html support.}
 }
 \description{
 content

@@ -1,6 +1,6 @@
 pandoc: 2.2.1
 pkgdown: 1.1.0.9000
-pkgdown_sha: 8922bbd8e73ced6900d74eb51832bcfe7376dffc
+pkgdown_sha: c990ad4daa65267cbd90ab7f1438bab329da3bc0
 articles: []
 urls:
   reference: https://mrchypark.github.io/sendgridr/reference
