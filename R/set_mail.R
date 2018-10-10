@@ -118,10 +118,13 @@ content <- function(sg_mail, content) {
 }
 
 #' @importFrom juicer juice
-read<- function(content) {
-  content <- readLines(content)
-
-  juicer::juice(content)
+#' @importFrom fs is_file
+read <- function(content) {
+  if (fs::is_file(content)) {
+    content <- readLines(content)
+    content <- juicer::juice(content)
+  }
+  return(content)
 }
 
 #' attachments
