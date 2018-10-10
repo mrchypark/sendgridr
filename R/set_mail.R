@@ -124,6 +124,7 @@ read <- function(content) {
     content <- readLines(content)
     content <- juicer::juice(content)
   }
+  content <- as.character(content)
   return(content)
 }
 
