@@ -1,3 +1,5 @@
+# sendgridr 0.1.0
+
 # sendgridr 0.0.3
 
 * `attachments()` function check path param is set right file.
