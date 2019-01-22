@@ -1,5 +1,8 @@
 # sendgridr 0.1.0
 
+* add content_id on asttachments.
+* add auto-setting mime type.
+
 # sendgridr 0.0.3
 
 * `attachments()` function check path param is set right file.
