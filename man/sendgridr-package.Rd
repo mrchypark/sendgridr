@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com}
+\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com} (0000-0001-6474-2570)
 
 }
 \keyword{internal}

@@ -133,13 +133,24 @@ read <- function(content) {
 #' @param sg_mail (required)mail object from package
 #' @param path (required)file path to attach
 #' @param name file name. default is path's file name
+#' @param content_id content id(cid). default is `content_id``
 #' @importFrom base64enc base64encode
 #' @importFrom fs is_file
+#' @importFrom dplyr filter
 #' @export
-attachments <- function(sg_mail, path, name) {
+attachments <- function(sg_mail, path, name, content_id) {
+  . <- Extension <- NULL
+
   if (!fs::is_file(path)) {
     stop("Please make sure it is the correct file path.")
   }
+
+  exten <- strsplit(path, ".", fixed = T)[[1]]
+  exten <- tolower(exten[length(exten)])
+  mime_types %>%
+    filter(grepl(exten, Extension)) %>%
+    .$`MIME Type` -> type
+
   content <- base64enc::base64encode(path)
   if (missing(name)) {
     filename <- strsplit(path,"[\\/\\]")[[1]]
@@ -147,12 +158,18 @@ attachments <- function(sg_mail, path, name) {
   } else {
     filename <- name
   }
+
+  if (missing(content_id)) {
+    content_id <- "content_id"
+  } else {
+    content_id <- content_id
+  }
   attached <- sg_mail[["attachments"]]
   if (is.null(attached)) {
-    attachments <- data.frame(content, filename, stringsAsFactors = F)
+    attachments <- data.frame(content, filename, type, content_id, stringsAsFactors = F)
     sg_mail[["attachments"]] <- attachments
   } else {
-    attachments <- data.frame(content, filename, stringsAsFactors = F)
+    attachments <- data.frame(content, filename, type, content_id, stringsAsFactors = F)
     sg_mail[["attachments"]] <- rbind(attached, attachments)
   }
   return(sg_mail)
@@ -163,8 +180,7 @@ attachments <- function(sg_mail, path, name) {
 #'
 #' @param email email address to check
 email_chk <- function(email) {
-  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
-        email)
+  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$", email)
 }
 
 #' mail_class_chk

@@ -4,7 +4,7 @@
 \alias{attachments}
 \title{attachments}
 \usage{
-attachments(sg_mail, path, name)
+attachments(sg_mail, path, name, content_id)
 }
 \arguments{
 \item{sg_mail}{(required)mail object from package}
@@ -12,6 +12,8 @@ attachments(sg_mail, path, name)
 \item{path}{(required)file path to attach}
 
 \item{name}{file name. default is path's file name}
+
+\item{content_id}{content id(cid). default is `content_id``}
 }
 \description{
 attachments
