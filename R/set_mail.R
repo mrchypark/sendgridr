@@ -117,7 +117,6 @@ content <- function(sg_mail, content, type = "text/html") {
   return(sg_mail)
 }
 
-#' @importFrom juicer juice
 #' @importFrom fs is_file
 #' @importFrom stringr str_sub
 #' @export
