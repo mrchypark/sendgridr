@@ -106,11 +106,11 @@ subject <- function(sg_mail, subject) {
 #' @param content (required)mail content html support.
 #' @export
 
-content <- function(sg_mail, content) {
+content <- function(sg_mail, content, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
   }
-  contents <- data.frame(type = "text/html",
+  contents <- data.frame(type = type,
                          value = read(content),
                          stringsAsFactors = F)
   sg_mail[["content"]] <- contents

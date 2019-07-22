@@ -4,12 +4,14 @@
 \alias{content}
 \title{content}
 \usage{
-content(sg_mail, content)
+content(sg_mail, content, type = "text/html")
 }
 \arguments{
 \item{sg_mail}{(required)mail object from package}
 
 \item{content}{(required)mail content html support.}
+
+\item{type}{Content type setting.}
 }
 \description{
 content
