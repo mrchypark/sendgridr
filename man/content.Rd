@@ -10,6 +10,8 @@ content(sg_mail, content, type = "text/html")
 \item{sg_mail}{(required)mail object from package}
 
 \item{content}{(required)mail content html support.}
+
+\item{type}{content type. text/html is default.}
 }
 \description{
 content

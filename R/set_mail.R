@@ -104,6 +104,7 @@ subject <- function(sg_mail, subject) {
 #'
 #' @param sg_mail (required)mail object from package
 #' @param content (required)mail content html support.
+#' @param type content type. text/html is default.
 #' @export
 
 content <- function(sg_mail, content, type = "text/html") {
@@ -119,7 +120,6 @@ content <- function(sg_mail, content, type = "text/html") {
 
 #' @importFrom fs is_file
 #' @importFrom stringr str_sub
-#' @export
 read <- function(content) {
   if (is.character(content)) {
     chk <- stringr::str_sub(content, 1, 10000)
