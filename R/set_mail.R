@@ -119,10 +119,18 @@ content <- function(sg_mail, content, type = "text/html") {
 
 #' @importFrom juicer juice
 #' @importFrom fs is_file
+#' @importFrom stringr str_sub
+#' @export
 read <- function(content) {
-  if (fs::is_file(content)) {
+  if (is.character(content)) {
+    chk <- stringr::str_sub(content, 1, 10000)
+  } else {
+    stop("content can contains characters only")
+  }
+  if (fs::is_file(chk)) {
     content <- readLines(content)
-    content <- juicer::juice(content)
+    content <- paste0(content, collapse = "\n")
+    # content <- juicer::juice(content)
   }
   content <- as.character(content)
   return(content)
