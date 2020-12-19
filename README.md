@@ -42,7 +42,7 @@ Please replace your conditions.
       from("example1@mail.com", "example name for display") %>% 
       to("example2@mail.com", "example name for display 2") %>% 
       subject("test mail title") %>% 
-      content("hello world!")  %>% 
+      body("hello world!")  %>% 
       ## attachments is optional
       attachments("report.html") %>% 
       send()
@@ -58,16 +58,15 @@ class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
 #> SendGrid Mail - 
-#> ✖   to     :
-#> ✖   from   : 
-#> ✖   subject: 
-#> ✖   content:
+#> <U+2716>   to     : (required)
+#> <U+2716>   from   : (required)
+#> <U+2716>   subject: (required)
+#> <U+2716>   content: (required)
 ```
 
 ![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
 
-to, from, subject, content are required. cc, bcc, attachments are
-optional.
+to, from, subject, body are required. cc, bcc, attachments are optional.
 
 ### multi- setting using inline
 
@@ -80,27 +79,27 @@ mail() %>%
   to("toexam2@mail.com", "2 exam") %>% 
   to("toexam3@mail.com", "3 exam") %>% 
   subject("test mail title") %>% 
-  content("hello world!")
+  body("hello world!")
 #> SendGrid Mail - 
-#> ✔   to     : 1 exam <toexam1@mail.com>
-#> ✔   to     : 2 exam <toexam2@mail.com>
-#> ✔   to     : 3 exam <toexam3@mail.com>
-#> ✔   from   : toexam@mail.com <example1@mail.com>
-#> ✔   subject: test mail title
-#> ✔   content: hello world!
+#> <U+2714>   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
+#> Warning in if (nchar(x$from) == 0) {: the condition has length > 1 and only the
+#> first element will be used
+#> <U+2714>   from   : toexam@mail.com <example1@mail.com>
+#> <U+2714>   subject: nchr[15] test mail title
+#> <U+2714>   content: nchr[12] hello world!
 ```
 
 ## TODO
 
-  - \[ \] write the documents nicly
-  - \[x\] define sg\_mail class
-  - \[x\] set print function for sg\_mail class
-  - \[x\] content type set ‘html’
-  - \[x\] build attachments function
-  - \[ \] support multi-mail list with one function
-  - \[ \] write the vignette
-  - \[ \] set tests
-  - \[ \] rebuild html file possible to view in gmail
+-   [ ] write the documents nicly
+-   [x] define sg\_mail class
+-   [x] set print function for sg\_mail class
+-   [x] content type set ‘html’
+-   [x] build attachments function
+-   [ ] support multi-mail list with one function
+-   [ ] write the vignette
+-   [ ] set tests
+-   [ ] rebuild html file possible to view in gmail
 
 ## Code of conduct
 
