@@ -8,7 +8,7 @@ mail <- function() {
     subject = "",
     content = list()
   )
-  class(res) <- c("sg_mail","list")
+  class(res) <- c("sg_mail", "list")
   return(res)
 }
 
@@ -100,21 +100,21 @@ subject <- function(sg_mail, subject) {
   return(sg_mail)
 }
 
-#' content
+#' body
 #'
 #' @param sg_mail (required)mail object from package
-#' @param content (required)mail content html support.
+#' @param body (required)mail content html support.
 #' @param type content type. text/html is default.
 #' @export
 
-content <- function(sg_mail, content, type = "text/html") {
+body <- function(sg_mail, body, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
   }
-  contents <- data.frame(type = type,
-                         value = read(content),
-                         stringsAsFactors = F)
-  sg_mail[["content"]] <- contents
+  body <- data.frame(type = type,
+                     value = read(body),
+                     stringsAsFactors = F)
+  sg_mail[["content"]] <- body
   return(sg_mail)
 }
 
@@ -160,7 +160,7 @@ attachments <- function(sg_mail, path, name, content_id) {
 
   content <- base64enc::base64encode(path)
   if (missing(name)) {
-    filename <- strsplit(path,"[\\/\\]")[[1]]
+    filename <- strsplit(path, "[\\/\\]")[[1]]
     filename <- filename[length(filename)]
   } else {
     filename <- name
@@ -173,10 +173,12 @@ attachments <- function(sg_mail, path, name, content_id) {
   }
   attached <- sg_mail[["attachments"]]
   if (is.null(attached)) {
-    attachments <- data.frame(content, filename, type, content_id, stringsAsFactors = F)
+    attachments <-
+      data.frame(content, filename, type, content_id, stringsAsFactors = F)
     sg_mail[["attachments"]] <- attachments
   } else {
-    attachments <- data.frame(content, filename, type, content_id, stringsAsFactors = F)
+    attachments <-
+      data.frame(content, filename, type, content_id, stringsAsFactors = F)
     sg_mail[["attachments"]] <- rbind(attached, attachments)
   }
   return(sg_mail)
@@ -187,12 +189,13 @@ attachments <- function(sg_mail, path, name, content_id) {
 #'
 #' @param email email address to check
 email_chk <- function(email) {
-  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$", email)
+  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
+        email)
 }
 
 #' mail_class_chk
 #'
 #' @param sg_mail mail class to check
-sg_mail_chk <- function(sg_mail){
+sg_mail_chk <- function(sg_mail) {
   any(class(sg_mail) == "sg_mail")
 }

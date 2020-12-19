@@ -6,7 +6,7 @@
 \alias{sendgridr-package}
 \title{sendgridr: Mail Sender Using Sendgrid Service}
 \description{
-\if{html}{\figure{logo.png}{options: align='right'}}
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
 Send email using sendgrid mail api(v3).
 }
@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com} (0000-0001-6474-2570)
+\strong{Maintainer}: Chanyub Park \email{mrchypark@gmail.com} (\href{https://orcid.org/0000-0001-6474-2570}{ORCID})
 
 }
 \keyword{internal}
