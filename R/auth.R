@@ -25,7 +25,7 @@ auth_set <- function(force = F){
 
   todo("Add your api key in .Renviron like below code block")
   code_block(
-    "SENDGRID_API = XXXXXXXXXXXXXXX",
+    "SENDGRID_API=XXXXXXXXXXXXXXX",
     copy = F
   )
   usethis::edit_r_environ(scope)
