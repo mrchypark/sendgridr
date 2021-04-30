@@ -79,11 +79,7 @@ from <- function(sg_mail, email, name = "") {
   if (!email_chk(email)) {
     stop("please check email address.")
   }
-  if (name == "") {
-    mail_list <- list(email = unbox(email))
-  } else {
-    mail_list <- list(email = unbox(email), name = unbox(name))
-  }
+  mail_list <- list(email = unbox(email), name = unbox(name))
   sg_mail[["from"]] <- mail_list
   return(sg_mail)
 }
@@ -140,12 +136,11 @@ read <- function(content) {
 #' @param sg_mail (required)mail object from package
 #' @param path (required)file path to attach
 #' @param name file name. default is path's file name
-#' @param content_id content id(cid). default is `content_id``
 #' @importFrom base64enc base64encode
 #' @importFrom fs is_file
 #' @importFrom dplyr filter
 #' @export
-attachments <- function(sg_mail, path, name, content_id) {
+attachments <- function(sg_mail, path, name) {
   . <- Extension <- NULL
 
   if (!fs::is_file(path)) {
@@ -158,6 +153,10 @@ attachments <- function(sg_mail, path, name, content_id) {
     filter(grepl(exten, Extension)) %>%
     .$`MIME Type` -> type
 
+  if (identical(type, character(0))) {
+    type <- "application/octet-stream"
+  }
+
   content <- base64enc::base64encode(path)
   if (missing(name)) {
     filename <- strsplit(path, "[\\/\\]")[[1]]
@@ -166,19 +165,14 @@ attachments <- function(sg_mail, path, name, content_id) {
     filename <- name
   }
 
-  if (missing(content_id)) {
-    content_id <- "content_id"
-  } else {
-    content_id <- content_id
-  }
   attached <- sg_mail[["attachments"]]
   if (is.null(attached)) {
     attachments <-
-      data.frame(content, filename, type, content_id, stringsAsFactors = F)
+      data.frame(content, filename, type, stringsAsFactors = F)
     sg_mail[["attachments"]] <- attachments
   } else {
     attachments <-
-      data.frame(content, filename, type, content_id, stringsAsFactors = F)
+      data.frame(content, filename, type, stringsAsFactors = F)
     sg_mail[["attachments"]] <- rbind(attached, attachments)
   }
   return(sg_mail)

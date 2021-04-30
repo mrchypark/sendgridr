@@ -49,7 +49,7 @@ print.sg_mail <- function(x, ...) {
   }
 
   # print from
-  if (nchar(x$from) == 0) {
+  if (x$from == "") {
     need("  from   : (required)")
   } else {
     if (is.null(x$from$name)) {
