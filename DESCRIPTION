@@ -1,12 +1,12 @@
 Package: sendgridr
-Title: Mail Sender Using Sendgrid Service
-Version: 0.2.1
+Title: Mail Sender Using 'Sendgrid' Service
+Version: 0.2.2
 Authors@R: person(given = "Chanyub",
              family = "Park",
              role = c("aut","cre"),
              email = "mrchypark@gmail.com",
              comment = c(ORCID = "0000-0001-6474-2570"))
-Description: Send email using sendgrid mail api(v3).
+Description: Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://sendgrid.com/docs/api-reference/>.
 License: MIT + file LICENSE
 URL: https://github.com/mrchypark/sendgridr
 BugReports: https://github.com/mrchypark/sendgridr/issues
@@ -28,7 +28,6 @@ Imports:
     fs,
     stringr
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.1.1
 Depends: 
     R (>= 3.1)
