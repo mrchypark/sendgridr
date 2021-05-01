@@ -1,8 +1,11 @@
 # sendgridr 0.2.1
 
+* fix attachments with json add duplicates. [10](https://github.com/mrchypark/sendgridr/issues/10)
+* remove content_id. [9](https://github.com/mrchypark/sendgridr/issues/9)
+
 # sendgridr 0.1.0
 
-* add content_id on asttachments.
+* add content_id on attachments.
 * add auto-setting mime type.
 
 # sendgridr 0.0.3
