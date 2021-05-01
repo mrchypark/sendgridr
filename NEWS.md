@@ -1,3 +1,5 @@
+# sendgridr 0.2.1
+
 # sendgridr 0.1.0
 
 * add content_id on asttachments.
