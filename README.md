@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
 [![test-coverage](https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
 <!-- badges: end -->
@@ -116,11 +117,11 @@ key](https://allcontributors.org/docs/en/emoji-key)):
 <table>
 <tr>
 <td align="center">
-<a href="http://www.zarathu.com"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jinseob
+<a href="https://www.zarathu.com"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jinseob
 Kim</b></sub></a><br /><a href="#ideas-jinseob2kim" title="Ideas, Planning, & Feedback">🤔</a>
 </td>
 <td align="center">
-<a href="http://www.getgoodtree.com"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Carl
+<a href="https://www.getgoodtree.com"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Carl
 Ganz</b></sub></a><br /><a href="#ideas-carlganz" title="Ideas, Planning, & Feedback">🤔</a>
 </td>
 <td align="center">
