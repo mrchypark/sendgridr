@@ -2,7 +2,7 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-05-01T03:27Z
+last_built: 2021-05-01T03:36Z
 urls:
   reference: https://mrchypark.github.io/sendgridr/reference
   article: https://mrchypark.github.io/sendgridr/articles
