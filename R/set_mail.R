@@ -150,7 +150,7 @@ attachments <- function(sg_mail, path, name) {
   exten <- strsplit(path, ".", fixed = T)[[1]]
   exten <- tolower(exten[length(exten)])
   mime_types %>%
-    filter(grepl(exten, Extension)) %>%
+    filter(grepl(paste0("^.", exten, "$"), Extension)) %>%
     .$`MIME Type` -> type
 
   if (identical(type, character(0))) {
