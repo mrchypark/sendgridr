@@ -1,4 +1,6 @@
-#' set mail class for sendgrid
+#' Set mail class for Sendgrid
+#'
+#' New mail class for sendgrid.
 #'
 #' @export
 mail <- function() {
@@ -13,6 +15,8 @@ mail <- function() {
 }
 
 #' address
+#'
+#' mail address
 #'
 #' @param locate where to set mail address
 #' @importFrom jsonlite unbox
@@ -71,7 +75,6 @@ bcc <- address("bcc")
 #' @param name name for email address
 #' @export
 #' @importFrom jsonlite unbox
-
 from <- function(sg_mail, email, name = "") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
@@ -79,7 +82,7 @@ from <- function(sg_mail, email, name = "") {
   if (!email_chk(email)) {
     stop("please check email address.")
   }
-  mail_list <- list(email = unbox(email), name = unbox(name))
+  mail_list <- list(email = jsonlite::unbox(email), name = jsonlite::unbox(name))
   sg_mail[["from"]] <- mail_list
   return(sg_mail)
 }
@@ -92,7 +95,7 @@ from <- function(sg_mail, email, name = "") {
 #' @importFrom jsonlite unbox
 
 subject <- function(sg_mail, subject) {
-  sg_mail[["subject"]] <- unbox(subject)
+  sg_mail[["subject"]] <- jsonlite::unbox(subject)
   return(sg_mail)
 }
 
@@ -102,7 +105,6 @@ subject <- function(sg_mail, subject) {
 #' @param body (required)mail content html support.
 #' @param type content type. text/html is default.
 #' @export
-
 body <- function(sg_mail, body, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
@@ -150,7 +152,7 @@ attachments <- function(sg_mail, path, name) {
   exten <- strsplit(path, ".", fixed = T)[[1]]
   exten <- tolower(exten[length(exten)])
   mime_types %>%
-    filter(grepl(paste0("^.", exten, "$"), Extension)) %>%
+    dplyr::filter(grepl(paste0("^.", exten, "$"), Extension)) %>%
     .$`MIME Type` -> type
 
   if (identical(type, character(0))) {

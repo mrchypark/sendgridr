@@ -10,5 +10,5 @@ send(mail)
 \item{mail}{mail object}
 }
 \description{
-send mail
+Send mail with mail content.
 }

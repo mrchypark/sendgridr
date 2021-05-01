@@ -1,9 +1,4 @@
-#' print sg_mail class
-#'
-#' @param x mail object from package
-#' @param ... print params
-#' @export
-print.sg_mail <- function(x, ...) {
+print.sg_mail <- function(x) {
   cat("SendGrid Mail - \n")
 
   # print to, cc, bcc

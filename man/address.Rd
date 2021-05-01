@@ -25,5 +25,7 @@ bcc(sg_mail, email, name = "")
 \item{name}{(optional)name for email address.}
 }
 \description{
+mail address
+
 to(), cc(), bcc() is for set email address to sg_mail class
 }

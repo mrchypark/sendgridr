@@ -1,5 +1,7 @@
 #' send mail
 #'
+#' Send mail with mail content.
+#'
 #' @param mail mail object
 #' @importFrom httr POST add_headers content
 #' @importFrom jsonlite toJSON
