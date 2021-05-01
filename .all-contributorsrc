@@ -22,6 +22,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "peter-bastian",
+      "name": "peter-bastian",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79409618?v=4",
+      "profile": "https://github.com/peter-bastian",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
