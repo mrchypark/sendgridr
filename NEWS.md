@@ -1,5 +1,7 @@
 # sendgridr 0.2.2
 
+* fix DESC for cran.
+
 # sendgridr 0.2.1
 
 * fix attachments with json add duplicates. [10](https://github.com/mrchypark/sendgridr/issues/10)
