@@ -1,3 +1,5 @@
+# sendgridr 0.2.3
+
 # sendgridr 0.2.2
 
 * fix DESC for cran.
