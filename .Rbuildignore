@@ -17,4 +17,5 @@
 ^build_pkgdown\.R$
 ^pre_commit$
 ^post_commit$
+^\.all-contributorsrc$
 gtest.*
