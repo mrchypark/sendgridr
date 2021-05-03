@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>address — address • sendgridr</title>
+<title>set address to sg_mail class — address • sendgridr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,8 @@
 
 
 
-<meta property="og:title" content="address — address" />
-<meta property="og:description" content="mail address
-to(), cc(), bcc() is for set email address to sg_mail class" />
+<meta property="og:title" content="set address to sg_mail class — address" />
+<meta property="og:description" content="to(), cc(), bcc() is for set email address to sg_mail class" />
 <meta property="og:image" content="https://mrchypark.github.io/sendgridr/logo.png" />
 
 
@@ -91,7 +90,7 @@ to(), cc(), bcc() is for set email address to sg_mail class" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sendgridr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4</span>
       </span>
     </div>
 
@@ -130,19 +129,16 @@ to(), cc(), bcc() is for set email address to sg_mail class" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>address</h1>
+    <h1>set address to sg_mail class</h1>
     <small class="dont-index">Source: <a href='https://github.com/mrchypark/sendgridr/blob/master/R/set_mail.R'><code>R/set_mail.R</code></a></small>
     <div class="hidden name"><code>address.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>mail address</p>
-<p>to(), cc(), bcc() is for set email address to sg_mail class</p>
+    <p>to(), cc(), bcc() is for set email address to sg_mail class</p>
     </div>
 
-    <pre class="usage"><span class='fu'>address</span><span class='op'>(</span><span class='va'>locate</span><span class='op'>)</span>
-
-<span class='fu'>to</span><span class='op'>(</span><span class='va'>sg_mail</span>, <span class='va'>email</span>, name <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>to</span><span class='op'>(</span><span class='va'>sg_mail</span>, <span class='va'>email</span>, name <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
 
 <span class='fu'>cc</span><span class='op'>(</span><span class='va'>sg_mail</span>, <span class='va'>email</span>, name <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span>
 
@@ -151,10 +147,6 @@ to(), cc(), bcc() is for set email address to sg_mail class" />
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>locate</th>
-      <td><p>where to set mail address</p></td>
-    </tr>
     <tr>
       <th>sg_mail</th>
       <td><p>(required)mail object from package</p></td>
@@ -169,7 +161,77 @@ to(), cc(), bcc() is for set email address to sg_mail class" />
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>sg_mail class with mail address.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'> <span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'>to</span><span class='op'>(</span><span class='st'>"mrchypark@gmail.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $personalizations
+#&gt; $personalizations$to
+#&gt; $personalizations$to[[1]]
+#&gt; $personalizations$to[[1]]$email
+#&gt; [x] "mrchypark@gmail.com"
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; $from
+#&gt; [1] ""
+#&gt; 
+#&gt; $subject
+#&gt; [1] ""
+#&gt; 
+#&gt; $content
+#&gt; list()
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "sg_mail" "list"   </div><div class='input'>
+ <span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'>cc</span><span class='op'>(</span><span class='st'>"mrchypark@gmail.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $personalizations
+#&gt; $personalizations$cc
+#&gt; $personalizations$cc[[1]]
+#&gt; $personalizations$cc[[1]]$email
+#&gt; [x] "mrchypark@gmail.com"
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; $from
+#&gt; [1] ""
+#&gt; 
+#&gt; $subject
+#&gt; [1] ""
+#&gt; 
+#&gt; $content
+#&gt; list()
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "sg_mail" "list"   </div><div class='input'>
+ <span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+   <span class='fu'>bcc</span><span class='op'>(</span><span class='st'>"mrchypark@gmail.com"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $personalizations
+#&gt; $personalizations$bcc
+#&gt; $personalizations$bcc[[1]]
+#&gt; $personalizations$bcc[[1]]$email
+#&gt; [x] "mrchypark@gmail.com"
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; $from
+#&gt; [1] ""
+#&gt; 
+#&gt; $subject
+#&gt; [1] ""
+#&gt; 
+#&gt; $content
+#&gt; list()
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "sg_mail" "list"   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
