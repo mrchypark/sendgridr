@@ -13,6 +13,15 @@ attachments(sg_mail, path, name)
 
 \item{name}{file name. default is path's file name}
 }
+\value{
+sg_mail class with attachments.
+}
 \description{
 attachments
+}
+\examples{
+\dontrun{
+ mail() \%>\%
+   attachments("sendgridr.docx")
+   }
 }

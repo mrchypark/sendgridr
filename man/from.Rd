@@ -13,6 +13,13 @@ from(sg_mail, email, name = "")
 
 \item{name}{name for email address}
 }
+\value{
+sg_mail class with from mail address.
+}
 \description{
 from
+}
+\examples{
+ mail() \%>\%
+   from("mrchypark@gmail.com")
 }

@@ -1,9 +1,12 @@
 #' Set API key for auth.
 #'
+#' If run code, open .Renviron file for set api key.
+#'
 #' @param force force set api key process. defualt is FALSE.
 #' @export
+#' @return None
 #' @importFrom usethis edit_r_environ
-auth_set <- function(force = F){
+auth_set <- function(force = FALSE){
   if (!force) {
     res <- auth_check()
     if (res) {
@@ -26,7 +29,7 @@ auth_set <- function(force = F){
   todo("Add your api key in .Renviron like below code block")
   code_block(
     "SENDGRID_API=XXXXXXXXXXXXXXX",
-    copy = F
+    copy = FALSE
   )
   usethis::edit_r_environ(scope)
 }
@@ -37,6 +40,7 @@ auth_set <- function(force = F){
 #' If any value from SENDGRID_API detected, return TRUE.
 #' Function works using auth_check_zero(), auth_check_dummy(), auth_check_work().
 #'
+#' @return TRUE/FALSE check work fine return TRUE.
 #' @export
 auth_check <- function(){
   res <- c()
@@ -44,21 +48,21 @@ auth_check <- function(){
   keyDummy <- auth_check_dummy()
   if (keyZero) {
     unset("Api key is unset")
-    res <- F
+    res <- FALSE
   } else {
     if (keyDummy) {
       unset("Api key is set dummy XXXXXXXXXXXXXXX")
-      res <- T
+      res <- TRUE
     } else {
       keyWork <- auth_check_work()
       if (keyWork) {
         done("Api key for Authorization works")
-        res <- T
+        res <- TRUE
       } else {
         todo("Api key set but not working")
         todo("Please set right api key")
         todo("If you want to set new api key, rerun ", value("auth_set(force = T)"))
-        res <- T
+        res <- TRUE
       }
     }
   }

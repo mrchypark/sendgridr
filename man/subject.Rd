@@ -11,6 +11,13 @@ subject(sg_mail, subject)
 
 \item{subject}{(required)mail subject}
 }
+\value{
+sg_mail class with subject.
+}
 \description{
 subject
+}
+\examples{
+ mail() \%>\%
+   subject("mrchypark@gmail.com")
 }

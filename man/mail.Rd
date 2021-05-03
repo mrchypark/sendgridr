@@ -6,6 +6,12 @@
 \usage{
 mail()
 }
+\value{
+sg_mail class.
+}
 \description{
 New mail class for sendgrid.
+}
+\examples{
+  mail()
 }

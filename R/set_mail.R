@@ -2,6 +2,9 @@
 #'
 #' New mail class for sendgrid.
 #'
+#' @return sg_mail class.
+#' @examples
+#'   mail()
 #' @export
 mail <- function() {
   res <- list(
@@ -14,11 +17,6 @@ mail <- function() {
   return(res)
 }
 
-#' address
-#'
-#' mail address
-#'
-#' @param locate where to set mail address
 #' @importFrom jsonlite unbox
 address <- function(locate) {
   func <- function(sg_mail, email, name = "") {
@@ -53,6 +51,16 @@ address <- function(locate) {
 #' @param sg_mail (required)mail object from package
 #' @param email (required)email address
 #' @param name (optional)name for email address.
+#' @return sg_mail class with mail address.
+#' @examples
+#'  mail() %>%
+#'    to("mrchypark@gmail.com")
+#'
+#'  mail() %>%
+#'    cc("mrchypark@gmail.com")
+#'
+#'  mail() %>%
+#'    bcc("mrchypark@gmail.com")
 #' @name address
 NULL
 
@@ -74,6 +82,10 @@ bcc <- address("bcc")
 #' @param email (required)email address
 #' @param name name for email address
 #' @export
+#' @return sg_mail class with from mail address.
+#' @examples
+#'  mail() %>%
+#'    from("mrchypark@gmail.com")
 #' @importFrom jsonlite unbox
 from <- function(sg_mail, email, name = "") {
   if (!sg_mail_chk(sg_mail)) {
@@ -82,7 +94,9 @@ from <- function(sg_mail, email, name = "") {
   if (!email_chk(email)) {
     stop("please check email address.")
   }
-  mail_list <- list(email = jsonlite::unbox(email), name = jsonlite::unbox(name))
+  mail_list <-
+    list(email = jsonlite::unbox(email),
+         name = jsonlite::unbox(name))
   sg_mail[["from"]] <- mail_list
   return(sg_mail)
 }
@@ -92,6 +106,10 @@ from <- function(sg_mail, email, name = "") {
 #' @param sg_mail (required)mail object from package
 #' @param subject (required)mail subject
 #' @export
+#' @return sg_mail class with subject.
+#' @examples
+#'  mail() %>%
+#'    subject("mrchypark@gmail.com")
 #' @importFrom jsonlite unbox
 
 subject <- function(sg_mail, subject) {
@@ -104,6 +122,10 @@ subject <- function(sg_mail, subject) {
 #' @param sg_mail (required)mail object from package
 #' @param body (required)mail content html support.
 #' @param type content type. text/html is default.
+#' @return sg_mail class with body content.
+#' @examples
+#'  mail() %>%
+#'    body("mrchypark@gmail.com")
 #' @export
 body <- function(sg_mail, body, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
@@ -141,6 +163,12 @@ read <- function(content) {
 #' @importFrom base64enc base64encode
 #' @importFrom fs is_file
 #' @importFrom dplyr filter
+#' @return sg_mail class with attachments.
+#' @examples
+#' \dontrun{
+#'  mail() %>%
+#'    attachments("sendgridr.docx")
+#'    }
 #' @export
 attachments <- function(sg_mail, path, name) {
   . <- Extension <- NULL
@@ -180,18 +208,11 @@ attachments <- function(sg_mail, path, name) {
   return(sg_mail)
 }
 
-
-#' email_chk
-#'
-#' @param email email address to check
 email_chk <- function(email) {
   grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
         email)
 }
 
-#' mail_class_chk
-#'
-#' @param sg_mail mail class to check
 sg_mail_chk <- function(sg_mail) {
   any(class(sg_mail) == "sg_mail")
 }

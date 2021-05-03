@@ -6,6 +6,9 @@
 \usage{
 auth_check()
 }
+\value{
+TRUE/FALSE check work fine return TRUE.
+}
 \description{
 Check SENDGRID_API env value is set.
 If any value from SENDGRID_API detected, return TRUE.

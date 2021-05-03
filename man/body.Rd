@@ -13,6 +13,13 @@ body(sg_mail, body, type = "text/html")
 
 \item{type}{content type. text/html is default.}
 }
+\value{
+sg_mail class with body content.
+}
 \description{
 body
+}
+\examples{
+ mail() \%>\%
+   body("mrchypark@gmail.com")
 }

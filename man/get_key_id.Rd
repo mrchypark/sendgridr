@@ -6,6 +6,9 @@
 \usage{
 get_key_id()
 }
+\value{
+a \link[tibble:tibble-package]{tibble} cols name, api_key_id
+}
 \description{
 get api_key_id
 }
