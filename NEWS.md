@@ -1,18 +1,20 @@
-# sendgridr 0.2.3
+# sendgridr 0.2.4
+
+* Add Docs for cran.
 
 # sendgridr 0.2.2
 
-* fix DESC for cran.
+* Fix DESC for cran.
 
 # sendgridr 0.2.1
 
-* fix attachments with json add duplicates. [10](https://github.com/mrchypark/sendgridr/issues/10)
-* remove content_id. [9](https://github.com/mrchypark/sendgridr/issues/9)
+* Fix attachments with json add duplicates. [10](https://github.com/mrchypark/sendgridr/issues/10)
+* Remove content_id. [9](https://github.com/mrchypark/sendgridr/issues/9)
 
 # sendgridr 0.1.0
 
-* add content_id on attachments.
-* add auto-setting mime type.
+* Add content_id on attachments.
+* Add auto-setting mime type.
 
 # sendgridr 0.0.3
 
