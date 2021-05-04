@@ -9,6 +9,10 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
 [![test-coverage](https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
 <!-- badges: end -->
 
 The goal of sendgridr is to mail using r with sendgrid service that
@@ -16,9 +20,18 @@ provides free 100 mail per day forever.
 
 ## Installation
 
+### CRAN
+
+You can install the released version of sendgridr from CRAN with:
+
+    install.packages("sendgridr")
+
+### Github
+
 You can install the developing version of sendgridr from
 [Github](https://github.com/mrchypark/sendgridr) with:
 
+    # install.packages("remotes")
     remotes::install_github("mrchypark/sendgridr")
 
 ## Set API key for authentication
@@ -57,11 +70,20 @@ sendproject1 <- mail()
 class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
-#> SendGrid Mail - 
-#> ✖   to     : (required)
-#> ✖   from   : (required)
-#> ✖   subject: (required)
-#> ✖   content: (required)
+#> $personalizations
+#> list()
+#> 
+#> $from
+#> [1] ""
+#> 
+#> $subject
+#> [1] ""
+#> 
+#> $content
+#> list()
+#> 
+#> attr(,"class")
+#> [1] "sg_mail" "list"
 ```
 
 ![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
@@ -80,11 +102,51 @@ mail() %>%
   to("toexam3@mail.com", "3 exam") %>% 
   subject("test mail title") %>% 
   body("hello world!")
-#> SendGrid Mail - 
-#> ✔   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <to ...
-#> ✔   from   : toexam@mail.com <example1@mail.com>
-#> ✔   subject: nchr[15] test mail title
-#> ✔   content: nchr[12] hello world!
+#> $personalizations
+#> $personalizations$to
+#> $personalizations$to[[1]]
+#> $personalizations$to[[1]]$email
+#> [x] "toexam1@mail.com"
+#> 
+#> $personalizations$to[[1]]$name
+#> [x] "1 exam"
+#> 
+#> 
+#> $personalizations$to[[2]]
+#> $personalizations$to[[2]]$email
+#> [x] "toexam2@mail.com"
+#> 
+#> $personalizations$to[[2]]$name
+#> [x] "2 exam"
+#> 
+#> 
+#> $personalizations$to[[3]]
+#> $personalizations$to[[3]]$email
+#> [x] "toexam3@mail.com"
+#> 
+#> $personalizations$to[[3]]$name
+#> [x] "3 exam"
+#> 
+#> 
+#> 
+#> 
+#> $from
+#> $from$email
+#> [x] "example1@mail.com"
+#> 
+#> $from$name
+#> [x] "toexam@mail.com"
+#> 
+#> 
+#> $subject
+#> [x] "test mail title"
+#> 
+#> $content
+#>        type        value
+#> 1 text/html hello world!
+#> 
+#> attr(,"class")
+#> [1] "sg_mail" "list"
 ```
 
 ## TODO

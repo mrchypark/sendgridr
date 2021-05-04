@@ -20,6 +20,8 @@ library(sendgridr)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
 [![test-coverage](https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
+[![metacran downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
 <!-- badges: end -->
 
 
@@ -27,9 +29,19 @@ The goal of sendgridr is to mail using r with sendgrid service that provides fre
 
 ## Installation
 
+### CRAN 
+You can install the released version of sendgridr from CRAN with:
+
+```
+install.packages("sendgridr")
+```
+
+### Github
+
 You can install the developing version of sendgridr from [Github](https://github.com/mrchypark/sendgridr) with:
 
 ```
+# install.packages("remotes")
 remotes::install_github("mrchypark/sendgridr")
 ```
 
