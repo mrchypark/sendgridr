@@ -4,26 +4,26 @@
 \alias{dynamic_template_data}
 \title{Add dynamic template data}
 \usage{
-dynamic_template_data(sg_mail, tbl)
+dynamic_template_data(sg_mail, lst)
 }
 \arguments{
 \item{sg_mail}{(required) mail object from package}
 
-\item{tbl}{A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assigned. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})}
+\item{lst}{A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})}
 }
 \value{
 
 }
 \description{
-Add dynamic template data
+\code{template_id} must be included for this data to be applied.
 }
 \examples{
-sub_tbl <-
-  tibble(
+data_lst <-
+  list(
     first_name = "Amanda",
     link = "foo"
   )
 
 mail() \%>\%
-  dynamic_template_data(sub_tbl)
+  dynamic_template_data(data_lst)
 }

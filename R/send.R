@@ -9,8 +9,8 @@
 #' @examples
 #' \dontrun{
 #'
-#' sub_tbl <-
-#'   tibble(
+#' data_lst <-
+#'   list(
 #'     total = "$239.85",
 #'     name = "Sample Name"
 #'   )
@@ -18,9 +18,9 @@
 #' mail() %>%
 #'   from("example1@mail.com", "example name for display") %>%
 #'   to("example2@mail.com", "example name for display 2") %>%
-#'   dynamic_template_data(sub_tbl) %>%
-#'   template_id(template_id)
-#' subject("test mail title") %>%
+#'   dynamic_template_data(data_lst) %>%
+#'   template_id(template_id) %>%
+#'   subject("test mail title") %>%
 #'   body("hello world!") %>%
 #'   ## attachments is optional
 #'   attachments("report.html") %>%
@@ -35,13 +35,11 @@ send <- function(mail) {
       "content-type" = "application/json"
     )
 
-  body <- jsonlite::toJSON(mail)
+  body <- jsonlite::toJSON(mail, auto_unbox = TRUE)
 
-  # Remove brackets around `dynamic_template_data` and
-  # add brackets around `personalizations`
-  body <- gsub('dynamic_template_data":\\[', 'dynamic_template_data":', body)
-  body <- gsub(']},"subject"', '}],"subject"', body)
+  # Add brackets around `personalizations`
   body <- gsub('personalizations":', 'personalizations":[', body)
+  body <- gsub('},"subject"', '}],"subject"', body)
 
   res <-
     httr::POST(tar, ahd, body = body) %>%

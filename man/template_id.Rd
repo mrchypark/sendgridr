@@ -15,7 +15,7 @@ template_id(sg_mail, template_id)
 
 }
 \description{
-template id
+Create dynamic templates at \url{https://mc.sendgrid.com/dynamic-templates}
 }
 \examples{
 mail() \%>\%

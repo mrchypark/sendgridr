@@ -18,8 +18,8 @@ Send mail with mail content.
 \examples{
 \dontrun{
 
-sub_tbl <-
-  tibble(
+data_lst <-
+  list(
     total = "$239.85",
     name = "Sample Name"
   )
@@ -27,9 +27,9 @@ sub_tbl <-
 mail() \%>\%
   from("example1@mail.com", "example name for display") \%>\%
   to("example2@mail.com", "example name for display 2") \%>\%
-  dynamic_template_data(sub_tbl) \%>\%
-  template_id(template_id)
-subject("test mail title") \%>\%
+  dynamic_template_data(data_lst) \%>\%
+  template_id(template_id) \%>\%
+  subject("test mail title") \%>\%
   body("hello world!") \%>\%
   ## attachments is optional
   attachments("report.html") \%>\%
