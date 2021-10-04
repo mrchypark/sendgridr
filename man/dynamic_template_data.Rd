@@ -9,7 +9,7 @@ dynamic_template_data(sg_mail, tbl)
 \arguments{
 \item{sg_mail}{(required) mail object from package}
 
-\item{tbl}{A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})}
+\item{tbl}{A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assigned. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})}
 }
 \value{
 

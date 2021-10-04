@@ -1,31 +1,4 @@
 
-#' Add dynamic template data
-#'
-#' @param sg_mail (required) mail object from package
-#' @param tbl A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
-#'
-#' @return
-#' @export
-#'
-#' @examples
-#' sub_tbl <-
-#'   tibble(
-#'     first_name = "Amanda",
-#'     link = "foo"
-#'   )
-#'
-#' mail() %>%
-#'   dynamic_template_data(sub_tbl)
-dynamic_template_data <- function(sg_mail, tbl) {
-  if (!sg_mail_chk(sg_mail)) {
-    stop("please check sg_mail class")
-  }
-
-  sg_mail$personalizations[["dynamic_template_data"]] <- tbl
-
-  return(sg_mail)
-}
-
 #' Set mail class for Sendgrid
 #'
 #' New mail class for sendgrid.
@@ -126,6 +99,33 @@ from <- function(sg_mail, email, name = "") {
       name = jsonlite::unbox(name)
     )
   sg_mail[["from"]] <- mail_list
+  return(sg_mail)
+}
+
+#' Add dynamic template data
+#'
+#' @param sg_mail (required) mail object from package
+#' @param tbl A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assigned. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' sub_tbl <-
+#'   tibble(
+#'     first_name = "Amanda",
+#'     link = "foo"
+#'   )
+#'
+#' mail() %>%
+#'   dynamic_template_data(sub_tbl)
+dynamic_template_data <- function(sg_mail, tbl) {
+  if (!sg_mail_chk(sg_mail)) {
+    stop("please check sg_mail class")
+  }
+
+  sg_mail$personalizations[["dynamic_template_data"]] <- tbl
+
   return(sg_mail)
 }
 

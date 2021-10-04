@@ -8,10 +8,19 @@
 #' @return [list] if success, success message. and error, please check <https://sendgrid.com/docs/api-reference/>.
 #' @examples
 #' \dontrun{
+#'
+#' sub_tbl <-
+#'   tibble(
+#'     total = "$239.85",
+#'     name = "Sample Name"
+#'   )
+#'
 #' mail() %>%
 #'   from("example1@mail.com", "example name for display") %>%
 #'   to("example2@mail.com", "example name for display 2") %>%
-#'   subject("test mail title") %>%
+#'   dynamic_template_data(sub_tbl) %>%
+#'   template_id(template_id)
+#' subject("test mail title") %>%
 #'   body("hello world!") %>%
 #'   ## attachments is optional
 #'   attachments("report.html") %>%
@@ -28,45 +37,18 @@ send <- function(mail) {
 
   body <- jsonlite::toJSON(mail)
 
-  # Remove brackets around `dynamic_template_data`
+  # Remove brackets around `dynamic_template_data` and
+  # add brackets around `personalizations`
   body <- gsub('dynamic_template_data":\\[', 'dynamic_template_data":', body)
   body <- gsub(']},"subject"', '}],"subject"', body)
-
-  # Add brackets around `personalizations`
   body <- gsub('personalizations":', 'personalizations":[', body)
 
   res <-
     httr::POST(tar, ahd, body = body) %>%
     httr::content()
+
   if (identical(res, raw(0))) {
     res <- list("success" = "Send Success!")
   }
   return(res)
-}
-
-#' get api_key_id
-#'
-#' @importFrom httr GET add_headers content
-#' @importFrom tibble as_tibble
-#' @importFrom tidyr unnest
-#' @return a [tibble][tibble::tibble-package] cols name, api_key_id
-#' @export
-get_key_id <- function() {
-  . <- NULL
-  tar <- "https://api.sendgrid.com/v3/api_keys"
-  ahd <-
-    httr::add_headers(
-      "Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
-      "content-type" = "application/json"
-    )
-  api_key_id <-
-    httr::GET(tar, ahd) %>%
-    httr::content() %>%
-    .$result %>%
-    do.call(rbind, .) %>%
-    data.frame() %>%
-    tidyr::unnest(cols = c("name", "api_key_id")) %>%
-    tibble::as_tibble()
-
-  return(api_key_id)
 }
