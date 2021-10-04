@@ -20,6 +20,6 @@ sg_mail class with from mail address.
 from
 }
 \examples{
- mail() \%>\%
-   from("mrchypark@gmail.com")
+mail() \%>\%
+  from("mrchypark@gmail.com")
 }

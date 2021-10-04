@@ -1,6 +1,5 @@
-#' @importFrom jsonlite unbox
 
-#' Add dynamic tempalte data
+#' Add dynamic template data
 #'
 #' @param sg_mail (required) mail object from package
 #' @param tbl A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
@@ -22,8 +21,6 @@ dynamic_template_data <- function(sg_mail, tbl) {
     stop("please check sg_mail class")
   }
 
-  names(tbl) <- glue::glue("%{names(tbl)}%")
-
   sg_mail$personalizations[["dynamic_template_data"]] <- tbl
 
   return(sg_mail)
@@ -35,12 +32,12 @@ dynamic_template_data <- function(sg_mail, tbl) {
 #'
 #' @return sg_mail class.
 #' @examples
-#'   mail()
+#' mail()
 #' @export
 mail <- function() {
   res <- list(
-    personalizations = list(),
     from = "",
+    personalizations = list(),
     subject = "",
     content = list()
   )
@@ -83,14 +80,14 @@ address <- function(locate) {
 #' @param name (optional)name for email address.
 #' @return sg_mail class with mail address.
 #' @examples
-#'  mail() %>%
-#'    to("mrchypark@gmail.com")
+#' mail() %>%
+#'   to("mrchypark@gmail.com")
 #'
-#'  mail() %>%
-#'    cc("mrchypark@gmail.com")
+#' mail() %>%
+#'   cc("mrchypark@gmail.com")
 #'
-#'  mail() %>%
-#'    bcc("mrchypark@gmail.com")
+#' mail() %>%
+#'   bcc("mrchypark@gmail.com")
 #' @name address
 NULL
 
@@ -114,8 +111,8 @@ bcc <- address("bcc")
 #' @export
 #' @return sg_mail class with from mail address.
 #' @examples
-#'  mail() %>%
-#'    from("mrchypark@gmail.com")
+#' mail() %>%
+#'   from("mrchypark@gmail.com")
 from <- function(sg_mail, email, name = "") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
@@ -124,8 +121,10 @@ from <- function(sg_mail, email, name = "") {
     stop("please check email address.")
   }
   mail_list <-
-    list(email = jsonlite::unbox(email),
-         name = jsonlite::unbox(name))
+    list(
+      email = jsonlite::unbox(email),
+      name = jsonlite::unbox(name)
+    )
   sg_mail[["from"]] <- mail_list
   return(sg_mail)
 }
@@ -137,8 +136,8 @@ from <- function(sg_mail, email, name = "") {
 #' @export
 #' @return sg_mail class with subject.
 #' @examples
-#'  mail() %>%
-#'    subject("mrchypark@gmail.com")
+#' mail() %>%
+#'   subject("mrchypark@gmail.com")
 subject <- function(sg_mail, subject) {
   sg_mail[["subject"]] <- jsonlite::unbox(subject)
   return(sg_mail)
@@ -153,8 +152,8 @@ subject <- function(sg_mail, subject) {
 #' @export
 #'
 #' @examples
-#'  mail() %>%
-#'    template_id("foo")
+#' mail() %>%
+#'   template_id("foo")
 template_id <- function(sg_mail, template_id) {
   sg_mail[["template_id"]] <- jsonlite::unbox(template_id)
   return(sg_mail)
@@ -167,16 +166,18 @@ template_id <- function(sg_mail, template_id) {
 #' @param type content type. text/html is default.
 #' @return sg_mail class with body content.
 #' @examples
-#'  mail() %>%
-#'    body("mrchypark@gmail.com")
+#' mail() %>%
+#'   body("mrchypark@gmail.com")
 #' @export
 body <- function(sg_mail, body, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
   }
-  body <- data.frame(type = type,
-                     value = read(body),
-                     stringsAsFactors = F)
+  body <- data.frame(
+    type = type,
+    value = read(body),
+    stringsAsFactors = F
+  )
   sg_mail[["content"]] <- body
   return(sg_mail)
 }
@@ -209,9 +210,9 @@ read <- function(content) {
 #' @return sg_mail class with attachments.
 #' @examples
 #' \dontrun{
-#'  mail() %>%
-#'    attachments("sendgridr.docx")
-#'    }
+#' mail() %>%
+#'   attachments("sendgridr.docx")
+#' }
 #' @export
 attachments <- function(sg_mail, path, name) {
   . <- Extension <- NULL
@@ -252,8 +253,10 @@ attachments <- function(sg_mail, path, name) {
 }
 
 email_chk <- function(email) {
-  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
-        email)
+  grepl(
+    "^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
+    email
+  )
 }
 
 sg_mail_chk <- function(sg_mail) {

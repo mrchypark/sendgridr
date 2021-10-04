@@ -46,7 +46,7 @@ use_dependency <- function(package, type, version = "*") {
 
   if (
     !any(existing_dep) ||
-    (existing_type != "LinkingTo" && type == "LinkingTo")
+      (existing_type != "LinkingTo" && type == "LinkingTo")
   ) {
     done("Adding {value(package)} to {field(type)} field in DESCRIPTION")
     desc::desc_set_dep(package, type, version = version, file = proj_get())

@@ -2,7 +2,7 @@
 % Please edit documentation in R/set_mail.R
 \name{dynamic_template_data}
 \alias{dynamic_template_data}
-\title{Add dynamic tempalte data}
+\title{Add dynamic template data}
 \usage{
 dynamic_template_data(sg_mail, tbl)
 }
@@ -15,7 +15,7 @@ dynamic_template_data(sg_mail, tbl)
 
 }
 \description{
-Add dynamic tempalte data
+Add dynamic template data
 }
 \examples{
 sub_tbl <-

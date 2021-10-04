@@ -21,7 +21,7 @@ attachments
 }
 \examples{
 \dontrun{
- mail() \%>\%
-   attachments("sendgridr.docx")
-   }
+mail() \%>\%
+  attachments("sendgridr.docx")
+}
 }

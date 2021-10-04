@@ -12,24 +12,28 @@
 #'   from("example1@mail.com", "example name for display") %>%
 #'   to("example2@mail.com", "example name for display 2") %>%
 #'   subject("test mail title") %>%
-#'   body("hello world!")  %>%
-#' ## attachments is optional
+#'   body("hello world!") %>%
+#'   ## attachments is optional
 #'   attachments("report.html") %>%
 #'   send()
-#'   }
+#' }
 #' @export
 send <- function(mail) {
   tar <- "https://api.sendgrid.com/v3/mail/send"
   ahd <-
-    httr::add_headers("Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
-                      "content-type" = "application/json")
+    httr::add_headers(
+      "Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
+      "content-type" = "application/json"
+    )
 
   body <- jsonlite::toJSON(mail)
-  body <- gsub('substitutions":\\[', 'substitutions":', body)
-  body <- gsub('],"to"', ',"to"', body)
 
+  # Remove brackets around `dynamic_template_data`
+  body <- gsub('dynamic_template_data":\\[', 'dynamic_template_data":', body)
+  body <- gsub(']},"subject"', '}],"subject"', body)
+
+  # Add brackets around `personalizations`
   body <- gsub('personalizations":', 'personalizations":[', body)
-  body <- gsub(',"from"', '],"from"', body)
 
   res <-
     httr::POST(tar, ahd, body = body) %>%
@@ -39,8 +43,6 @@ send <- function(mail) {
   }
   return(res)
 }
-
-
 
 #' get api_key_id
 #'
@@ -53,8 +55,10 @@ get_key_id <- function() {
   . <- NULL
   tar <- "https://api.sendgrid.com/v3/api_keys"
   ahd <-
-    httr::add_headers("Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
-                      "content-type" = "application/json")
+    httr::add_headers(
+      "Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
+      "content-type" = "application/json"
+    )
   api_key_id <-
     httr::GET(tar, ahd) %>%
     httr::content() %>%

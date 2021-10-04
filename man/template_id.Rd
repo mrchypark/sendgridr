@@ -18,6 +18,6 @@ template_id(sg_mail, template_id)
 template id
 }
 \examples{
- mail() \%>\%
-   template_id("foo")
+mail() \%>\%
+  template_id("foo")
 }

@@ -21,9 +21,9 @@ mail() \%>\%
   from("example1@mail.com", "example name for display") \%>\%
   to("example2@mail.com", "example name for display 2") \%>\%
   subject("test mail title") \%>\%
-  body("hello world!")  \%>\%
-## attachments is optional
+  body("hello world!") \%>\%
+  ## attachments is optional
   attachments("report.html") \%>\%
   send()
-  }
+}
 }
