@@ -1,3 +1,37 @@
+#' @importFrom jsonlite unbox
+
+#' Add substituions
+#'
+#' @param tbl A dataframe. Column names will become the key names for your substitions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/for-developers/sending-email/personalizations})
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' sub_tbl <-
+#'   tibble(
+#'     first_name = "Amanda",
+#'     link = "foo"
+#'   )
+#'
+#' mail() %>%
+#'   substitutions(sub_tbl)
+substitutions <- function(sg_mail, tbl) {
+
+  names(tbl) <- glue::glue("%{names(tbl)}%")
+
+  subs <-
+    tibble(
+      substituions =
+        tbl %>%
+        list()
+    )
+
+  sg_mail$personalizations[["substituions"]] <- subs
+
+  return(sg_mail)
+}
+
 #' Set mail class for Sendgrid
 #'
 #' New mail class for sendgrid.
@@ -17,7 +51,6 @@ mail <- function() {
   return(res)
 }
 
-#' @importFrom jsonlite unbox
 address <- function(locate) {
   func <- function(sg_mail, email, name = "") {
     if (!sg_mail_chk(sg_mail)) {
@@ -86,7 +119,6 @@ bcc <- address("bcc")
 #' @examples
 #'  mail() %>%
 #'    from("mrchypark@gmail.com")
-#' @importFrom jsonlite unbox
 from <- function(sg_mail, email, name = "") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
@@ -110,10 +142,24 @@ from <- function(sg_mail, email, name = "") {
 #' @examples
 #'  mail() %>%
 #'    subject("mrchypark@gmail.com")
-#' @importFrom jsonlite unbox
-
 subject <- function(sg_mail, subject) {
   sg_mail[["subject"]] <- jsonlite::unbox(subject)
+  return(sg_mail)
+}
+
+#' template id
+#'
+#' @param sg_mail (required) mail object from package
+#' @param template_id (required) template_id
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'  mail() %>%
+#'    template_id("foo")
+template_id <- function(sg_mail, template_id) {
+  sg_mail[["template_id"]] <- jsonlite::unbox(template_id)
   return(sg_mail)
 }
 
@@ -144,7 +190,7 @@ read <- function(content) {
   if (is.character(content)) {
     chk <- stringr::str_sub(content, 1, 10000)
   } else {
-    stop("content can contains characters only")
+    stop("content can contain characters only")
   }
   if (fs::is_file(chk)) {
     content <- readLines(content)
