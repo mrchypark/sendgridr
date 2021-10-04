@@ -1,8 +1,9 @@
 #' @importFrom jsonlite unbox
 
-#' Add substituions
+#' Add dynamic tempalte data
 #'
-#' @param tbl A dataframe. Column names will become the key names for your substitions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/for-developers/sending-email/personalizations})
+#' @param sg_mail (required) mail object from package
+#' @param tbl A dataframe. Column names will become the key names for your substitutions. The values will become the values they're assinged. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
 #'
 #' @return
 #' @export
@@ -15,19 +16,15 @@
 #'   )
 #'
 #' mail() %>%
-#'   substitutions(sub_tbl)
-substitutions <- function(sg_mail, tbl) {
+#'   dynamic_template_data(sub_tbl)
+dynamic_template_data <- function(sg_mail, tbl) {
+  if (!sg_mail_chk(sg_mail)) {
+    stop("please check sg_mail class")
+  }
 
   names(tbl) <- glue::glue("%{names(tbl)}%")
 
-  subs <-
-    tibble(
-      substituions =
-        tbl %>%
-        list()
-    )
-
-  sg_mail$personalizations[["substituions"]] <- subs
+  sg_mail$personalizations[["dynamic_template_data"]] <- tbl
 
   return(sg_mail)
 }

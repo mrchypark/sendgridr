@@ -25,6 +25,9 @@ send <- function(mail) {
                       "content-type" = "application/json")
 
   body <- jsonlite::toJSON(mail)
+  body <- gsub('substitutions":\\[', 'substitutions":', body)
+  body <- gsub('],"to"', ',"to"', body)
+
   body <- gsub('personalizations":', 'personalizations":[', body)
   body <- gsub(',"from"', '],"from"', body)
 
