@@ -1,8 +1,10 @@
 # sendgridr 0.3.1
 
+* Update Docs Return value for dynamic_template_data() and template_id() function.
+
 # sendgridr 0.3.0
 
-* Add dynamic_template_data() function with @aedobbyn and tested @CurtisPetersen.
+* Add dynamic_template_data() and template_id() function with @aedobbyn and tested @CurtisPetersen.
 
 # sendgridr 0.2.4
 
