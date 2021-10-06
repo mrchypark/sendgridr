@@ -1,3 +1,5 @@
+# sendgridr 0.3.0
+
 # sendgridr 0.2.4
 
 * Add Docs for cran.
