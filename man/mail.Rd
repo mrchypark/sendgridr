@@ -13,5 +13,5 @@ sg_mail class.
 New mail class for sendgrid.
 }
 \examples{
-  mail()
+mail()
 }

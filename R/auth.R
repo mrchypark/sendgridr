@@ -6,7 +6,7 @@
 #' @export
 #' @return None
 #' @importFrom usethis edit_r_environ
-auth_set <- function(force = FALSE){
+auth_set <- function(force = FALSE) {
   if (!force) {
     res <- auth_check()
     if (res) {
@@ -20,7 +20,7 @@ auth_set <- function(force = FALSE){
   }
 
   globOrNot <- yep("Do you use this key Globally(yes) or only this project(no)?")
-  if  (globOrNot) {
+  if (globOrNot) {
     scope <- "user"
   } else {
     scope <- "project"
@@ -42,7 +42,7 @@ auth_set <- function(force = FALSE){
 #'
 #' @return TRUE/FALSE check work fine return TRUE.
 #' @export
-auth_check <- function(){
+auth_check <- function() {
   res <- c()
   keyZero <- auth_check_zero()
   keyDummy <- auth_check_dummy()
@@ -69,21 +69,22 @@ auth_check <- function(){
   return(res)
 }
 
-auth_check_zero <- function(){
+auth_check_zero <- function() {
   Sys.getenv("SENDGRID_API") == ""
 }
 
-auth_check_dummy <- function(){
+auth_check_dummy <- function() {
   Sys.getenv("SENDGRID_API") == "XXXXXXXXXXXXXXX"
 }
 
 #' @importFrom httr GET add_headers status_code
 auth_check_work <- function() {
-
   res <- c()
   tar <- "https://api.sendgrid.com/v3/api_keys"
-  ahd <- httr::add_headers("Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
-                     "content-type" = "application/json")
+  ahd <- httr::add_headers(
+    "Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
+    "content-type" = "application/json"
+  )
   chk <- httr::status_code(httr::GET(tar, ahd))
   if (chk == 200) {
     res <- TRUE

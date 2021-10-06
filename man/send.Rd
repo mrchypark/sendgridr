@@ -17,13 +17,22 @@ Send mail with mail content.
 }
 \examples{
 \dontrun{
+
+data_lst <-
+  list(
+    total = "$239.85",
+    name = "Sample Name"
+  )
+
 mail() \%>\%
   from("example1@mail.com", "example name for display") \%>\%
   to("example2@mail.com", "example name for display 2") \%>\%
+  dynamic_template_data(data_lst) \%>\%
+  template_id(template_id) \%>\%
   subject("test mail title") \%>\%
-  body("hello world!")  \%>\%
-## attachments is optional
+  body("hello world!") \%>\%
+  ## attachments is optional
   attachments("report.html") \%>\%
   send()
-  }
+}
 }

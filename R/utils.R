@@ -1,5 +1,7 @@
 # code from usethis/R/utils.R v1.4.0.9000
 
+#' @importFrom jsonlite unbox
+
 ## returns TRUE if user selects answer corresponding to `true_for`
 ## returns FALSE if user selects other answer or enters 0
 ## errors in non-interactive() session

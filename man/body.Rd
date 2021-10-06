@@ -20,6 +20,6 @@ sg_mail class with body content.
 body
 }
 \examples{
- mail() \%>\%
-   body("mrchypark@gmail.com")
+mail() \%>\%
+  body("mrchypark@gmail.com")
 }

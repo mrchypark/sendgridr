@@ -16,27 +16,29 @@ print.sg_mail <- function(x) {
         if (is.null(x$personalizations[[i]][[j]]$name)) {
           address <- x$personalizations[[i]][[j]]$email
         } else {
-          address <- paste0(x$personalizations[[i]][[j]]$name,
-                            " <",
-                            x$personalizations[[i]][[j]]$email,
-                            ">")
+          address <- paste0(
+            x$personalizations[[i]][[j]]$name,
+            " <",
+            x$personalizations[[i]][[j]]$email,
+            ">"
+          )
         }
-        address_list <- paste0(address_list, ", ",address)
+        address_list <- paste0(address_list, ", ", address)
         cnt <- j
       }
-      address_list <- gsub("^, ","",address_list)
+      address_list <- gsub("^, ", "", address_list)
       if (locate == "to") {
         text <-
-          paste0("  ", locate, "     : cnt[",cnt,"] ", address_list)
+          paste0("  ", locate, "     : cnt[", cnt, "] ", address_list)
         done(console_print(text))
       } else {
         if (locate == "cc") {
           text <-
-            paste0("  ", locate, "     : cnt[",cnt,"] ", address_list)
+            paste0("  ", locate, "     : cnt[", cnt, "] ", address_list)
           option(console_print(text))
         } else {
           text <-
-            paste0("  ", locate, "    : cnt[",cnt,"] ", address_list)
+            paste0("  ", locate, "    : cnt[", cnt, "] ", address_list)
           option(console_print(text))
         }
       }
@@ -50,8 +52,10 @@ print.sg_mail <- function(x) {
     if (is.null(x$from$name)) {
       address <- x$from$email
     } else {
-      address <- paste0(x$from$name, " <",
-                        x$from$email, ">")
+      address <- paste0(
+        x$from$name, " <",
+        x$from$email, ">"
+      )
     }
     done("  from   : ", address)
   }
@@ -70,11 +74,13 @@ print.sg_mail <- function(x) {
     need("  content: (required)")
   } else {
     text <-
-      paste0("  content: ",
-             "nchr[",
-             nchar(x$content$value),
-             "] ",
-             x$content$value)
+      paste0(
+        "  content: ",
+        "nchr[",
+        nchar(x$content$value),
+        "] ",
+        x$content$value
+      )
     done(console_print(text))
   }
 
@@ -82,10 +88,9 @@ print.sg_mail <- function(x) {
   if (!is.null(x$attachments)) {
     attached <- paste0(x$attachments$filename, collapse = ", ")
     cnt <- length(x$attachments$filename)
-    text <- paste0("attached : ", "cnt[",cnt,"] ",attached)
+    text <- paste0("attached : ", "cnt[", cnt, "] ", attached)
     option(console_print(text))
   }
-
 }
 
 

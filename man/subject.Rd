@@ -18,6 +18,6 @@ sg_mail class with subject.
 subject
 }
 \examples{
- mail() \%>\%
-   subject("mrchypark@gmail.com")
+mail() \%>\%
+  subject("mrchypark@gmail.com")
 }

@@ -27,12 +27,12 @@ sg_mail class with mail address.
 to(), cc(), bcc() is for set email address to sg_mail class
 }
 \examples{
- mail() \%>\%
-   to("mrchypark@gmail.com")
+mail() \%>\%
+  to("mrchypark@gmail.com")
 
- mail() \%>\%
-   cc("mrchypark@gmail.com")
+mail() \%>\%
+  cc("mrchypark@gmail.com")
 
- mail() \%>\%
-   bcc("mrchypark@gmail.com")
+mail() \%>\%
+  bcc("mrchypark@gmail.com")
 }
