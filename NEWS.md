@@ -1,5 +1,7 @@
 # sendgridr 0.3.0
 
+* Add dynamic_template_data() function with @aedobbyn and tested @CurtisPetersen.
+
 # sendgridr 0.2.4
 
 * Add Docs for cran.
