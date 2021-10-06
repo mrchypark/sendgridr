@@ -1,5 +1,7 @@
 # sendgridr 0.3.2
 
+* Fix url on description file.
+
 # sendgridr 0.3.1
 
 * Update Docs Return value for dynamic_template_data() and template_id() function.

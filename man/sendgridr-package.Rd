@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
 
-Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://sendgrid.com/docs/api-reference/>.
+Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 }
 \seealso{
 Useful links:
