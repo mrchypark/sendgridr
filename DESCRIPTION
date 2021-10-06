@@ -1,12 +1,12 @@
 Package: sendgridr
 Title: Mail Sender Using 'Sendgrid' Service
-Version: 0.3.1
+Version: 0.3.2
 Authors@R: person(given = "Chanyub",
              family = "Park",
              role = c("aut","cre"),
              email = "mrchypark@gmail.com",
              comment = c(ORCID = "0000-0001-6474-2570"))
-Description: Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://sendgrid.com/docs/api-reference/>.
+Description: Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 License: MIT + file LICENSE
 URL: https://github.com/mrchypark/sendgridr
 BugReports: https://github.com/mrchypark/sendgridr/issues
