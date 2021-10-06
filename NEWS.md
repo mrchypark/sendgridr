@@ -1,3 +1,5 @@
+# sendgridr 0.3.1
+
 # sendgridr 0.3.0
 
 * Add dynamic_template_data() function with @aedobbyn and tested @CurtisPetersen.
