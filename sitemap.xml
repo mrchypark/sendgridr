@@ -19,10 +19,10 @@
     <loc>https://mrchypark.github.io/sendgridr/reference/body.html</loc>
   </url>
   <url>
-    <loc>https://mrchypark.github.io/sendgridr/reference/from.html</loc>
+    <loc>https://mrchypark.github.io/sendgridr/reference/dynamic_template_data.html</loc>
   </url>
   <url>
-    <loc>https://mrchypark.github.io/sendgridr/reference/get_key_id.html</loc>
+    <loc>https://mrchypark.github.io/sendgridr/reference/from.html</loc>
   </url>
   <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/mail.html</loc>
@@ -38,5 +38,8 @@
   </url>
   <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/subject.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/reference/template_id.html</loc>
   </url>
 </urlset>

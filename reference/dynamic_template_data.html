@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>body — body • sendgridr</title>
+<title>Add dynamic template data — dynamic_template_data • sendgridr</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="body — body" />
-<meta property="og:description" content="body" />
+<meta property="og:title" content="Add dynamic template data — dynamic_template_data" />
+<meta property="og:description" content="template_id must be included for this data to be applied." />
 <meta property="og:image" content="https://mrchypark.github.io/sendgridr/logo.png" />
 
 
@@ -129,53 +129,63 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>body</h1>
+    <h1>Add dynamic template data</h1>
     <small class="dont-index">Source: <a href='https://github.com/mrchypark/sendgridr/blob/master/R/set_mail.R'><code>R/set_mail.R</code></a></small>
-    <div class="hidden name"><code>body.Rd</code></div>
+    <div class="hidden name"><code>dynamic_template_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>body</p>
+    <p><code>template_id</code> must be included for this data to be applied.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>body</span><span class='op'>(</span><span class='va'>sg_mail</span>, <span class='va'>body</span>, type <span class='op'>=</span> <span class='st'>"text/html"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>dynamic_template_data</span><span class='op'>(</span><span class='va'>sg_mail</span>, <span class='va'>lst</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>sg_mail</th>
-      <td><p>(required)mail object from package</p></td>
+      <td><p>(required) mail object from package</p></td>
     </tr>
     <tr>
-      <th>body</th>
-      <td><p>(required)mail content html support.</p></td>
-    </tr>
-    <tr>
-      <th>type</th>
-      <td><p>content type. text/html is default.</p></td>
+      <th>lst</th>
+      <td><p>A key-value list for template data. (See <a href='https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates'>https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates</a>)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>sg_mail class with body content.</p>
+    
+
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>body</span><span class='op'>(</span><span class='st'>"mrchypark@gmail.com"</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>data_lst</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
+    first_name <span class='op'>=</span> <span class='st'>"Amanda"</span>,
+    link <span class='op'>=</span> <span class='st'>"foo"</span>
+  <span class='op'>)</span>
+
+<span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dynamic_template_data</span><span class='op'>(</span><span class='va'>data_lst</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $from
 #&gt; [1] ""
 #&gt; 
 #&gt; $personalizations
-#&gt; list()
+#&gt; $personalizations$dynamic_template_data
+#&gt; $personalizations$dynamic_template_data$first_name
+#&gt; [1] "Amanda"
+#&gt; 
+#&gt; $personalizations$dynamic_template_data$link
+#&gt; [1] "foo"
+#&gt; 
+#&gt; 
 #&gt; 
 #&gt; $subject
 #&gt; [1] ""
 #&gt; 
 #&gt; $content
-#&gt;        type               value
-#&gt; 1 text/html mrchypark@gmail.com
+#&gt; list()
 #&gt; 
 #&gt; attr(,"class")
 #&gt; [1] "sg_mail" "list"   </div></pre>
