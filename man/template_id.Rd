@@ -12,7 +12,7 @@ template_id(sg_mail, template_id)
 \item{template_id}{(required) template_id}
 }
 \value{
-
+sg_mail class with template id.
 }
 \description{
 Create dynamic templates at \url{https://mc.sendgrid.com/dynamic-templates}

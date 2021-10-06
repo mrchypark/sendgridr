@@ -109,7 +109,7 @@ from <- function(sg_mail, email, name = "") {
 #' @param sg_mail (required) mail object from package
 #' @param lst A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
 #'
-#' @return
+#' @return sg_mail class with template data for dynamic transactional templates
 #' @export
 #'
 #' @examples
@@ -152,7 +152,7 @@ subject <- function(sg_mail, subject) {
 #' @param sg_mail (required) mail object from package
 #' @param template_id (required) template_id
 #'
-#' @return
+#' @return sg_mail class with template id.
 #' @export
 #'
 #' @examples
