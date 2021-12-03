@@ -19,3 +19,4 @@
 ^post_commit$
 ^\.all-contributorsrc$
 gtest.*
+^pkgdown$

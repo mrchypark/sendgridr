@@ -5,7 +5,7 @@
 #' @param mail mail object
 #' @importFrom httr POST add_headers content
 #' @importFrom jsonlite toJSON
-#' @return [list] if success, success message. and error, please check <https://sendgrid.com/docs/api-reference/>.
+#' @return [list] if success, success message. and error, please check <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 #' @examples
 #' \dontrun{
 #'

@@ -10,7 +10,7 @@ send(mail)
 \item{mail}{mail object}
 }
 \value{
-\link{list} if success, success message. and error, please check \url{https://sendgrid.com/docs/api-reference/}.
+\link{list} if success, success message. and error, please check \url{https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication}.
 }
 \description{
 Send mail with mail content.

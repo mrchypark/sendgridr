@@ -187,17 +187,13 @@ body <- function(sg_mail, body, type = "text/html") {
 }
 
 #' @importFrom fs is_file
-#' @importFrom stringr str_sub
 read <- function(content) {
-  if (is.character(content)) {
-    chk <- stringr::str_sub(content, 1, 10000)
-  } else {
+  if (!is.character(content)) {
     stop("content can contain characters only")
   }
-  if (fs::is_file(chk)) {
+  if (fs::is_file(content)) {
     content <- readLines(content)
     content <- paste0(content, collapse = "\n")
-    # content <- juicer::juice(content)
   }
   content <- as.character(content)
   return(content)
@@ -208,6 +204,7 @@ read <- function(content) {
 #' @param sg_mail (required)mail object from package
 #' @param path (required)file path to attach
 #' @param name file name. default is path's file name
+#' @param content_id content id. default is Null.
 #' @importFrom base64enc base64encode
 #' @importFrom fs is_file
 #' @importFrom dplyr filter
@@ -218,8 +215,8 @@ read <- function(content) {
 #'   attachments("sendgridr.docx")
 #' }
 #' @export
-attachments <- function(sg_mail, path, name) {
-  . <- Extension <- NULL
+attachments <- function(sg_mail, path, name, content_id) {
+  . <- Name <- NULL
 
   if (!fs::is_file(path)) {
     stop("Please make sure it is the correct file path.")
@@ -228,8 +225,8 @@ attachments <- function(sg_mail, path, name) {
   exten <- strsplit(path, ".", fixed = T)[[1]]
   exten <- tolower(exten[length(exten)])
   mime_types %>%
-    dplyr::filter(grepl(paste0("^.", exten, "$"), Extension)) %>%
-    .$`MIME Type` -> type
+    dplyr::filter(grepl(paste0("^", exten, "$"), Name)) %>%
+    .$Template -> type
 
   if (identical(type, character(0))) {
     type <- "application/octet-stream"
@@ -244,13 +241,17 @@ attachments <- function(sg_mail, path, name) {
   }
 
   attached <- sg_mail[["attachments"]]
-  if (is.null(attached)) {
+  if (missing(content_id)) {
     attachments <-
       data.frame(content, filename, type, stringsAsFactors = F)
+  } else {
+    disposition <- "inline"
+    attachments <-
+      data.frame(content, filename, type, disposition, content_id, stringsAsFactors = F)
+  }
+  if (is.null(attached)) {
     sg_mail[["attachments"]] <- attachments
   } else {
-    attachments <-
-      data.frame(content, filename, type, stringsAsFactors = F)
     sg_mail[["attachments"]] <- rbind(attached, attachments)
   }
   return(sg_mail)
