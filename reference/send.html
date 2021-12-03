@@ -90,7 +90,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">sendgridr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -151,29 +151,29 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><a href='https://rdrr.io/r/base/list.html'>list</a> if success, success message. and error, please check <a href='https://sendgrid.com/docs/api-reference/'>https://sendgrid.com/docs/api-reference/</a>.</p>
+    <p><a href='https://rdrr.io/r/base/list.html'>list</a> if success, success message. and error, please check <a href='https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication'>https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-
-<span class='va'>data_lst</span> <span class='op'>&lt;-</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>
-    total <span class='op'>=</span> <span class='st'>"$239.85"</span>,
-    name <span class='op'>=</span> <span class='st'>"Sample Name"</span>
-  <span class='op'>)</span>
-
-<span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='from.html'>from</a></span><span class='op'>(</span><span class='st'>"example1@mail.com"</span>, <span class='st'>"example name for display"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='address.html'>to</a></span><span class='op'>(</span><span class='st'>"example2@mail.com"</span>, <span class='st'>"example name for display 2"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='dynamic_template_data.html'>dynamic_template_data</a></span><span class='op'>(</span><span class='va'>data_lst</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='template_id.html'>template_id</a></span><span class='op'>(</span><span class='va'>template_id</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='subject.html'>subject</a></span><span class='op'>(</span><span class='st'>"test mail title"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='body.html'>body</a></span><span class='op'>(</span><span class='st'>"hello world!"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='co'>## attachments is optional</span>
-  <span class='fu'><a href='attachments.html'>attachments</a></span><span class='op'>(</span><span class='st'>"report.html"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>send</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>data_lst</span> <span class='op'>&lt;-</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span></span>
+<span class='r-in'>    total <span class='op'>=</span> <span class='st'>"$239.85"</span>,</span>
+<span class='r-in'>    name <span class='op'>=</span> <span class='st'>"Sample Name"</span></span>
+<span class='r-in'>  <span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'><a href='mail.html'>mail</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='from.html'>from</a></span><span class='op'>(</span><span class='st'>"example1@mail.com"</span>, <span class='st'>"example name for display"</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='address.html'>to</a></span><span class='op'>(</span><span class='st'>"example2@mail.com"</span>, <span class='st'>"example name for display 2"</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='dynamic_template_data.html'>dynamic_template_data</a></span><span class='op'>(</span><span class='va'>data_lst</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='template_id.html'>template_id</a></span><span class='op'>(</span><span class='va'>template_id</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='subject.html'>subject</a></span><span class='op'>(</span><span class='st'>"test mail title"</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='body.html'>body</a></span><span class='op'>(</span><span class='st'>"hello world!"</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='co'>## attachments is optional</span></span>
+<span class='r-in'>  <span class='fu'><a href='attachments.html'>attachments</a></span><span class='op'>(</span><span class='st'>"report.html"</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>send</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
