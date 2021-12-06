@@ -4,6 +4,7 @@
 #' New mail class for sendgrid.
 #'
 #' @return sg_mail class.
+#' @importFrom jsonlite unbox
 #' @examples
 #' mail()
 #' @export
@@ -14,7 +15,7 @@ mail <- function() {
     subject = "",
     content = list()
   )
-  class(res) <- c("sg_mail", "list")
+  class(res) <- "sg_mail"
   return(res)
 }
 
@@ -29,9 +30,9 @@ address <- function(locate) {
     loc_group <- sg_mail$personalizations[[locate]]
 
     if (name == "") {
-      mail_list <- list(email = unbox(email))
+      mail_list <- list(email = jsonlite::unbox(email))
     } else {
-      mail_list <- list(email = unbox(email), name = unbox(name))
+      mail_list <- list(email = jsonlite::unbox(email), name = jsonlite::unbox(name))
     }
 
     loc_group[[length(loc_group) + 1]] <- mail_list

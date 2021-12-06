@@ -3,31 +3,31 @@
 #' If run code, open .Renviron file for set api key.
 #'
 #' @param force force set api key process. defualt is FALSE.
+#' @importFrom usethis edit_r_environ ui_todo ui_value ui_nope ui_code_block ui_yeah
 #' @export
 #' @return None
-#' @importFrom usethis edit_r_environ
 auth_set <- function(force = FALSE) {
   if (!force) {
     res <- auth_check()
     if (res) {
-      return(invisible())
+      return()
     }
   }
-  hasKey <- nope("Do you have sendgrid api key?")
+  hasKey <- usethis::ui_nope("Do you have sendgrid api key?")
   if (hasKey) {
     view_url("https://app.sendgrid.com/settings/api_keys")
-    todo("Create your API Key at ", value("https://app.sendgrid.com/settings/api_keys"))
+    usethis::ui_todo("Create your API Key at {usethis::ui_value('https://app.sendgrid.com/settings/api_keys')}")
   }
 
-  globOrNot <- yep("Do you use this key Globally(yes) or only this project(no)?")
+  globOrNot <- usethis::ui_yeah("Do you use this key Globally(yes) or only this project(no)?")
   if (globOrNot) {
     scope <- "user"
   } else {
     scope <- "project"
   }
 
-  todo("Add your api key in .Renviron like below code block")
-  code_block(
+  usethis::ui_todo("Add your api key in .Renviron like below code block")
+  usethis::ui_code_block(
     "SENDGRID_API=XXXXXXXXXXXXXXX",
     copy = FALSE
   )
@@ -41,27 +41,28 @@ auth_set <- function(force = FALSE) {
 #' Function works using auth_check_zero(), auth_check_dummy(), auth_check_work().
 #'
 #' @return TRUE/FALSE check work fine return TRUE.
+#' @importFrom usethis ui_todo ui_value ui_done ui_info
 #' @export
 auth_check <- function() {
   res <- c()
   keyZero <- auth_check_zero()
   keyDummy <- auth_check_dummy()
   if (keyZero) {
-    unset("Api key is unset")
+    usethis::ui_info("Api key is unset")
     res <- FALSE
   } else {
     if (keyDummy) {
-      unset("Api key is set dummy XXXXXXXXXXXXXXX")
+      usethis::ui_info("Api key is set dummy XXXXXXXXXXXXXXX")
       res <- TRUE
     } else {
       keyWork <- auth_check_work()
       if (keyWork) {
-        done("Api key for Authorization works")
+        usethis::ui_done("Api key for Authorization works")
         res <- TRUE
       } else {
-        todo("Api key set but not working")
-        todo("Please set right api key")
-        todo("If you want to set new api key, rerun ", value("auth_set(force = T)"))
+        usethis::ui_todo("Api key set but not working")
+        usethis::ui_todo("Please set right api key")
+        usethis::ui_todo("If you want to set new api key, rerun {usethis::ui_value('auth_set(force = T)')}")
         res <- TRUE
       }
     }
