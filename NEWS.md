@@ -1,3 +1,5 @@
+# sendgridr 0.4.0
+
 # sendgridr 0.3.4
 
 * Fix print function for sg_mail class.
