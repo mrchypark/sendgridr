@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">sendgridr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Add dynamic template data</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mrchypark/sendgridr/blob/HEAD/R/set_mail.R" class="external-link"><code>R/set_mail.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mrchypark/sendgridr/blob/HEAD/R/dynamic-templates.R" class="external-link"><code>R/dynamic-templates.R</code></a></small>
       <div class="d-none name"><code>dynamic_template_data.Rd</code></div>
     </div>
 
@@ -57,14 +57,14 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dynamic_template_data</span><span class="op">(</span><span class="va">sg_mail</span>, <span class="va">lst</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dynamic_template_data</span><span class="op">(</span><span class="va">sg_mail</span>, <span class="va">data</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>sg_mail</dt>
 <dd><p>(required) mail object from package</p></dd>
-<dt>lst</dt>
+<dt>data</dt>
 <dd><p>A key-value list for template data. (See <a href="https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates" class="external-link">https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates</a>)</p></dd>
 </dl></div>
     <div class="section level2">
@@ -81,11 +81,19 @@
 <span class="r-in">  <span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="template_id.html">template_id</a></span><span class="op">(</span><span class="st">"d-4ad23ad40a0e47d0a0232b85f24ca5c2"</span><span class="op">)</span><span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu">dynamic_template_data</span><span class="op">(</span><span class="va">data_lst</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> SendGrid Mail - </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span>   from   : (required)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span>   to     : (required)</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> $ operator is invalid for atomic vectors</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span>   subject: (required)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span>   template_id: nchr[34] d-4ad23ad40a0e47d0a0232b85f24ca5c2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span>     data: json below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "first_name": "Amanda",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "link": "foo"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> } </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #C6C6C6;">✔</span>   attach : (optional)</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
