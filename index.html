@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Send email using Sendgrid &lt;https://sendgrid.com/&gt; 
+            mail API(v3) &lt;https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication&gt;.">
 <title>Mail Sender Using Sendgrid Service • sendgridr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -12,12 +14,12 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Noto%20Sans-0.4.0/font.css" rel="stylesheet">
+<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Mail Sender Using Sendgrid Service">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Mail Sender Using Sendgrid Service">
 <meta property="og:description" content="Send email using Sendgrid &lt;https://sendgrid.com/&gt; 
             mail API(v3) &lt;https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication&gt;.">
 <meta property="og:image" content="https://mrchypark.github.io/sendgridr/logo.png">
@@ -32,94 +34,86 @@
   gtag('config', 'UA-47822682-14');
 </script>
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">sendgridr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+    
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">sendgridr</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.4</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-2">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="news/index.html">Changelog</a>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/mrchypark/sendgridr/">
-    <span class="fab fa-github fa-lg"></span>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/mrchypark/sendgridr/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="sendgridr-">sendgridr <a class="anchor" aria-label="anchor" href="#sendgridr-"></a>
+</h1>
 </div>
-<!--/.navbar -->
-
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div id="sendgridr-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#sendgridr-" class="anchor"></a>sendgridr <img src="reference/figures/logo.png" align="right" height="140/">
-</h1></div>
 <!-- badges: start -->
 
 <p>The goal of sendgridr is to mail using r with sendgrid service that provides free 100 mail per day forever.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<div id="cran" class="section level3">
-<h3 class="hasAnchor">
-<a href="#cran" class="anchor"></a>CRAN</h3>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="section level3">
+<h3 id="cran">CRAN<a class="anchor" aria-label="anchor" href="#cran"></a>
+</h3>
 <p>You can install the released version of sendgridr from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"sendgridr"</span>)</span></code></pre></div>
 </div>
-<div id="github" class="section level3">
-<h3 class="hasAnchor">
-<a href="#github" class="anchor"></a>Github</h3>
-<p>You can install the developing version of sendgridr from <a href="https://github.com/mrchypark/sendgridr">Github</a> with:</p>
+<div class="section level3">
+<h3 id="github">Github<a class="anchor" aria-label="anchor" href="#github"></a>
+</h3>
+<p>You can install the developing version of sendgridr from <a href="https://github.com/mrchypark/sendgridr" class="external-link">Github</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("remotes")</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"mrchypark/sendgridr"</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="set-api-key-for-authentication" class="section level2">
-<h2 class="hasAnchor">
-<a href="#set-api-key-for-authentication" class="anchor"></a>Set API key for authentication</h2>
+<div class="section level2">
+<h2 id="set-api-key-for-authentication">Set API key for authentication<a class="anchor" aria-label="anchor" href="#set-api-key-for-authentication"></a>
+</h2>
 <p>You can set api key env value name <code>SENDGRID_API</code>. <code><a href="reference/auth_check.html">auth_check()</a></code> function check whether key named <code>SENDGRID_API</code> is set or not, whether key is dummy or not, whether key works or not. <code><a href="reference/auth_set.html">auth_set()</a></code> function ask some questions and open browser for create api key, open .Renviron for set <code>SENDGRID_API</code> value.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">auth_check</span>()</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">auth_set</span>()</span></code></pre></div>
 </div>
-<div id="send-mail" class="section level2">
-<h2 class="hasAnchor">
-<a href="#send-mail" class="anchor"></a>Send mail</h2>
-<div id="example-code" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-code" class="anchor"></a>Example code</h3>
+<div class="section level2">
+<h2 id="send-mail">Send mail<a class="anchor" aria-label="anchor" href="#send-mail"></a>
+</h2>
+<div class="section level3">
+<h3 id="example-code">Example code<a class="anchor" aria-label="anchor" href="#example-code"></a>
+</h3>
 <p>Please replace your conditions.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">mail</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span><span class="kw">from</span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -130,13 +124,13 @@
 <span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw">attachments</span>(<span class="st">"report.html"</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw">send</span>()</span></code></pre></div>
 </div>
-<div id="sg_mail-class" class="section level3">
-<h3 class="hasAnchor">
-<a href="#sg_mail-class" class="anchor"></a>sg_mail class</h3>
+<div class="section level3">
+<h3 id="sg_mail-class">sg_mail class<a class="anchor" aria-label="anchor" href="#sg_mail-class"></a>
+</h3>
 <p><code><a href="reference/mail.html">mail()</a></code> function create sg_mail class object and also list. sg_mail class only has print method.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sendproject1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sendproject1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">sendproject1</span><span class="op">)</span>
 <span class="co">#&gt; [1] "sg_mail" "list"</span>
 <span class="va">sendproject1</span>
 <span class="co">#&gt; $personalizations</span>
@@ -156,17 +150,17 @@
 <p><img src="https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png"></p>
 <p>to, from, subject, body are required. cc, bcc, attachments are optional.</p>
 </div>
-<div id="multi--setting-using-inline" class="section level3">
-<h3 class="hasAnchor">
-<a href="#multi--setting-using-inline" class="anchor"></a>multi- setting using inline</h3>
+<div class="section level3">
+<h3 id="multi--setting-using-inline">multi- setting using inline<a class="anchor" aria-label="anchor" href="#multi--setting-using-inline"></a>
+</h3>
 <p>to, cc, bcc, attachments functions are able to set multi values.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/from.html">from</a></span><span class="op">(</span><span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/subject.html">subject</a></span><span class="op">(</span><span class="st">"test mail title"</span><span class="op">)</span> <span class="op"><a href="reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/from.html">from</a></span><span class="op">(</span><span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/subject.html">subject</a></span><span class="op">(</span><span class="st">"test mail title"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/body.html">body</a></span><span class="op">(</span><span class="st">"hello world!"</span><span class="op">)</span>
 <span class="co">#&gt; $personalizations</span>
 <span class="co">#&gt; $personalizations$to</span>
@@ -215,9 +209,9 @@
 <span class="co">#&gt; [1] "sg_mail" "list"</span></code></pre></div>
 </div>
 </div>
-<div id="todo" class="section level2">
-<h2 class="hasAnchor">
-<a href="#todo" class="anchor"></a>TODO</h2>
+<div class="section level2">
+<h2 id="todo">TODO<a class="anchor" aria-label="anchor" href="#todo"></a>
+</h2>
 <ul>
 <li>
 <input type="checkbox" disabled>
@@ -248,100 +242,108 @@ set tests</li>
 rebuild html file possible to view in gmail</li>
 </ul>
 </div>
-<div id="code-of-conduct" class="section level2">
-<h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
+<div class="section level2">
+<h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
 <p>Please note that the sendgridr project is released with a <a href="https://mrchypark.github.io/sendgridr/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
-<div id="contributors-" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributors-" class="anchor"></a>Contributors ✨</h2>
-<p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key">emoji key</a>):</p>
+<div class="section level2">
+<h2 id="contributors-">Contributors ✨<a class="anchor" aria-label="anchor" href="#contributors-"></a>
+</h2>
+<p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key" class="external-link">emoji key</a>):</p>
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table class="table"><tr>
 <td align="center">
-<a href="http://www.zarathu.com"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""><br><sub><b>Jinseob Kim</b></sub></a><br><a href="#ideas-jinseob2kim" title="Ideas, Planning, &amp; Feedback">🤔</a>
+<a href="http://www.zarathu.com" class="external-link"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""><br><sub><b>Jinseob Kim</b></sub></a><br><a href="#ideas-jinseob2kim" title="Ideas, Planning, &amp; Feedback">🤔</a>
 </td>
 <td align="center">
-<a href="http://www.getgoodtree.com"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""><br><sub><b>Carl Ganz</b></sub></a><br><a href="#ideas-carlganz" title="Ideas, Planning, &amp; Feedback">🤔</a>
+<a href="http://www.getgoodtree.com" class="external-link"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""><br><sub><b>Carl Ganz</b></sub></a><br><a href="#ideas-carlganz" title="Ideas, Planning, &amp; Feedback">🤔</a>
 </td>
 <td align="center">
-<a href="https://github.com/peter-bastian"><img src="https://avatars.githubusercontent.com/u/79409618?v=4?s=100" width="100px;" alt=""><br><sub><b>peter-bastian</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Apeter-bastian" title="Bug reports">🐛</a>
+<a href="https://github.com/peter-bastian" class="external-link"><img src="https://avatars.githubusercontent.com/u/79409618?v=4?s=100" width="100px;" alt=""><br><sub><b>peter-bastian</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Apeter-bastian" title="Bug reports" class="external-link">🐛</a>
 </td>
 <td align="center">
-<a href="https://github.com/CurtisPetersen"><img src="https://avatars.githubusercontent.com/u/13002038?v=4?s=100" width="100px;" alt=""><br><sub><b>Curtis Petersen</b></sub></a><br><a href="#ideas-CurtisPetersen" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/mrchypark/sendgridr/pulls?q=is%3Apr+reviewed-by%3ACurtisPetersen" title="Reviewed Pull Requests">👀</a>
+<a href="https://github.com/CurtisPetersen" class="external-link"><img src="https://avatars.githubusercontent.com/u/13002038?v=4?s=100" width="100px;" alt=""><br><sub><b>Curtis Petersen</b></sub></a><br><a href="#ideas-CurtisPetersen" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/mrchypark/sendgridr/pulls?q=is%3Apr+reviewed-by%3ACurtisPetersen" title="Reviewed Pull Requests" class="external-link">👀</a>
 </td>
 <td align="center">
-<a href="https://dobb.ae/"><img src="https://avatars.githubusercontent.com/u/4908283?v=4?s=100" width="100px;" alt=""><br><sub><b>Amanda Dobbyn</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code">💻</a>
+<a href="https://dobb.ae/" class="external-link"><img src="https://avatars.githubusercontent.com/u/4908283?v=4?s=100" width="100px;" alt=""><br><sub><b>Amanda Dobbyn</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code" class="external-link">💻</a>
 </td>
 </tr></table>
-<!-- markdownlint-restore --><!-- prettier-ignore-end --><!-- ALL-CONTRIBUTORS-LIST:END --><p>This project follows the <a href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+<!-- markdownlint-restore --><!-- prettier-ignore-end --><!-- ALL-CONTRIBUTORS-LIST:END --><p>This project follows the <a href="https://github.com/all-contributors/all-contributors" class="external-link">all-contributors</a> specification. Contributions of any kind welcome!</p>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=sendgridr">https://​cloud.r-project.org/​package=sendgridr</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/mrchypark/sendgridr/">https://​github.com/​mrchypark/​sendgridr/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/mrchypark/sendgridr/issues">https://​github.com/​mrchypark/​sendgridr/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=sendgridr" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/mrchypark/sendgridr/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/mrchypark/sendgridr/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing sendgridr</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Chanyub Park <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6474-2570" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Chanyub Park <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6474-2570" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/mrchypark/sendgridr/actions"><img src="https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/mrchypark/sendgridr/actions"><img src="https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg" alt="test-coverage"></a></li>
-<li><a href="https://CRAN.R-project.org/package=sendgridr"><img src="https://www.r-pkg.org/badges/version/sendgridr" alt="CRAN status"></a></li>
-<li><a href="https://cran.r-project.org/package=sendgridr"><img src="https://cranlogs.r-pkg.org/badges/sendgridr" alt="metacran downloads"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://github.com/mrchypark/sendgridr/actions" class="external-link"><img src="https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/mrchypark/sendgridr/actions" class="external-link"><img src="https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg" alt="test-coverage"></a></li>
+<li><a href="https://CRAN.R-project.org/package=sendgridr" class="external-link"><img src="https://www.r-pkg.org/badges/version/sendgridr" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=sendgridr" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/sendgridr" alt="metacran downloads"></a></li>
 </ul>
 </div>
-</div>
-</div>
 
-
-      <footer><div class="copyright">
-  <p>Developed by Chanyub Park.</p>
+  </aside>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+
+    <footer><div class="pkgdown-footer-left">
+  <p></p>
+<p>Developed by Chanyub Park.</p>
 </div>
 
-      </footer>
+<div class="pkgdown-footer-right">
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+</div>
+
+    </footer>
 </div>
 
   
 
+  
 
   </body>
 </html>

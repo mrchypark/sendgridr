@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://mrchypark.github.io/sendgridr/404.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/ISSUE_TEMPLATE.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/SUPPORT.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/authors.html</loc>
+  </url>
+  <url>
     <loc>https://mrchypark.github.io/sendgridr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/news/index.html</loc>
   </url>
   <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/address.html</loc>
@@ -25,10 +52,16 @@
     <loc>https://mrchypark.github.io/sendgridr/reference/from.html</loc>
   </url>
   <url>
+    <loc>https://mrchypark.github.io/sendgridr/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/mail.html</loc>
   </url>
   <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://mrchypark.github.io/sendgridr/reference/print.sg_mail.html</loc>
   </url>
   <url>
     <loc>https://mrchypark.github.io/sendgridr/reference/send.html</loc>
