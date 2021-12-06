@@ -1,6 +1,7 @@
 # sendgridr 0.3.4
 
-# sendgridr 0.3.3
+* Fix print function for sg_mail classasdfasdfsadf
+* Remove unused dependency packages.
 
 # sendgridr 0.3.2
 
