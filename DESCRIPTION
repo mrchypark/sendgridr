@@ -17,12 +17,10 @@ Imports:
     jsonlite,
     usethis,
     cli,
-    tidyr,
     tibble,
     base64enc,
     dplyr,
-    fs,
-    stringr
+    fs
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Depends: 

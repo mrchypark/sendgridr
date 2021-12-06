@@ -14,15 +14,15 @@ print.sg_mail <- function(x, ...) {
     if (is.null(x$from$name)) {
       address <- x$from$email
     } else {
-      address <- paste0(
-        x$from$name, " <",
-        x$from$email, ">"
-      )
+      address <- paste0(x$from$name, " <",
+        x$from$email, ">")
     }
     usethis::ui_done("  from   : ", address)
   }
 
   # print to, cc, bcc
+  per <- x
+  x$personalizations[["dynamic_template_data"]] <- NULL
   if (length(x$personalizations) == 0) {
     ui_need("  to     : (required)")
   } else {
@@ -37,12 +37,10 @@ print.sg_mail <- function(x, ...) {
         if (is.null(x$personalizations[[i]][[j]]$name)) {
           address <- x$personalizations[[i]][[j]]$email
         } else {
-          address <- paste0(
-            x$personalizations[[i]][[j]]$name,
+          address <- paste0(x$personalizations[[i]][[j]]$name,
             " <",
             x$personalizations[[i]][[j]]$email,
-            ">"
-          )
+            ">")
         }
         address_list <- paste0(address_list, ", ", address)
         cnt <- j
@@ -66,6 +64,7 @@ print.sg_mail <- function(x, ...) {
     }
   }
 
+  x <- per
   # print subject
   if (nchar(x$subject) == 0) {
     ui_need("  subject: (required)")
@@ -75,20 +74,35 @@ print.sg_mail <- function(x, ...) {
     usethis::ui_done(console_print(text))
   }
 
-  # print content
-  if (is.null(x$content$value)) {
-    ui_need("  content: (required)")
+  # check dynamic_template_data
+  if (is.null(x$template_id)) {
+    # print content
+    if (nchar(x$content$value) == 0) {
+      ui_need("  content: (required)")
+    } else {
+      text <-
+        paste0("  content: ",
+          "nchr[",
+          nchar(x$content$value),
+          "] ",
+          x$content$value)
+      usethis::ui_done(console_print(text))
+    }
   } else {
+    # print dynamic_template_data
     text <-
-      paste0(
-        "  content: ",
+      paste0("  template_id: ",
         "nchr[",
-        nchar(x$content$value),
+        nchar(x$template_id),
         "] ",
-        x$content$value
-      )
+        x$template_id)
     usethis::ui_done(console_print(text))
+    usethis::ui_done("    data: json below")
+    x$personalizations[["dynamic_template_data"]] |>
+      jsonlite::toJSON(auto_unbox = TRUE, pretty = TRUE) |>
+      print()
   }
+
 
   # print attachments
   if (is.null(x$attachments)) {
