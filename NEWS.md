@@ -1,5 +1,10 @@
 # sendgridr 0.4.0
 
+* Refactor Dynamic Template related functions.
+* Add dynamic_Template() function.
+* Add template_id validation and force options to bypass.
+* Remove unused dependency packages.
+
 # sendgridr 0.3.4
 
 * Fix print function for sg_mail class.
