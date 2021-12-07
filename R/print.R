@@ -98,9 +98,11 @@ print.sg_mail <- function(x, ...) {
         x$template_id)
     usethis::ui_done(console_print(text))
     usethis::ui_done("    data: json below")
-    x$personalizations[["dynamic_template_data"]] |>
-      jsonlite::toJSON(auto_unbox = TRUE, pretty = TRUE) |>
-      print()
+    print(jsonlite::toJSON(
+      x$personalizations[["dynamic_template_data"]],
+      auto_unbox = TRUE,
+      pretty = TRUE
+    ))
   }
 
 
