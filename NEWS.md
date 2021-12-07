@@ -1,5 +1,7 @@
 # sendgridr 0.4.1
 
+* Add embed_rmd() function using emayili package(0.7.0).
+
 # sendgridr 0.4.0
 
 * Refactor Dynamic Template related functions.

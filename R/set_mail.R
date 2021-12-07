@@ -18,7 +18,7 @@ mail <- function() {
       value = ""
     )
   )
-  class(res) <- "sg_mail"
+  class(res) <- c("sg_mail", "list")
   return(res)
 }
 
@@ -209,11 +209,11 @@ attachments <- function(sg_mail, path, name, content_id) {
   attached <- sg_mail[["attachments"]]
   if (missing(content_id)) {
     attachments <-
-      data.frame(content, filename, type, stringsAsFactors = F)
+      data.frame(content, filename, type)
   } else {
     disposition <- "inline"
     attachments <-
-      data.frame(content, filename, type, disposition, content_id, stringsAsFactors = F)
+      data.frame(content, filename, type, disposition, content_id)
   }
   if (is.null(attached)) {
     sg_mail[["attachments"]] <- attachments

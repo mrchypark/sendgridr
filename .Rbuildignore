@@ -20,4 +20,3 @@
 ^\.all-contributorsrc$
 gtest.*
 ^pkgdown$
-test.*
