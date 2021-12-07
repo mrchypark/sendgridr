@@ -1,3 +1,5 @@
+# sendgridr 0.4.1
+
 # sendgridr 0.4.0
 
 * Refactor Dynamic Template related functions.

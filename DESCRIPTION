@@ -1,6 +1,6 @@
 Package: sendgridr
 Title: Mail Sender Using 'Sendgrid' Service
-Version: 0.4.0
+Version: 0.4.1
 Authors@R: person(given = "Chanyub",
              family = "Park",
              role = c("aut","cre"),
@@ -20,7 +20,8 @@ Imports:
     tibble,
     base64enc,
     dplyr,
-    fs
+    fs, 
+    emayili (>= 0.7)
 Encoding: UTF-8
 RoxygenNote: 7.1.1
 Depends: 
