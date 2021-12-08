@@ -50,6 +50,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "eguidotti",
+      "name": "Emanuele Guidotti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/24247667?v=4",
+      "profile": "https://guidotti.dev",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
