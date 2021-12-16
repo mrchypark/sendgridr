@@ -175,7 +175,8 @@
 </h3>
 <p>to, cc, bcc, attachments functions are able to set multi values.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mrchypark/sendgridr" class="external-link">sendgridr</a></span><span class="op">)</span>
+<span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/from.html">from</a></span><span class="op">(</span><span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
@@ -198,18 +199,6 @@
 <input type="checkbox" disabled>
 write the documents nicly</li>
 <li>
-<input type="checkbox" disabled checked>
-define sg_mail class</li>
-<li>
-<input type="checkbox" disabled checked>
-set print function for sg_mail class</li>
-<li>
-<input type="checkbox" disabled checked>
-content type set ‘html’</li>
-<li>
-<input type="checkbox" disabled checked>
-build attachments function</li>
-<li>
 <input type="checkbox" disabled>
 support multi-mail list with one function</li>
 <li>
@@ -219,7 +208,7 @@ write the vignette</li>
 <input type="checkbox" disabled>
 set tests</li>
 <li>
-<input type="checkbox" disabled>
+<input type="checkbox" disabled checked>
 rebuild html file possible to view in gmail</li>
 </ul>
 </div>
