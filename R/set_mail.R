@@ -1,4 +1,6 @@
 
+
+
 #' Set mail class for Sendgrid
 #'
 #' New mail class for sendgrid.
@@ -13,10 +15,8 @@ mail <- function() {
     from = "",
     personalizations = list(),
     subject = "",
-    content = list(
-      type = "text/plain",
-      value = ""
-    )
+    content = list(type = "text/plain",
+      value = "")
   )
   class(res) <- c("sg_mail", "list")
   return(res)
@@ -35,7 +35,9 @@ address <- function(locate) {
     if (name == "") {
       mail_list <- list(email = jsonlite::unbox(email))
     } else {
-      mail_list <- list(email = jsonlite::unbox(email), name = jsonlite::unbox(name))
+      mail_list <-
+        list(email = jsonlite::unbox(email),
+          name = jsonlite::unbox(name))
     }
 
     loc_group[[length(loc_group) + 1]] <- mail_list
@@ -98,10 +100,8 @@ from <- function(sg_mail, email, name = "") {
     stop("please check email address.")
   }
   mail_list <-
-    list(
-      email = jsonlite::unbox(email),
-      name = jsonlite::unbox(name)
-    )
+    list(email = jsonlite::unbox(email),
+      name = jsonlite::unbox(name))
   sg_mail[["from"]] <- mail_list
   return(sg_mail)
 }
@@ -139,11 +139,9 @@ body <- function(sg_mail, body, type = "text/html") {
   if (!sg_mail_chk(sg_mail)) {
     stop("please check sg_mail class")
   }
-  body <- data.frame(
-    type = type,
+  body <- data.frame(type = type,
     value = read(body),
-    stringsAsFactors = F
-  )
+    stringsAsFactors = F)
   sg_mail[["content"]] <- body
   return(sg_mail)
 }
@@ -209,11 +207,17 @@ attachments <- function(sg_mail, path, name, content_id) {
   attached <- sg_mail[["attachments"]]
   if (missing(content_id)) {
     attachments <-
-      data.frame(content, filename, type)
+      data.frame(content, filename, type,
+        stringsAsFactors = F)
   } else {
     disposition <- "inline"
     attachments <-
-      data.frame(content, filename, type, disposition, content_id)
+      data.frame(content,
+        filename,
+        type,
+        disposition,
+        content_id,
+        stringsAsFactors = F)
   }
   if (is.null(attached)) {
     sg_mail[["attachments"]] <- attachments
@@ -224,10 +228,8 @@ attachments <- function(sg_mail, path, name, content_id) {
 }
 
 email_chk <- function(email) {
-  grepl(
-    "^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
-    email
-  )
+  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
+    email)
 }
 
 sg_mail_chk <- function(sg_mail) {
