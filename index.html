@@ -42,7 +42,7 @@
     
     <a class="navbar-brand me-2" href="index.html">sendgridr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -133,20 +133,12 @@
 <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">sendproject1</span><span class="op">)</span>
 <span class="co">#&gt; [1] "sg_mail" "list"</span>
 <span class="va">sendproject1</span>
-<span class="co">#&gt; $personalizations</span>
-<span class="co">#&gt; list()</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $from</span>
-<span class="co">#&gt; [1] ""</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $subject</span>
-<span class="co">#&gt; [1] ""</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $content</span>
-<span class="co">#&gt; list()</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "sg_mail" "list"</span></code></pre></div>
+<span class="co">#&gt; SendGrid Mail - </span>
+<span class="co">#&gt; x   from   : (required)</span>
+<span class="co">#&gt; x   to     : (required)</span>
+<span class="co">#&gt; x   subject: (required)</span>
+<span class="co">#&gt; x   content: (required)</span>
+<span class="co">#&gt; v   attach : (optional)</span></code></pre></div>
 <p><img src="https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png"></p>
 <p>to, from, subject, body are required. cc, bcc, attachments are optional.</p>
 </div>
@@ -162,51 +154,12 @@
   <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/subject.html">subject</a></span><span class="op">(</span><span class="st">"test mail title"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="reference/body.html">body</a></span><span class="op">(</span><span class="st">"hello world!"</span><span class="op">)</span>
-<span class="co">#&gt; $personalizations</span>
-<span class="co">#&gt; $personalizations$to</span>
-<span class="co">#&gt; $personalizations$to[[1]]</span>
-<span class="co">#&gt; $personalizations$to[[1]]$email</span>
-<span class="co">#&gt; [x] "toexam1@mail.com"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $personalizations$to[[1]]$name</span>
-<span class="co">#&gt; [x] "1 exam"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $personalizations$to[[2]]</span>
-<span class="co">#&gt; $personalizations$to[[2]]$email</span>
-<span class="co">#&gt; [x] "toexam2@mail.com"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $personalizations$to[[2]]$name</span>
-<span class="co">#&gt; [x] "2 exam"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $personalizations$to[[3]]</span>
-<span class="co">#&gt; $personalizations$to[[3]]$email</span>
-<span class="co">#&gt; [x] "toexam3@mail.com"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $personalizations$to[[3]]$name</span>
-<span class="co">#&gt; [x] "3 exam"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $from</span>
-<span class="co">#&gt; $from$email</span>
-<span class="co">#&gt; [x] "example1@mail.com"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $from$name</span>
-<span class="co">#&gt; [x] "toexam@mail.com"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $subject</span>
-<span class="co">#&gt; [x] "test mail title"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $content</span>
-<span class="co">#&gt;        type        value</span>
-<span class="co">#&gt; 1 text/html hello world!</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "sg_mail" "list"</span></code></pre></div>
+<span class="co">#&gt; SendGrid Mail -</span>
+<span class="co">#&gt; v   from   : </span>
+<span class="co">#&gt; v   to     : cnt[3] 1 exam &lt;toexam1@mail.com&gt;, 2 exam &lt;toexam2 ...</span>
+<span class="co">#&gt; v   subject: nchr[15] test mail title</span>
+<span class="co">#&gt; v   content: nchr[12] hello world!</span>
+<span class="co">#&gt; v   attach : (optional)</span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -269,6 +222,9 @@ rebuild html file possible to view in gmail</li>
 </td>
 <td align="center">
 <a href="https://dobb.ae/" class="external-link"><img src="https://avatars.githubusercontent.com/u/4908283?v=4?s=100" width="100px;" alt=""><br><sub><b>Amanda Dobbyn</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code" class="external-link">💻</a>
+</td>
+<td align="center">
+<a href="https://guidotti.dev" class="external-link"><img src="https://avatars.githubusercontent.com/u/24247667?v=4?s=100" width="100px;" alt=""><br><sub><b>Emanuele Guidotti</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Documentation" class="external-link">📖</a> <a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Tests" class="external-link">⚠️</a>
 </td>
 </tr></table>
 <!-- markdownlint-restore --><!-- prettier-ignore-end --><!-- ALL-CONTRIBUTORS-LIST:END --><p>This project follows the <a href="https://github.com/all-contributors/all-contributors" class="external-link">all-contributors</a> specification. Contributions of any kind welcome!</p>
