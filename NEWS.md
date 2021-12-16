@@ -1,3 +1,5 @@
+# sendgridr 0.4.2
+
 # sendgridr 0.4.1
 
 * Add embed_rmd() function using emayili package(0.7.0).
