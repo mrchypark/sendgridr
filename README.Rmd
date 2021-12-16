@@ -82,7 +82,7 @@ class(sendproject1)
 sendproject1
 ```
 
-![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
+![](https://user-images.githubusercontent.com/6179259/146438934-6a462118-9691-4fcf-8c1d-895b63fa6c9e.png)
 
 to, from, subject, body are required. cc, bcc, attachments are optional.
 
@@ -91,6 +91,7 @@ to, from, subject, body are required. cc, bcc, attachments are optional.
 to, cc, bcc, attachments functions are able to set multi values.
 
 ```{r}
+library(sendgridr)
 mail() %>% 
   from("example1@mail.com", "toexam@mail.com") %>% 
   to("toexam1@mail.com", "1 exam") %>% 
@@ -103,10 +104,6 @@ mail() %>%
 ## TODO
 
 - [ ] write the documents nicly
-- [x] define sg_mail class
-- [x] set print function for sg_mail class
-- [x] content type set 'html'
-- [x] build attachments function
 - [ ] support multi-mail list with one function
 - [ ] write the vignette
 - [ ] set tests

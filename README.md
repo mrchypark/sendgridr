@@ -87,6 +87,7 @@ to, from, subject, body are required. cc, bcc, attachments are optional.
 to, cc, bcc, attachments functions are able to set multi values.
 
 ``` r
+library(sendgridr)
 mail() %>% 
   from("example1@mail.com", "toexam@mail.com") %>% 
   to("toexam1@mail.com", "1 exam") %>% 
@@ -105,14 +106,10 @@ mail() %>%
 ## TODO
 
 -   [ ] write the documents nicly
--   [x] define sg\_mail class
--   [x] set print function for sg\_mail class
--   [x] content type set ‘html’
--   [x] build attachments function
 -   [ ] support multi-mail list with one function
 -   [ ] write the vignette
 -   [ ] set tests
--   [ ] rebuild html file possible to view in gmail
+-   [x] rebuild html file possible to view in gmail
 
 ## Code of Conduct
 
