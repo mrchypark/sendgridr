@@ -29,7 +29,8 @@ embed_rmd <- function(sg_mail, input, ...) {
 
   body <- data.frame(
     type = "text/html",
-    value = content
+    value = content,
+    stringsAsFactors = F
   )
   sg_mail[["content"]] <- body
 
