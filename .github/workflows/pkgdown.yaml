@@ -37,6 +37,8 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
           install.packages("pkgdown", type = "binary")
           packageVersion("pkgdown")
+          remotes::install_github("amirmasoudabdol/preferably", type = "source")
+          packageVersion("preferably")
         shell: Rscript {0}
 
       - name: Install package

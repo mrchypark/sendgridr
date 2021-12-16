@@ -1,6 +1,9 @@
 title: sendgridr
 url: https://mrchypark.github.io/sendgridr
 template:
+  package: preferably
+  params:
+    toggle: manual
   bootstrap: 5
   bslib:
     base_font: {google: "Noto Sans"}
