@@ -77,6 +77,7 @@ print.sg_mail <- function(x, ...) {
   # check dynamic_template_data
   if (is.null(x$template_id)) {
     # print content
+    print(class(x$content$value))
     if (nchar(x$content$value) == 0) {
       ui_need("  content: (required)")
     } else {
