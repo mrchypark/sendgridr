@@ -7,7 +7,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Send email using Sendgrid &lt;https://sendgrid.com/&gt; 
             mail API(v3) &lt;https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication&gt;.">
-<title>Mail Sender Using Sendgrid Service • sendgridr</title>
+<!-- Inform modern browsers that this page supports both dark and light color schemes,
+  and the page author prefers light. --><meta name="color-scheme" content="dark light">
+<script>
+  // If `prefers-color-scheme` is not supported, fall back to light mode.
+  // i.e. In this case, inject the `light` CSS before the others, with
+  // no media filter so that it will be downloaded with highest priority.
+  if (window.matchMedia("(prefers-color-scheme: dark)").media === "not all") {
+    document.documentElement.style.display = "none";
+    document.head.insertAdjacentHTML(
+      "beforeend",
+      "<link id=\"css\" rel=\"stylesheet\" href=\"https://bootswatch.com/5/flatly/bootstrap.css\" onload=\"document.documentElement.style.display = ''\">"
+    );
+  }
+</script><title>Mail Sender Using Sendgrid Service • sendgridr</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -32,13 +45,18 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-47822682-14');
-</script>
+</script><!-- Flatly Theme - Light  --><link id="css-light" rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<!-- Darkly Theme - Dark --><link id="css-dark" rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.css" media="(prefers-color-scheme: dark)">
+<!-- preferably CSS --><link rel="stylesheet" href="preferably.css">
+<link id="css-code-light" rel="stylesheet" href="code-color-scheme-light.css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+<link id="css-code-dark" rel="stylesheet" href="code-color-scheme-dark.css" media="(prefers-color-scheme: dark)">
+<script src="darkswitch.js"></script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">sendgridr</a>
 
@@ -69,6 +87,16 @@
      
   </a>
 </li>
+
+        
+        <li>
+          <a class="external-link nav-link" id="css-toggle-btn" aria-label="github">
+            <span class="fas fa fas fa-adjust fa-lg"></span>
+          </a>
+        </li>
+        
+        
+        
       </ul>
 </div>
 
@@ -284,14 +312,15 @@ rebuild html file possible to view in gmail</li>
 </div>
 
 
-    <footer><div class="pkgdown-footer-left">
+    <footer><div class="copyright">
   <p></p>
 <p>Developed by Chanyub Park.</p>
 </div>
 
-<div class="pkgdown-footer-right">
+<div class="pkgdown">
   <p></p>
 <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p class="preferably">Using <a href="https://preferably.amirmasoudabdol.name/?source=footer" class="external-link">preferably</a> template.</p>
 </div>
 
     </footer>
