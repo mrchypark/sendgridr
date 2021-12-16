@@ -70,20 +70,12 @@ sendproject1 <- mail()
 class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
-#> $personalizations
-#> list()
-#> 
-#> $from
-#> [1] ""
-#> 
-#> $subject
-#> [1] ""
-#> 
-#> $content
-#> list()
-#> 
-#> attr(,"class")
-#> [1] "sg_mail" "list"
+#> SendGrid Mail - 
+#> x   from   : (required)
+#> x   to     : (required)
+#> x   subject: (required)
+#> x   content: (required)
+#> v   attach : (optional)
 ```
 
 ![](https://user-images.githubusercontent.com/6179259/46489370-23453380-c840-11e8-9ca6-7758a92c6e92.png)
@@ -102,51 +94,12 @@ mail() %>%
   to("toexam3@mail.com", "3 exam") %>% 
   subject("test mail title") %>% 
   body("hello world!")
-#> $personalizations
-#> $personalizations$to
-#> $personalizations$to[[1]]
-#> $personalizations$to[[1]]$email
-#> [x] "toexam1@mail.com"
-#> 
-#> $personalizations$to[[1]]$name
-#> [x] "1 exam"
-#> 
-#> 
-#> $personalizations$to[[2]]
-#> $personalizations$to[[2]]$email
-#> [x] "toexam2@mail.com"
-#> 
-#> $personalizations$to[[2]]$name
-#> [x] "2 exam"
-#> 
-#> 
-#> $personalizations$to[[3]]
-#> $personalizations$to[[3]]$email
-#> [x] "toexam3@mail.com"
-#> 
-#> $personalizations$to[[3]]$name
-#> [x] "3 exam"
-#> 
-#> 
-#> 
-#> 
-#> $from
-#> $from$email
-#> [x] "example1@mail.com"
-#> 
-#> $from$name
-#> [x] "toexam@mail.com"
-#> 
-#> 
-#> $subject
-#> [x] "test mail title"
-#> 
-#> $content
-#>        type        value
-#> 1 text/html hello world!
-#> 
-#> attr(,"class")
-#> [1] "sg_mail" "list"
+#> SendGrid Mail -
+#> v   from   : 
+#> v   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
+#> v   subject: nchr[15] test mail title
+#> v   content: nchr[12] hello world!
+#> v   attach : (optional)
 ```
 
 ## TODO
@@ -177,19 +130,36 @@ key](https://allcontributors.org/docs/en/emoji-key)):
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="http://www.zarathu.com"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jinseob Kim</b></sub></a><br /><a href="#ideas-jinseob2kim" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://www.getgoodtree.com"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Carl Ganz</b></sub></a><br /><a href="#ideas-carlganz" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/peter-bastian"><img src="https://avatars.githubusercontent.com/u/79409618?v=4?s=100" width="100px;" alt=""/><br /><sub><b>peter-bastian</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Apeter-bastian" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/CurtisPetersen"><img src="https://avatars.githubusercontent.com/u/13002038?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Curtis Petersen</b></sub></a><br /><a href="#ideas-CurtisPetersen" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/mrchypark/sendgridr/pulls?q=is%3Apr+reviewed-by%3ACurtisPetersen" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://dobb.ae/"><img src="https://avatars.githubusercontent.com/u/4908283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amanda Dobbyn</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code">💻</a></td>
-    <td align="center"><a href="https://guidotti.dev"><img src="https://avatars.githubusercontent.com/u/24247667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emanuele Guidotti</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Documentation">📖</a> <a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Tests">⚠️</a></td>
-  </tr>
+<tr>
+<td align="center">
+<a href="http://www.zarathu.com"><img src="https://avatars.githubusercontent.com/u/33089958?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jinseob
+Kim</b></sub></a><br /><a href="#ideas-jinseob2kim" title="Ideas, Planning, & Feedback">🤔</a>
+</td>
+<td align="center">
+<a href="http://www.getgoodtree.com"><img src="https://avatars.githubusercontent.com/u/11653794?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Carl
+Ganz</b></sub></a><br /><a href="#ideas-carlganz" title="Ideas, Planning, & Feedback">🤔</a>
+</td>
+<td align="center">
+<a href="https://github.com/peter-bastian"><img src="https://avatars.githubusercontent.com/u/79409618?v=4?s=100" width="100px;" alt=""/><br /><sub><b>peter-bastian</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Apeter-bastian" title="Bug reports">🐛</a>
+</td>
+<td align="center">
+<a href="https://github.com/CurtisPetersen"><img src="https://avatars.githubusercontent.com/u/13002038?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Curtis
+Petersen</b></sub></a><br /><a href="#ideas-CurtisPetersen" title="Ideas, Planning, & Feedback">🤔</a>
+<a href="https://github.com/mrchypark/sendgridr/pulls?q=is%3Apr+reviewed-by%3ACurtisPetersen" title="Reviewed Pull Requests">👀</a>
+</td>
+<td align="center">
+<a href="https://dobb.ae/"><img src="https://avatars.githubusercontent.com/u/4908283?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amanda
+Dobbyn</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code">💻</a>
+</td>
+<td align="center">
+<a href="https://guidotti.dev"><img src="https://avatars.githubusercontent.com/u/24247667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emanuele
+Guidotti</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Documentation">📖</a>
+<a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Tests">⚠️</a>
+</td>
+</tr>
 </table>
-
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the
