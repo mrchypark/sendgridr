@@ -7,6 +7,7 @@
 #' @param template_data A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
 #' @param force pass template_id validation. default is FALSE.
 #' @return sg_mail class with dynamic template
+#' @importFrom jsonlite unbox
 #' @export
 #'
 #' @examples
@@ -42,6 +43,7 @@ dynamic_template <- function(sg_mail, template_id, template_data, force = FALSE)
 #' @param force pass template_id validation. default is FALSE.
 #'
 #' @return sg_mail class with template id.
+#' @importFrom jsonlite unbox
 #' @export
 #'
 #' @examples

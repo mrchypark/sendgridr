@@ -1,12 +1,8 @@
-
-
-
 #' Set mail class for Sendgrid
 #'
 #' New mail class for sendgrid.
 #'
 #' @return sg_mail class.
-#' @importFrom jsonlite unbox
 #' @examples
 #' mail()
 #' @export
@@ -22,6 +18,7 @@ mail <- function() {
   return(res)
 }
 
+#' @importFrom jsonlite unbox
 address <- function(locate) {
   func <- function(sg_mail, email, name = "") {
     if (!sg_mail_chk(sg_mail)) {
@@ -87,6 +84,7 @@ bcc <- address("bcc")
 #' @param sg_mail (required)mail object from package
 #' @param email (required)email address
 #' @param name name for email address
+#' @importFrom jsonlite unbox
 #' @export
 #' @return sg_mail class with from mail address.
 #' @examples
@@ -111,6 +109,7 @@ from <- function(sg_mail, email, name = "") {
 #'
 #' @param sg_mail (required)mail object from package
 #' @param subject (required)mail subject
+#' @importFrom jsonlite unbox
 #' @export
 #' @return sg_mail class with subject.
 #' @examples
@@ -186,16 +185,6 @@ attachments <- function(sg_mail, path, name, content_id) {
     stop("Please make sure it is the correct file path.")
   }
 
-  exten <- strsplit(path, ".", fixed = T)[[1]]
-  exten <- tolower(exten[length(exten)])
-  mime_types %>%
-    dplyr::filter(grepl(paste0("^", exten, "$"), Name)) %>%
-    .$Template -> type
-
-  if (identical(type, character(0))) {
-    type <- "application/octet-stream"
-  }
-
   content <- base64enc::base64encode(path)
   if (missing(name)) {
     filename <- strsplit(path, "[\\/\\]")[[1]]
@@ -207,14 +196,13 @@ attachments <- function(sg_mail, path, name, content_id) {
   attached <- sg_mail[["attachments"]]
   if (missing(content_id)) {
     attachments <-
-      data.frame(content, filename, type,
+      data.frame(content, filename,
         stringsAsFactors = F)
   } else {
     disposition <- "inline"
     attachments <-
       data.frame(content,
         filename,
-        type,
         disposition,
         content_id,
         stringsAsFactors = F)
