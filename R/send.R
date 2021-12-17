@@ -41,9 +41,8 @@ send <- function(mail) {
   body <- gsub('personalizations":', 'personalizations":[', body)
   body <- gsub('},"subject"', '}],"subject"', body)
 
-  res <-
-    httr::POST(tar, ahd, body = body) %>%
-    httr::content()
+  res <- httr::POST(tar, ahd, body = body)
+  res <- httr::content(res)
 
   if (identical(res, raw(0))) {
     res <- list("success" = "Send Success!")
