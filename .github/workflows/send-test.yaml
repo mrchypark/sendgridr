@@ -60,7 +60,7 @@ jobs:
           sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
-      - name: Check
+      - name: Check Base
         run: |
           library(sendgridr)
           mail() |>
@@ -70,8 +70,24 @@ jobs:
             body("body is ok") |>
             attachments("man/figures/logo.png") |>
             send() -> chk
-          if(!is.null(chk$errors)) {
             print(chk)
+          if (!is.null(chk$errors)) {
+            stop("send fail!")
+          }
+        shell: Rscript {0}
+
+      - name: Check Rmd Render
+        run: |
+          library(sendgridr)
+          path <- system.file("extdata", "test.Rmd", package = "sendgridr")
+          mail() |>
+            from("mrchypark@gmail.com") |>
+            to("mrchypark@gmail.com") |>
+            subject("sendgridr package weekly send test") |>
+            embed_rmd(path) |>
+            send() -> chk
+            print(chk)
+          if (!is.null(chk$errors)) {
             stop("send fail!")
           }
         shell: Rscript {0}
