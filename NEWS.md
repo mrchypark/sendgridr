@@ -1,5 +1,7 @@
 # sendgridr 0.4.3
 
+* Remove fs package for check file exist and lint other deps.
+
 # sendgridr 0.4.2
 
 # sendgridr 0.4.1
