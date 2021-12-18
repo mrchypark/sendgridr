@@ -58,7 +58,9 @@
       "profile": "https://guidotti.dev",
       "contributions": [
         "doc",
-        "test"
+        "test",
+        "bug",
+        "code"
       ]
     }
   ],
