@@ -145,7 +145,6 @@ body <- function(sg_mail, body, type = "text/html") {
   return(sg_mail)
 }
 
-#' @importFrom fs is_file
 read <- function(content) {
   if (!is.character(content)) {
     stop("content can contain characters only")
@@ -165,14 +164,12 @@ read <- function(content) {
 #' @param name file name. default is path's file name
 #' @param content_id content id. default is Null.
 #' @importFrom base64enc base64encode
-#' @importFrom fs is_file
-#' @importFrom dplyr filter
 #' @return sg_mail class with attachments.
 #' @examples
-#' \dontrun{
+#' path <- system.file("extdata", "test.Rmd", package = "sendgridr")
 #' mail() %>%
-#'   attachments("sendgridr.docx")
-#' }
+#'   attachments(path)
+#'
 #' @export
 attachments <- function(sg_mail, path, name, content_id) {
   . <- Name <- NULL
