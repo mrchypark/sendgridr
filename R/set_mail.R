@@ -150,7 +150,7 @@ read <- function(content) {
   if (!is.character(content)) {
     stop("content can contain characters only")
   }
-  if (fs::is_file(content)) {
+  if (file.exists(content)) {
     content <- readLines(content)
     content <- paste0(content, collapse = "\n")
   }
@@ -181,7 +181,7 @@ attachments <- function(sg_mail, path, name, content_id) {
     stop("please check sg_mail class")
   }
 
-  if (!fs::is_file(path)) {
+  if (!file.exists(path)) {
     stop("Please make sure it is the correct file path.")
   }
 
