@@ -1,3 +1,5 @@
+# sendgridr 0.4.3
+
 # sendgridr 0.4.2
 
 # sendgridr 0.4.1
