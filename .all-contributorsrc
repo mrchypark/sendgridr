@@ -5,6 +5,15 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
+		{
+      "login": "cardiomoon",
+      "name": "Keon-Woong Moon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7410607?v=4",
+      "profile": "http://web-r.org",
+      "contributions": [
+        "bug"
+      ]
+    },
     {
       "login": "jinseob2kim",
       "name": "Jinseob Kim",
