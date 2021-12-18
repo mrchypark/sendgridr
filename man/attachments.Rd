@@ -22,8 +22,8 @@ sg_mail class with attachments.
 attachments
 }
 \examples{
-\dontrun{
+path <- system.file("extdata", "test.Rmd", package = "sendgridr")
 mail() \%>\%
-  attachments("sendgridr.docx")
-}
+  attachments(path)
+
 }

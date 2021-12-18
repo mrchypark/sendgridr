@@ -17,10 +17,7 @@ Imports:
     jsonlite,
     usethis,
     cli,
-    tibble,
     base64enc,
-    dplyr,
-    fs, 
     emayili (>= 0.7)
 Encoding: UTF-8
 RoxygenNote: 7.1.1
