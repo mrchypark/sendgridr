@@ -123,9 +123,9 @@ contributing to this project, you agree to abide by its terms.
 Thanks goes to these wonderful people ([emoji
 key](https://allcontributors.org/docs/en/emoji-key)):
 
-&lt;
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start --> <!-- markdownlint-disable -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
 <tr>
 <td align="center">
