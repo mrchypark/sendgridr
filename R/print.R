@@ -11,13 +11,13 @@ print.sg_mail <- function(x, ...) {
   if (!is.list(x$from)) {
     ui_need("  from   : (required)")
   } else {
-    if (is.null(x$from$name)) {
+    if (x$from$name == "") {
       address <- x$from$email
     } else {
       address <- paste0(x$from$name, " <",
         x$from$email, ">")
     }
-    usethis::ui_done("  from   : ", address)
+    usethis::ui_done("  from   : {address}")
   }
 
   # print to, cc, bcc
