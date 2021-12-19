@@ -8,7 +8,7 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
-[![test-coverage](https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
+[![send-test](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml/badge.svg)](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
 [![metacran
@@ -78,8 +78,6 @@ sendproject1
 #> v   attach : (optional)
 ```
 
-![](https://user-images.githubusercontent.com/6179259/146438934-6a462118-9691-4fcf-8c1d-895b63fa6c9e.png)
-
 to, from, subject, body are required. cc, bcc, attachments are optional.
 
 ### multi- setting using inline
@@ -96,20 +94,12 @@ mail() %>%
   subject("test mail title") %>% 
   body("hello world!")
 #> SendGrid Mail -
-#> v   from   : 
+#> v   from   : toexam@mail.com <example1@mail.com>
 #> v   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
 #> v   subject: nchr[15] test mail title
 #> v   content: nchr[12] hello world!
 #> v   attach : (optional)
 ```
-
-## TODO
-
--   [ ] write the documents nicly
--   [ ] support multi-mail list with one function
--   [ ] write the vignette
--   [ ] set tests
--   [x] rebuild html file possible to view in gmail
 
 ## Code of Conduct
 

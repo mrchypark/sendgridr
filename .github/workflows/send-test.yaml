@@ -6,7 +6,7 @@ on:
       - main
       - master
 
-name: Real Send Test
+name: send-test
 
 jobs:
   R-CMD-check:

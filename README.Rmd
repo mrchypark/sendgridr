@@ -19,7 +19,7 @@ library(sendgridr)
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/mrchypark/sendgridr/workflows/R-CMD-check/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
-[![test-coverage](https://github.com/mrchypark/sendgridr/workflows/test-coverage/badge.svg)](https://github.com/mrchypark/sendgridr/actions)
+[![send-test](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml/badge.svg)](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml)
 [![CRAN status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
 <!-- badges: end -->
@@ -82,8 +82,6 @@ class(sendproject1)
 sendproject1
 ```
 
-![](https://user-images.githubusercontent.com/6179259/146438934-6a462118-9691-4fcf-8c1d-895b63fa6c9e.png)
-
 to, from, subject, body are required. cc, bcc, attachments are optional.
 
 ### multi- setting using inline
@@ -100,14 +98,6 @@ mail() %>%
   subject("test mail title") %>% 
   body("hello world!")
 ```
-
-## TODO
-
-- [ ] write the documents nicly
-- [ ] support multi-mail list with one function
-- [ ] write the vignette
-- [ ] set tests
-- [x] rebuild html file possible to view in gmail
 
 ## Code of Conduct
   
