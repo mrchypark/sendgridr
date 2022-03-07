@@ -1,6 +1,6 @@
 Package: sendgridr
 Title: Mail Sender Using 'Sendgrid' Service
-Version: 0.4.3
+Version: 0.4.4
 Authors@R: person(given = "Chanyub",
              family = "Park",
              role = c("aut","cre"),
