@@ -6,9 +6,11 @@
 #'
 #' @export
 #' @examples
+#' \donttest{
 #' path <- system.file("extdata", "test.Rmd", package = "sendgridr")
 #' mail() %>%
 #'  embed_rmd(path)
+#' }
 #' @importFrom emayili render envelope
 #' @importFrom base64enc base64encode
 embed_rmd <- function(sg_mail, input, ...) {

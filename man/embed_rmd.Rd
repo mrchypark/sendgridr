@@ -17,7 +17,9 @@ embed_rmd(sg_mail, input, ...)
 Embeding Rmd on body with images.
 }
 \examples{
+\donttest{
 path <- system.file("extdata", "test.Rmd", package = "sendgridr")
 mail() \%>\%
  embed_rmd(path)
+}
 }

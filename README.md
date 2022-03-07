@@ -11,6 +11,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![send-test](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml/badge.svg)](https://github.com/mrchypark/sendgridr/actions/workflows/send-test.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
+[![runiverse-name](https://mrchypark.r-universe.dev/badges/:name)](https://mrchypark.r-universe.dev/)
+[![runiverse-package](https://mrchypark.r-universe.dev/badges/sendgridr)](https://mrchypark.r-universe.dev/ui#packages)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
 <!-- badges: end -->
@@ -20,19 +22,12 @@ provides free 100 mail per day forever.
 
 ## Installation
 
-### CRAN
-
-You can install the released version of sendgridr from CRAN with:
-
+    # CRAN version
     install.packages("sendgridr")
 
-### Github
 
-You can install the developing version of sendgridr from
-[Github](https://github.com/mrchypark/sendgridr) with:
-
-    # install.packages("remotes")
-    remotes::install_github("mrchypark/sendgridr")
+    # Dev version
+    install.packages("sendgridr", repos = "https://mrchypark.r-universe.dev")
 
 ## Set API key for authentication
 
@@ -94,7 +89,7 @@ mail() %>%
   subject("test mail title") %>% 
   body("hello world!")
 #> SendGrid Mail -
-#> v   from   : toexam@mail.com <example1@mail.com>
+#> v   from   : 
 #> v   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
 #> v   subject: nchr[15] test mail title
 #> v   content: nchr[12] hello world!
@@ -143,7 +138,7 @@ Petersen</b></sub></a><br /><a href="#ideas-CurtisPetersen" title="Ideas, Planni
 Dobbyn</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=aedobbyn" title="Code">💻</a>
 </td>
 <td align="center">
-<a href="https://guidotti.dev"><img src="https://avatars.githubusercontent.com/u/24247667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emanuele
+<a href="https://github.com/eguidotti"><img src="https://avatars.githubusercontent.com/u/24247667?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emanuele
 Guidotti</b></sub></a><br /><a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Documentation">📖</a>
 <a href="https://github.com/mrchypark/sendgridr/commits?author=eguidotti" title="Tests">⚠️</a>
 <a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Aeguidotti" title="Bug reports">🐛</a>

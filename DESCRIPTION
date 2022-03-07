@@ -20,7 +20,7 @@ Imports:
     base64enc,
     emayili (>= 0.7)
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Depends: 
     R (>= 3.4)
 Suggests: 
