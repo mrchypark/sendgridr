@@ -1,3 +1,5 @@
+# sendgridr 0.5.0
+
 # sendgridr 0.4.4
 
 * Fix test for Windows.
