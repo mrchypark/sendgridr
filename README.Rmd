@@ -42,7 +42,8 @@ install.packages("sendgridr", repos = "https://mrchypark.r-universe.dev")
 
 ## Set API key for authentication
 
-You can set api key env value name `SENDGRID_API`. `auth_check()` function check whether key named `SENDGRID_API` is set or not, whether key is dummy or not, whether key works or not. `auth_set()` function ask some questions and open browser for create api key, open .Renviron for set `SENDGRID_API` value.
+You can set api key using `auth_set()` function.
+Also `auth_check()` function check api key works.
 
 ```
 auth_check()
@@ -56,13 +57,13 @@ auth_set()
 Please replace your conditions.
 
 ```
-mail() %>% 
-  from("example1@mail.com", "example name for display") %>% 
-  to("example2@mail.com", "example name for display 2") %>% 
-  subject("test mail title") %>% 
-  body("hello world!")  %>% 
+mail() |>
+  from("example1@mail.com", "example name for display") |>
+  to("example2@mail.com", "example name for display 2") |>
+  subject("test mail title") |>
+  body("hello world!")  |>
   ## attachments is optional
-  attachments("report.html") %>% 
+  attachments("report.html") |>
   send()
 ```
 
@@ -85,12 +86,12 @@ to, cc, bcc, attachments functions are able to set multi values.
 
 ```{r}
 library(sendgridr)
-mail() %>% 
-  from("example1@mail.com", "toexam@mail.com") %>% 
-  to("toexam1@mail.com", "1 exam") %>% 
-  to("toexam2@mail.com", "2 exam") %>% 
-  to("toexam3@mail.com", "3 exam") %>% 
-  subject("test mail title") %>% 
+mail() |>
+  from("example1@mail.com", "toexam@mail.com") |>
+  to("toexam1@mail.com", "1 exam") |>
+  to("toexam2@mail.com", "2 exam") |>
+  to("toexam3@mail.com", "3 exam") |>
+  subject("test mail title") |>
   body("hello world!")
 ```
 

@@ -4,14 +4,11 @@
 \alias{auth_set}
 \title{Set API key for auth.}
 \usage{
-auth_set(force = FALSE)
-}
-\arguments{
-\item{force}{force set api key process. defualt is FALSE.}
+auth_set()
 }
 \value{
 None
 }
 \description{
-If run code, open .Renviron file for set api key.
+Set API key for auth.
 }

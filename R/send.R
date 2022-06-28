@@ -31,7 +31,7 @@ send <- function(mail) {
   tar <- "https://api.sendgrid.com/v3/mail/send"
   ahd <-
     httr::add_headers(
-      "Authorization" = paste0("Bearer ", Sys.getenv("SENDGRID_API")),
+      "Authorization" = paste0("Bearer ", auth_key()),
       "content-type" = "application/json"
     )
 
