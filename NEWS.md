@@ -1,5 +1,7 @@
 # sendgridr 0.5.0
 
+* api key manage with keyring pacakge.
+
 # sendgridr 0.4.4
 
 * Fix test for Windows.
