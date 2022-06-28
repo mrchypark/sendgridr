@@ -15,6 +15,7 @@ status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.
 [![runiverse-package](https://mrchypark.r-universe.dev/badges/sendgridr)](https://mrchypark.r-universe.dev/ui#packages)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/sendgridr)](https://cran.rstudio.com/package=sendgridr)
 <!-- badges: end -->
 
 The goal of sendgridr is to mail using r with sendgrid service that
@@ -25,17 +26,13 @@ provides free 100 mail per day forever.
     # CRAN version
     install.packages("sendgridr")
 
-
     # Dev version
     install.packages("sendgridr", repos = "https://mrchypark.r-universe.dev")
 
 ## Set API key for authentication
 
-You can set api key env value name `SENDGRID_API`. `auth_check()`
-function check whether key named `SENDGRID_API` is set or not, whether
-key is dummy or not, whether key works or not. `auth_set()` function ask
-some questions and open browser for create api key, open .Renviron for
-set `SENDGRID_API` value.
+You can set api key using `auth_set()` function. Also `auth_check()`
+function check api key works.
 
     auth_check()
     auth_set()
@@ -46,18 +43,18 @@ set `SENDGRID_API` value.
 
 Please replace your conditions.
 
-    mail() %>% 
-      from("example1@mail.com", "example name for display") %>% 
-      to("example2@mail.com", "example name for display 2") %>% 
-      subject("test mail title") %>% 
-      body("hello world!")  %>% 
+    mail() |>
+      from("example1@mail.com", "example name for display") |>
+      to("example2@mail.com", "example name for display 2") |>
+      subject("test mail title") |>
+      body("hello world!")  |>
       ## attachments is optional
-      attachments("report.html") %>% 
+      attachments("report.html") |>
       send()
 
-### sg\_mail class
+### sg_mail class
 
-`mail()` function create sg\_mail class object and also list. sg\_mail
+`mail()` function create sg_mail class object and also list. sg_mail
 class only has print method.
 
 ``` r
@@ -70,7 +67,7 @@ sendproject1
 #> x   to     : (required)
 #> x   subject: (required)
 #> x   content: (required)
-#> v   attach : (optional)
+#> ✓   attach : (optional)
 ```
 
 to, from, subject, body are required. cc, bcc, attachments are optional.
@@ -81,19 +78,19 @@ to, cc, bcc, attachments functions are able to set multi values.
 
 ``` r
 library(sendgridr)
-mail() %>% 
-  from("example1@mail.com", "toexam@mail.com") %>% 
-  to("toexam1@mail.com", "1 exam") %>% 
-  to("toexam2@mail.com", "2 exam") %>% 
-  to("toexam3@mail.com", "3 exam") %>% 
-  subject("test mail title") %>% 
+mail() |>
+  from("example1@mail.com", "toexam@mail.com") |>
+  to("toexam1@mail.com", "1 exam") |>
+  to("toexam2@mail.com", "2 exam") |>
+  to("toexam3@mail.com", "3 exam") |>
+  subject("test mail title") |>
   body("hello world!")
 #> SendGrid Mail -
-#> v   from   : 
-#> v   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
-#> v   subject: nchr[15] test mail title
-#> v   content: nchr[12] hello world!
-#> v   attach : (optional)
+#> ✓   from   : toexam@mail.com <example1@mail.com>
+#> ✓   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
+#> ✓   subject: nchr[15] test mail title
+#> ✓   content: nchr[12] hello world!
+#> ✓   attach : (optional)
 ```
 
 ## Code of Conduct
