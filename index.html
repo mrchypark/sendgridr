@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Noto%20Sans-0.4.0/font.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><link href="deps/_Noto%20Sans-0.4.1/font.css" rel="stylesheet">
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Mail Sender Using Sendgrid Service">
@@ -110,7 +110,6 @@
 </h1>
 </div>
 <!-- badges: start -->
-
 <p>The goal of sendgridr is to mail using r with sendgrid service that provides free 100 mail per day forever.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -150,16 +149,16 @@
 </h3>
 <p><code><a href="reference/mail.html">mail()</a></code> function create sg_mail class object and also list. sg_mail class only has print method.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sendproject1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">sendproject1</span><span class="op">)</span>
-<span class="co">#&gt; [1] "sg_mail" "list"</span>
-<span class="va">sendproject1</span>
-<span class="co">#&gt; SendGrid Mail - </span>
-<span class="co">#&gt; x   from   : (required)</span>
-<span class="co">#&gt; x   to     : (required)</span>
-<span class="co">#&gt; x   subject: (required)</span>
-<span class="co">#&gt; x   content: (required)</span>
-<span class="co">#&gt; v   attach : (optional)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sendproject1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">sendproject1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "sg_mail" "list"</span></span>
+<span><span class="va">sendproject1</span></span>
+<span><span class="co">#&gt; SendGrid Mail - </span></span>
+<span><span class="co">#&gt; x   from   : (required)</span></span>
+<span><span class="co">#&gt; x   to     : (required)</span></span>
+<span><span class="co">#&gt; x   subject: (required)</span></span>
+<span><span class="co">#&gt; x   content: (required)</span></span>
+<span><span class="co">#&gt; v   attach : (optional)</span></span></code></pre></div>
 <p>to, from, subject, body are required. cc, bcc, attachments are optional.</p>
 </div>
 <div class="section level3">
@@ -167,20 +166,20 @@
 </h3>
 <p>to, cc, bcc, attachments functions are able to set multi values.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mrchypark/sendgridr" class="external-link">sendgridr</a></span><span class="op">)</span>
-<span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/from.html">from</a></span><span class="op">(</span><span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/subject.html">subject</a></span><span class="op">(</span><span class="st">"test mail title"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="reference/body.html">body</a></span><span class="op">(</span><span class="st">"hello world!"</span><span class="op">)</span>
-<span class="co">#&gt; SendGrid Mail -</span>
-<span class="co">#&gt; v   from   : </span>
-<span class="co">#&gt; v   to     : cnt[3] 1 exam &lt;toexam1@mail.com&gt;, 2 exam &lt;toexam2 ...</span>
-<span class="co">#&gt; v   subject: nchr[15] test mail title</span>
-<span class="co">#&gt; v   content: nchr[12] hello world!</span>
-<span class="co">#&gt; v   attach : (optional)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mrchypark/sendgridr" class="external-link">sendgridr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/mail.html">mail</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/from.html">from</a></span><span class="op">(</span><span class="st">"example1@mail.com"</span>, <span class="st">"toexam@mail.com"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam1@mail.com"</span>, <span class="st">"1 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam2@mail.com"</span>, <span class="st">"2 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/address.html">to</a></span><span class="op">(</span><span class="st">"toexam3@mail.com"</span>, <span class="st">"3 exam"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/subject.html">subject</a></span><span class="op">(</span><span class="st">"test mail title"</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="reference/body.html">body</a></span><span class="op">(</span><span class="st">"hello world!"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; SendGrid Mail -</span></span>
+<span><span class="co">#&gt; v   from   : </span></span>
+<span><span class="co">#&gt; v   to     : cnt[3] 1 exam &lt;toexam1@mail.com&gt;, 2 exam &lt;toexam2 ...</span></span>
+<span><span class="co">#&gt; v   subject: nchr[15] test mail title</span></span>
+<span><span class="co">#&gt; v   content: nchr[12] hello world!</span></span>
+<span><span class="co">#&gt; v   attach : (optional)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -192,10 +191,7 @@
 <h2 id="contributors-">Contributors ✨<a class="anchor" aria-label="anchor" href="#contributors-"></a>
 </h2>
 <p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key" class="external-link">emoji key</a>):</p>
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table class="table"><tr>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --><!-- prettier-ignore-start --><!-- markdownlint-disable --><table class="table"><tr>
 <td align="center">
 <a href="http://web-r.org" class="external-link"><img src="https://avatars.githubusercontent.com/u/7410607?v=4?s=100" width="100px;" alt=""><br><sub><b>Keon-Woong Moon</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Acardiomoon" title="Bug reports" class="external-link">🐛</a>
 </td>
@@ -243,6 +239,7 @@
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+<li><a href="SUPPORT.html">Getting help</a></li>
 </ul>
 </div>
 
@@ -284,7 +281,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
   <p class="preferably">Using <a href="https://preferably.amirmasoudabdol.name/?source=footer" class="external-link">preferably</a> template.</p>
 </div>
 
