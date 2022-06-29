@@ -114,18 +114,18 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># CRAN version</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">install.packages</span>(<span class="st">"sendgridr"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Dev version</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">install.packages</span>(<span class="st">"sendgridr"</span>, <span class="dt">repos =</span> <span class="st">"https://mrchypark.r-universe.dev"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CRAN version</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"sendgridr"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dev version</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"sendgridr"</span>, <span class="at">repos =</span> <span class="st">"https://mrchypark.r-universe.dev"</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="set-api-key-for-authentication">Set API key for authentication<a class="anchor" aria-label="anchor" href="#set-api-key-for-authentication"></a>
 </h2>
 <p>You can set api key using <code><a href="reference/auth_set.html">auth_set()</a></code> function. Also <code><a href="reference/auth_check.html">auth_check()</a></code> function check api key works.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">auth_check</span>()</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">auth_set</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">auth_check</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">auth_set</span>()</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="send-mail">Send mail<a class="anchor" aria-label="anchor" href="#send-mail"></a>
@@ -134,14 +134,14 @@
 <h3 id="example-code">Example code<a class="anchor" aria-label="anchor" href="#example-code"></a>
 </h3>
 <p>Please replace your conditions.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">mail</span>() <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">from</span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="st">  </span><span class="kw">to</span>(<span class="st">"example2@mail.com"</span>, <span class="st">"example name for display 2"</span>) <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">  </span><span class="kw">subject</span>(<span class="st">"test mail title"</span>) <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">  </span><span class="kw">body</span>(<span class="st">"hello world!"</span>)  <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="st">  </span><span class="co">## attachments is optional</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="st">  </span><span class="kw">attachments</span>(<span class="st">"report.html"</span>) <span class="op">|</span><span class="er">&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="st">  </span><span class="kw">send</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mail</span>() <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">from</span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">to</span>(<span class="st">"example2@mail.com"</span>, <span class="st">"example name for display 2"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subject</span>(<span class="st">"test mail title"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">body</span>(<span class="st">"hello world!"</span>)  <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="do">## attachments is optional</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attachments</span>(<span class="st">"report.html"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">send</span>()</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="sg_mail-class">sg_mail class<a class="anchor" aria-label="anchor" href="#sg_mail-class"></a>
