@@ -37,6 +37,9 @@ jobs:
         with:
           cache-version: 2
 
+      - name: Install package
+        run: R CMD INSTALL .
+
       - name: Check Base
         run: |
           library(sendgridr)
