@@ -15,7 +15,7 @@ status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.
 [![runiverse-package](https://mrchypark.r-universe.dev/badges/sendgridr)](https://mrchypark.r-universe.dev/ui#packages)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
-[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/sendgridr)](https://cran.rstudio.com/package=sendgridr)
+[![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
 <!-- badges: end -->
 
 The goal of sendgridr is to mail using r with sendgrid service that
@@ -63,11 +63,11 @@ class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
 #> SendGrid Mail - 
-#> x   from   : (required)
-#> x   to     : (required)
-#> x   subject: (required)
-#> x   content: (required)
-#> ✓   attach : (optional)
+#> ✖   from   : (required)
+#> ✖   to     : (required)
+#> ✖   subject: (required)
+#> ✖   content: (required)
+#> ✔   attach : (optional)
 ```
 
 to, from, subject, body are required. cc, bcc, attachments are optional.
@@ -86,11 +86,11 @@ mail() |>
   subject("test mail title") |>
   body("hello world!")
 #> SendGrid Mail -
-#> ✓   from   : toexam@mail.com <example1@mail.com>
-#> ✓   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
-#> ✓   subject: nchr[15] test mail title
-#> ✓   content: nchr[12] hello world!
-#> ✓   attach : (optional)
+#> ✔   from   : toexam@mail.com <example1@mail.com>
+#> ✔   to     : cnt[3] 1 exam <toexam1@mail.com>, 2 exam <toexam2 ...
+#> ✔   subject: nchr[15] test mail title
+#> ✔   content: nchr[12] hello world!
+#> ✔   attach : (optional)
 ```
 
 ## Code of Conduct

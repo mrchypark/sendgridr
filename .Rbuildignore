@@ -6,11 +6,9 @@
 ^R/\.add_git_hook\.R$
 ^codecov\.yml$
 ^\.github$
-^\.travis\.yml$
 ^revdep$
 ^cran-comments\.md$
 ^CODE_OF_CONDUCT\.md$
-^appveyor\.yml$
 ^docs$
 ^_pkgdown\.yml$
 ^LICENSE\.md$
@@ -20,5 +18,5 @@
 ^pre_commit$
 ^post_commit$
 ^\.all-contributorsrc$
-gtest.*
 ^pkgdown$
+^CRAN-SUBMISSION$
