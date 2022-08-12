@@ -10,7 +10,5 @@ auth_check()
 TRUE/FALSE check work fine return TRUE.
 }
 \description{
-Check SENDGRID_API env value is set.
-If any value from SENDGRID_API detected, return TRUE.
-Function works using auth_check_zero(), auth_check_dummy(), auth_check_work().
+Check API key for auth.
 }

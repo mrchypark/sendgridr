@@ -6,9 +6,9 @@
 \alias{sendgridr-package}
 \title{sendgridr: Mail Sender Using 'Sendgrid' Service}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Send email using 'Sendgrid' <https://sendgrid.com/> mail API(v3) <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
+Send email using 'Sendgrid' \url{https://sendgrid.com/} mail API(v3) \url{https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication}.
 }
 \seealso{
 Useful links:
