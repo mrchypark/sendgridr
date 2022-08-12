@@ -1,11 +1,11 @@
 Package: sendgridr
 Title: Mail Sender Using 'Sendgrid' Service
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: person(given = "Chanyub",
-             family = "Park",
-             role = c("aut","cre"),
-             email = "mrchypark@gmail.com",
-             comment = c(ORCID = "0000-0001-6474-2570"))
+           family = "Park",
+           role = c("aut","cre"),
+           email = "mrchypark@gmail.com",
+           comment = c(ORCID = "0000-0001-6474-2570"))
 Description: Send email using 'Sendgrid' <https://sendgrid.com/> 
             mail API(v3) <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 License: MIT + file LICENSE
@@ -21,7 +21,7 @@ Imports:
     emayili (>= 0.7),
     keyring
 Encoding: UTF-8
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Depends: 
     R (>= 3.4)
 Suggests: 

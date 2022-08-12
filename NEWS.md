@@ -1,3 +1,5 @@
+# sendgridr 0.5.1
+
 # sendgridr 0.5.0
 
 * api key manage with keyring pacakge.
