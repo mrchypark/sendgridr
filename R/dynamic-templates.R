@@ -29,6 +29,7 @@ dynamic_template <- function(sg_mail, template_id, template_data, force = FALSE)
   }
   sg_mail[["template_id"]] <- jsonlite::unbox(template_id)
   sg_mail$personalizations[["dynamic_template_data"]] <- template_data
+  sg_mail$content <- NULL
   return(sg_mail)
 }
 
