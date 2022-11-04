@@ -1,17 +1,24 @@
 #' Set API key for auth.
 #'
+#' @param apikey sendgrid api key. If key has value, just use as api key. If without param, function call interactive prompt input.
 #' @importFrom keyring key_set
 #' @export
 #' @return None
-auth_set <- function() {
-  usethis::ui_todo(
-    "Your API Key is at {usethis::ui_value('https://app.sendgrid.com/settings/api_keys')}"
-  )
+auth_set <- function(apikey) {
+  if (missing(apikey)) {
+    usethis::ui_todo(
+      "Your API Key is at {usethis::ui_value('https://app.sendgrid.com/settings/api_keys')}"
+    )
 
-  Sys.sleep(1)
+    Sys.sleep(1)
 
-  keyring::key_set(service = "apikey",
-                   username = "sendgridr")
+    keyring::key_set(service = "apikey",
+                     username = "sendgridr")
+  } else {
+    keyring::key_set_with_value(service = "apikey",
+                                username = "sendgridr",
+                                password = apikey)
+  }
 }
 
 #' Check API key for auth.
@@ -20,7 +27,6 @@ auth_set <- function() {
 #' @importFrom usethis ui_info
 #' @export
 auth_check <- function() {
-
   if (!auth_exist()) {
     usethis::ui_info("Api key is unset")
     return(FALSE)

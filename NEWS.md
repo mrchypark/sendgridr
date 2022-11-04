@@ -1,5 +1,8 @@
 # sendgridr 0.6.0
 
+* Added apikey param on `auth_set()` function for non-interactive environment.
+* Added envvar `SENDGRID_API`. When on load package with envvar `SENDGRID_API`, use value as api key.
+
 # sendgridr 0.5.1
 
 * Rebuild document with roxygen2 7.2.1
