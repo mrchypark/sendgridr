@@ -1,3 +1,5 @@
+# sendgridr 0.6.0
+
 # sendgridr 0.5.1
 
 * Rebuild document with roxygen2 7.2.1
