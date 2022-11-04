@@ -4,7 +4,10 @@
 \alias{auth_set}
 \title{Set API key for auth.}
 \usage{
-auth_set()
+auth_set(apikey)
+}
+\arguments{
+\item{apikey}{sendgrid api key. If key has value, just use as api key. If without param, function call interactive prompt input.}
 }
 \value{
 None
