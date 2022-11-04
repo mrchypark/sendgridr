@@ -60,7 +60,7 @@
     
     <a class="navbar-brand me-2" href="index.html">sendgridr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.5.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,6 +110,7 @@
 </h1>
 </div>
 <!-- badges: start -->
+
 <p>The goal of sendgridr is to mail using r with sendgrid service that provides free 100 mail per day forever.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -134,13 +135,13 @@
 <h3 id="example-code">Example code<a class="anchor" aria-label="anchor" href="#example-code"></a>
 </h3>
 <p>Please replace your conditions.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mail</span>() <span class="sc">|</span><span class="er">&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">from</span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">to</span>(<span class="st">"example2@mail.com"</span>, <span class="st">"example name for display 2"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subject</span>(<span class="st">"test mail title"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">body</span>(<span class="st">"hello world!"</span>)  <span class="sc">|</span><span class="er">&gt;</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mail</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">from</span>(<span class="st">"example1@mail.com"</span>, <span class="st">"example name for display"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">to</span>(<span class="st">"example2@mail.com"</span>, <span class="st">"example name for display 2"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subject</span>(<span class="st">"test mail title"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">body</span>(<span class="st">"hello world!"</span>)  <span class="sc">|&gt;</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="do">## attachments is optional</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attachments</span>(<span class="st">"report.html"</span>) <span class="sc">|</span><span class="er">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attachments</span>(<span class="st">"report.html"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">send</span>()</span></code></pre></div>
 </div>
 <div class="section level3">
@@ -190,7 +191,10 @@
 <h2 id="contributors-">Contributors ✨<a class="anchor" aria-label="anchor" href="#contributors-"></a>
 </h2>
 <p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key" class="external-link">emoji key</a>):</p>
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --><!-- prettier-ignore-start --><!-- markdownlint-disable --><table class="table"><tr>
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table class="table"><tr>
 <td align="center">
 <a href="http://web-r.org" class="external-link"><img src="https://avatars.githubusercontent.com/u/7410607?v=4?s=100" width="100px;" alt=""><br><sub><b>Keon-Woong Moon</b></sub></a><br><a href="https://github.com/mrchypark/sendgridr/issues?q=author%3Acardiomoon" title="Bug reports" class="external-link">🐛</a>
 </td>
