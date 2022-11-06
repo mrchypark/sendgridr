@@ -1,3 +1,5 @@
+# sendgridr 0.6.1
+
 # sendgridr 0.6.0
 
 * Added apikey param on `auth_set()` function for non-interactive environment.
