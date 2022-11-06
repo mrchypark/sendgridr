@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* Rebuild document with roxygen2 7.2.1
+* Fixed all invalid url on 0.6.0 submit.

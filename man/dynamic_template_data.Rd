@@ -9,7 +9,7 @@ dynamic_template_data(sg_mail, data)
 \arguments{
 \item{sg_mail}{(required) mail object from package}
 
-\item{data}{A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})}
+\item{data}{A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates})}
 }
 \value{
 sg_mail class with template data for dynamic transactional templates

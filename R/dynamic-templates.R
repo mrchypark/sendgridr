@@ -73,7 +73,7 @@ template_id <- function(sg_mail, template_id, force = FALSE) {
 #' \code{template_id} must be included for this data to be applied.
 #'
 #' @param sg_mail (required) mail object from package
-#' @param data A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates})
+#' @param data A key-value list for template data. (See \url{https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates})
 #'
 #' @return sg_mail class with template data for dynamic transactional templates
 #' @export

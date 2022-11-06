@@ -1,5 +1,7 @@
 # sendgridr 0.6.1
 
+* Fixed typo on dynamic-templates docs.
+
 # sendgridr 0.6.0
 
 * Added apikey param on `auth_set()` function for non-interactive environment.
