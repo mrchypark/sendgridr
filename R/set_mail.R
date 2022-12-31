@@ -212,8 +212,9 @@ attachments <- function(sg_mail, path, name, content_id) {
   return(sg_mail)
 }
 
+## FIX a+1@mail.com return TRUE
 email_chk <- function(email) {
-  grepl("^([a-z0-9_\\.-]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
+  grepl("^([a-z0-9_\\.-\\+]+)@([0-9a-z\\.-]+)\\.([a-z\\.]{2,6})$",
     email)
 }
 
