@@ -1,3 +1,5 @@
+# sendgridr 0.6.2
+
 # sendgridr 0.6.1
 
 * Fixed typo on dynamic-templates docs.
