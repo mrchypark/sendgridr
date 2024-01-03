@@ -5,7 +5,7 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
-		{
+    {
       "login": "cardiomoon",
       "name": "Keon-Woong Moon",
       "avatar_url": "https://avatars.githubusercontent.com/u/7410607?v=4",
@@ -71,6 +71,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "ALanguillaume",
+      "name": "Antoine Languillaume",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43757522?v=4",
+      "profile": "https://github.com/ALanguillaume",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -78,5 +88,7 @@
   "projectOwner": "mrchypark",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitType": "docs",
+  "commitConvention": "angular"
 }
