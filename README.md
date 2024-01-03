@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
 [![runiverse-name](https://mrchypark.r-universe.dev/badges/:name)](https://mrchypark.r-universe.dev/)
-[![runiverse-package](https://mrchypark.r-universe.dev/badges/sendgridr)](https://mrchypark.r-universe.dev/ui#packages)
+[![runiverse-package](https://mrchypark.r-universe.dev/badges/sendgridr)](https://mrchypark.r-universe.dev/packages)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/sendgridr)](https://cran.r-project.org/package=sendgridr)
 [![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/sendgridr)](https://CRAN.R-project.org/package=sendgridr)
