@@ -21,7 +21,7 @@ Imports:
     emayili (>= 0.7),
     keyring
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Depends: 
     R (>= 3.4)
 Suggests: 
