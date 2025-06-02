@@ -53,6 +53,12 @@ auth_exist <- function() {
 
 #' @importFrom keyring key_get
 auth_key <- function() {
-  keyring::key_get(service = "apikey",
-                   username = "sendgridr")
+  # If the SENDGRID_API_KEY environment variable is set, return its value.
+  if (Sys.getenv("SENDGRID_API_KEY") != "") {
+    return(Sys.getenv("SENDGRID_API_KEY"))
+  } else {
+    # Otherwise, fall back to keyring::key_get().
+    keyring::key_get(service = "apikey",
+                     username = "sendgridr")
+  }
 }

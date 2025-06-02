@@ -36,6 +36,15 @@ function check api key works.
     auth_check()
     auth_set()
 
+### Using with Shiny Apps
+
+For non-interactive environments like Shiny, you can provide the
+SendGrid API key via the `SENDGRID_API_KEY` environment variable. For
+example:
+
+    Sys.setenv(SENDGRID_API_KEY = "YOUR_API_KEY")
+    library(sendgridr)
+
 ## Send mail
 
 ### Example code
