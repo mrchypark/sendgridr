@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # sendgridr <img src="man/figures/logo.png" align="right" height=140/>
@@ -36,6 +37,15 @@ function check api key works.
     auth_check()
     auth_set()
 
+### Using with Shiny Apps
+
+For non-interactive environments like Shiny, you can provide the
+SendGrid API key via the `SENDGRID_API_KEY` environment variable. For
+example:
+
+    Sys.setenv(SENDGRID_API_KEY = "YOUR_API_KEY")
+    library(sendgridr)
+
 ## Send mail
 
 ### Example code
@@ -61,7 +71,7 @@ sendproject1 <- mail()
 class(sendproject1)
 #> [1] "sg_mail" "list"
 sendproject1
-#> SendGrid Mail - 
+#> SendGrid Mail -
 #> ✖   from   : (required)
 #> ✖   to     : (required)
 #> ✖   subject: (required)
