@@ -1,11 +1,15 @@
+# sendgridr 0.6.2
+
+* Fix email_chk return TRUE for `a+1@mail.com`.
+
 # sendgridr 0.6.1
 
-* Fixed typo on dynamic-templates docs.
+* Fix typo on dynamic-templates docs.
 
 # sendgridr 0.6.0
 
-* Added apikey param on `auth_set()` function for non-interactive environment.
-* Added envvar `SENDGRID_API`. When on load package with envvar `SENDGRID_API`, use value as api key.
+* Add apikey param on `auth_set()` function for non-interactive environment.
+* Add envvar `SENDGRID_API`. When on load package with envvar `SENDGRID_API`, use value as api key.
 
 # sendgridr 0.5.1
 

@@ -1,16 +1,17 @@
 Package: sendgridr
 Title: Mail Sender Using 'Sendgrid' Service
-Version: 0.6.1
+Version: 0.6.2
 Authors@R: person(given = "Chanyub",
            family = "Park",
            role = c("aut","cre"),
            email = "mrchypark@gmail.com",
            comment = c(ORCID = "0000-0001-6474-2570"))
-Description: Send email using 'Sendgrid' <https://sendgrid.com/> 
+Description: Send email using 'Sendgrid' <https://sendgrid.com/en-us> 
             mail API(v3) <https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api/authentication>.
 License: MIT + file LICENSE
-URL: https://github.com/mrchypark/sendgridr
+URL: https://mrchypark.github.io/sendgridr/, https://github.com/mrchypark/sendgridr
 BugReports: https://github.com/mrchypark/sendgridr/issues
+Repository: CRAN
 Imports: 
     magrittr,
     httr,
@@ -21,7 +22,7 @@ Imports:
     emayili (>= 0.7),
     keyring
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Depends: 
     R (>= 3.4)
 Suggests: 
